@@ -3,270 +3,287 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TitanCloud | Ulligaddala Gowri Mallesh</title>
+  <title>Ulligaddala Gowri Mallesh | Portfolio</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome for Tech Icons -->
+  <!-- FontAwesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
-      background-color: #121927;
-      color: #f1f5f9;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0d1527;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
-    .hero-glow {
-      background: radial-gradient(circle at 75% 35%, rgba(14, 165, 233, 0.15), transparent 50%),
-                  radial-gradient(circle at 25% 65%, rgba(30, 58, 138, 0.25), transparent 50%);
+    .hero-bg {
+      background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.18), transparent 45%),
+                  radial-gradient(circle at 20% 70%, rgba(30, 58, 138, 0.28), transparent 45%);
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-  <!-- Navbar -->
-  <header class="border-b border-slate-800 bg-[#162032]/80 backdrop-blur-md sticky top-0 z-50">
+  <!-- Navigation Bar -->
+  <header class="border-b border-slate-800 bg-[#0d1527]/90 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-          <i class="fa-solid fa-cloud"></i>
+          <i class="fa-solid fa-server"></i>
         </div>
-        <span class="text-2xl font-bold tracking-tight text-white">Titan<span class="text-sky-400">Cloud</span></span>
+        <span class="text-xl font-bold tracking-tight text-white">Gowri<span class="text-sky-400">Mallesh</span></span>
       </div>
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#home" class="hover:text-sky-400 transition">Home</a>
         <a href="#about" class="hover:text-sky-400 transition">About</a>
-        <a href="#resume" class="hover:text-sky-400 transition">Resume / CV</a>
         <a href="#skills" class="hover:text-sky-400 transition">Skills</a>
-        <a href="#projects" class="hover:text-sky-400 transition">Projects</a>
+        <a href="#experience" class="hover:text-sky-400 transition">Experience</a>
+        <a href="#certifications" class="hover:text-sky-400 transition">Certifications</a>
         <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
       </nav>
 
-      <a href="#contact" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-md transition">
+      <a href="#contact" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-md transition">
         Let's Connect
       </a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="hero-glow border-b border-slate-800 py-16 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <section id="about" class="hero-bg border-b border-slate-800 py-16 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
       
-      <!-- Left Hero Column -->
-      <div class="lg:col-span-7 space-y-6">
+      <!-- Bio Summary -->
+      <div class="lg:col-span-7 space-y-5">
         <div>
-          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <span class="px-3 py-1 bg-sky-950 border border-sky-800 text-sky-400 rounded-full text-xs font-semibold uppercase tracking-wider">
+            System Administrator
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 leading-tight">
             Ulligaddala Gowri Mallesh
           </h1>
-          <p class="text-xl sm:text-2xl font-semibold text-sky-400 mt-2">
-            System Administrator
+          <p class="text-sky-400 text-lg font-medium mt-1">
+            4+ Years in SAP Server Management & Cloud Infrastructure
           </p>
-          <div class="flex flex-wrap gap-4 text-xs sm:text-sm text-slate-400 font-medium mt-2">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-sky-400"></i> +91 9014270009</span>
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-sky-400"></i> gowrimallesh77@gmail.com</span>
+          <div class="text-slate-400 text-xs sm:text-sm mt-3 flex flex-wrap gap-4 items-center">
+            <span><i class="fa-solid fa-phone text-sky-400 mr-1.5"></i>+91 9014270009</span>
+            <span><i class="fa-solid fa-envelope text-sky-400 mr-1.5"></i>gowrimallesh77@gmail.com</span>
+            <span><i class="fa-solid fa-location-dot text-sky-400 mr-1.5"></i>Bengaluru, India</span>
           </div>
         </div>
 
-        <p class="text-slate-300 leading-relaxed text-sm sm:text-base max-w-2xl">
-          Dedicated professional with 4 years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments. Hands-on expertise in managing daily SAP operations on Linux SUSE, high availability clustering, backup, and performance tuning.
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          Dedicated and detail-oriented professional with 4 years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments. Hands-on expertise in managing daily SAP operations on Linux SUSE, including system monitoring, backup, and performance tuning.
         </p>
 
         <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#resume" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg transition flex items-center gap-2">
-            <i class="fa-solid fa-eye"></i> View Resume
+          <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg transition flex items-center gap-2">
+            <i class="fa-solid fa-file-arrow-down"></i> View / Download Resume
           </a>
-          <!-- Link this href to Gowri-Mallesh-Resume.pdf in your server directory -->
-          <a href="Gowri-Mallesh-Resume.pdf" download="Gowri-Mallesh-Resume.pdf" class="border border-slate-700 hover:border-slate-500 bg-slate-800/60 hover:bg-slate-800 text-slate-200 font-semibold text-sm px-6 py-3 rounded-lg transition flex items-center gap-2">
-            <i class="fa-solid fa-file-arrow-down text-sky-400"></i> Download CV (PDF)
+          <a href="#contact" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm px-6 py-3 rounded-lg transition flex items-center gap-2">
+            <i class="fa-solid fa-paper-plane"></i> Contact Me
           </a>
         </div>
       </div>
 
-      <!-- Right Hero Column (Certifications from Resume) -->
-      <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+      <!-- Certification Cards -->
+      <div id="certifications" class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
         <!-- AZ-104 -->
-        <div class="bg-slate-900/90 border border-slate-700/60 rounded-xl p-4 shadow-xl">
-          <div class="flex items-center justify-between mb-2">
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl">
+          <div class="flex justify-between items-center mb-2">
             <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
-            <span class="text-[10px] font-semibold bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800">Certified</span>
+            <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
           </div>
-          <p class="text-xs text-slate-400 font-medium">Microsoft</p>
-          <h2 class="text-sm font-bold text-white mt-1">Azure Administrator</h2>
-          <p class="text-xs text-sky-400 font-mono mt-0.5">AZ-104</p>
+          <p class="text-xs text-slate-400">Microsoft Certified</p>
+          <h2 class="text-sm font-bold text-white mt-0.5">Azure Administrator Associate</h2>
+          <p class="text-xs text-sky-400 font-mono mt-1 font-semibold">AZ-104</p>
         </div>
 
         <!-- AZ-900 -->
-        <div class="bg-slate-900/90 border border-slate-700/60 rounded-xl p-4 shadow-xl">
-          <div class="flex items-center justify-between mb-2">
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl">
+          <div class="flex justify-between items-center mb-2">
             <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
-            <span class="text-[10px] font-semibold bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800">Certified</span>
+            <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
           </div>
-          <p class="text-xs text-slate-400 font-medium">Microsoft</p>
-          <h2 class="text-sm font-bold text-white mt-1">Azure Fundamentals</h2>
-          <p class="text-xs text-sky-400 font-mono mt-0.5">AZ-900</p>
+          <p class="text-xs text-slate-400">Microsoft Certified</p>
+          <h2 class="text-sm font-bold text-white mt-0.5">Azure Fundamentals</h2>
+          <p class="text-xs text-sky-400 font-mono mt-1 font-semibold">AZ-900</p>
         </div>
 
         <!-- GCP ACE -->
-        <div class="bg-slate-900/90 border border-slate-700/60 rounded-xl p-4 shadow-xl col-span-2">
-          <div class="flex items-center justify-between mb-2">
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl sm:col-span-2">
+          <div class="flex justify-between items-center mb-2">
             <i class="fa-brands fa-google text-red-400 text-2xl"></i>
-            <span class="text-[10px] font-semibold bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">Certified</span>
+            <span class="text-[10px] bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800 font-semibold">Verified</span>
           </div>
-          <p class="text-xs text-slate-400 font-medium">Google Cloud Certified</p>
-          <h2 class="text-sm font-bold text-white mt-1">Associate Cloud Engineer (GCP ACE)</h2>
-          <p class="text-xs text-slate-400 mt-0.5">Cloud fundamentals and deployment architecture</p>
+          <p class="text-xs text-slate-400">Google Cloud Certified</p>
+          <h2 class="text-sm font-bold text-white mt-0.5">Associate Cloud Engineer</h2>
+          <p class="text-xs text-emerald-400 font-mono mt-1 font-semibold">GCP ACE</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Complete CV / Resume Section -->
-  <section id="resume" class="border-b border-slate-800 py-16 px-6 bg-slate-950/40">
-    <div class="max-w-5xl mx-auto space-y-12">
-      
-      <!-- Section Title & Download Action -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+  <!-- Core Content Section -->
+  <main class="max-w-7xl mx-auto px-6 py-16 space-y-12">
+    
+    <!-- Experience & Responsibilities -->
+    <section id="experience" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 mb-6">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
-            <i class="fa-solid fa-address-card text-sky-400"></i> Curriculum Vitae
-          </h2>
-          <p class="text-sm text-slate-400 mt-1">Detailed overview of professional background, roles, and competencies</p>
+          <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Work Experience</span>
+          <h2 class="text-xl font-bold text-white mt-1">Tata Consultancy Services Limited</h2>
+          <p class="text-sm text-slate-300">System Administrator • Bengaluru</p>
         </div>
-        <a href="Gowri-Mallesh-Resume.pdf" download="Gowri-Mallesh-Resume.pdf" class="self-start sm:self-auto bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow transition flex items-center gap-2">
-          <i class="fa-solid fa-download"></i> Download Full Resume
-        </a>
+        <span class="text-xs font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-slate-700 w-fit">
+          2021 – Present
+        </span>
       </div>
 
-      <!-- Experience Section -->
-      <div class="space-y-6">
-        <h3 class="text-lg font-bold text-white uppercase tracking-wider text-sky-400 flex items-center gap-2">
-          <i class="fa-solid fa-briefcase"></i> Work Experience
-        </h3>
-        
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-            <div>
-              <h4 class="text-xl font-bold text-white">Tata Consultancy Services Limited</h4>
-              <p class="text-sm font-medium text-sky-400">System Administrator | Bengaluru</p>
-            </div>
-            <span class="text-xs font-mono font-semibold px-3 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">
-              2021 – Present
-            </span>
-          </div>
-
-          <!-- Bullet Points from Resume -->
-          <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 list-disc list-outside pl-4 leading-relaxed">
-            <li>Managing SAP servers in HANA Enterprise Cloud (HEC) environment running on SUSE Linux Enterprise Server (SLES).</li>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
+        <div>
+          <h3 class="font-semibold text-white mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-server text-sky-400"></i> Infrastructure & High Availability Operations
+          </h3>
+          <ul class="space-y-2 text-slate-300 list-disc list-inside">
+            <li>Managing SAP servers in HANA Enterprise Cloud environment running on SUSE Linux Enterprise Server (SLES).</li>
             <li>Handling system incidents, backup operations, and OS-level troubleshooting for HANA systems.</li>
             <li>Configuring and maintaining Pacemaker clusters for high availability.</li>
-            <li>Coordinating with customers, TSMs, and CDMs for issue resolution and system maintenance.</li>
-            <li>Monitoring system health and performance using Grafana, Azure Monitor, and custom dashboards.</li>
-            <li>Ensuring compliance with GxP audit standards, updating documentation, and conducting monthly compliance checks.</li>
-            <li>Leading a technical team for shift operations, task delegation, and training on incident handling and automation scripts.</li>
-            <li>Facilitating Root Cause Analysis (RCA) and maintaining proactive monitoring to reduce recurring issues.</li>
+            <li>Coordinating with customers, TSMs, and CDMs for issue resolution and maintenance.</li>
             <li>Collaborating with Azure support and hyperscaler teams for infrastructure changes and improvements.</li>
           </ul>
+        </div>
 
-          <!-- Core Responsibilities Block -->
-          <div class="mt-6 pt-4 border-t border-slate-800">
-            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Key Technical Responsibilities:</h5>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-300">
-              <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-0.5"></i> Patching and updating Linux servers.</div>
-              <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-0.5"></i> Handling P1, P2, P3, and P4 technical tickets within strict SLAs.</div>
-              <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-0.5"></i> Linux LVM, NFS/SAMBA configurations and disk management.</div>
-              <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-0.5"></i> Providing Knowledge Transfer (KT) and training to new employees.</div>
-              <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-0.5"></i> Installation and configuration of Linux enterprise servers.</div>
-              <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-0.5"></i> Managing production outages and coordinating cross-functional teams.</div>
-            </div>
-          </div>
+        <div>
+          <h3 class="font-semibold text-white mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-chart-line text-emerald-400"></i> Monitoring, Audit & Governance
+          </h3>
+          <ul class="space-y-2 text-slate-300 list-disc list-inside">
+            <li>Monitoring system health and performance using Grafana, Azure Monitor, and custom dashboards.</li>
+            <li>Ensuring compliance with GxP audit standards, updating documentation, and conducting monthly checks.</li>
+            <li>Facilitating root cause analysis (RCA) and proactive monitoring to reduce recurring issues.</li>
+            <li>Leading a technical team for shift operations, task delegation, and training on automation scripts.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Skills Matrix from Resume -->
-      <div id="skills" class="space-y-4">
-        <h3 class="text-lg font-bold text-white uppercase tracking-wider text-sky-400 flex items-center gap-2">
-          <i class="fa-solid fa-gears"></i> Core Skills Matrix
-        </h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs">
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-solid fa-database text-sky-400"></i> SAP HEC Operations
+      <!-- Key Responsibilities Grid -->
+      <div class="mt-8 pt-6 border-t border-slate-800">
+        <h3 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-slate-400">Core Daily Responsibilities</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs text-slate-300">
+          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <strong class="text-white block mb-1">Patching & Updates</strong>
+            Performing patching for Linux servers and installing/updating software packages.
           </div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-brands fa-linux text-sky-400"></i> Linux SUSE Server Admin
+          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <strong class="text-white block mb-1">Incident Resolution</strong>
+            Handling P1, P2, P3, and P4 incident tickets strictly within SLA targets.
           </div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-solid fa-chart-line text-sky-400"></i> Performance Monitoring
+          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <strong class="text-white block mb-1">Storage & Filesystems</strong>
+            Linux LVM disk management, NFS/SAMBA configurations, and CIFS mount resolution.
           </div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-solid fa-server text-sky-400"></i> Pacemaker Cluster
+          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <strong class="text-white block mb-1">Outage & Handovers</strong>
+            Managing critical outages and maintaining Linux handover servers for smooth shift transitions.
           </div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-solid fa-hard-drive text-sky-400"></i> CIFS / NFS Mounts
+          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <strong class="text-white block mb-1">Knowledge Transfer</strong>
+            Providing technical knowledge transfer (KT) and onboarding guidance to new associates.
           </div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-solid fa-shield-virus text-sky-400"></i> Incident & Change Mgmt
-          </div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-solid fa-network-wired text-sky-400"></i> Grafana & Prometheus
-          </div>
-          <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg text-slate-300 flex items-center gap-2">
-            <i class="fa-solid fa-users text-sky-400"></i> Leadership & Team KT
+          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <strong class="text-white block mb-1">Server Deployment</strong>
+            Installation, baseline configuration, and hardening of Linux server environments.
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Education Section -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-bold text-white uppercase tracking-wider text-sky-400 flex items-center gap-2">
-          <i class="fa-solid fa-graduation-cap"></i> Education
-        </h3>
-        <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <!-- Skills, Education & Contact Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Left Column: Skills & Education -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- Skills Badges -->
+        <section id="skills" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-gears text-sky-400"></i> Technical Skills
+          </h2>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">SAP HEC Infrastructure & Operations</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Linux SUSE Server Administration</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Pacemaker Cluster</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">HANA DB Backup</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Grafana, Prometheus & DT Chat</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Azure & GCP Cloud Fundamentals</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">CIFS / NFS Mount & Ownership Issues</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Root Cause Analysis (RCA)</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Incident / Problem / Change Management</span>
+            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">LVM & Disk Partitioning</span>
+          </div>
+        </section>
+
+        <!-- Education Card -->
+        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+          <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap text-orange-400"></i> Education
+          </h2>
           <div>
-            <h4 class="text-base font-bold text-white">B.Tech in Mechanical Engineering</h4>
-            <p class="text-xs text-slate-400">Brindavan Institute of Technology and Science, Kurnool</p>
+            <h3 class="text-sm font-semibold text-white">B.Tech in Mechanical Engineering</h3>
+            <p class="text-xs text-slate-300">Brindavan Institute of Technology and Science, Kurnool</p>
+            <p class="text-xs text-sky-400 font-medium mt-1">2017 – 2020</p>
           </div>
-          <span class="text-xs font-mono font-semibold px-3 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">
-            2017 – 2020
-          </span>
-        </div>
+        </section>
+
       </div>
 
-    </div>
-  </section>
+      <!-- Right Column: Contact Form -->
+      <section id="contact" class="lg:col-span-5 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-envelope text-orange-400"></i> Get In Touch
+          </h2>
+          <p class="text-xs text-slate-400 mb-6">
+            Fill out the form below. Messages will be delivered directly to my email address.
+          </p>
 
-  <!-- Contact Form -->
-  <section id="contact" class="py-16 px-6">
-    <div class="max-w-xl mx-auto bg-slate-900/80 border border-slate-800 rounded-2xl p-8 shadow-xl">
-      <h2 class="text-xl font-bold text-white tracking-wide border-b border-slate-800 pb-3 flex items-center gap-2">
-        <i class="fa-solid fa-paper-plane text-orange-400"></i> Contact & Inquiries
-      </h2>
-      <form class="space-y-4 pt-4">
-        <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-1">Your Name</label>
-          <input type="text" placeholder="John Doe" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+          <form action="https://formsubmit.co/gowribasava98@gmail.com" method="POST" class="space-y-4">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry - Gowri Mallesh">
+            <input type="text" name="_honey" style="display:none">
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Your Name</label>
+              <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Your Email</label>
+              <input type="email" name="email" required placeholder="name@example.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Message</label>
+              <textarea name="message" rows="4" required placeholder="Write your message..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm py-2.5 rounded-lg shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i> Send
+            </button>
+          </form>
         </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-1">Your Email</label>
-          <input type="email" placeholder="john@example.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-1">Message</label>
-          <textarea rows="4" placeholder="Write your message here..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold text-sm py-3 rounded-lg shadow-md transition">
-          Send Message
-        </button>
-      </form>
+      </section>
+
     </div>
-  </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800 bg-[#0f1520] py-6 px-6">
+  <footer class="border-t border-slate-800 bg-[#080d19] py-6 px-6">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <p>&copy; 2026 TitanCloud. Ulligaddala Gowri Mallesh.</p>
+      <p>&copy; 2026 Ulligaddala Gowri Mallesh. All rights reserved.</p>
       <div class="flex items-center gap-6">
-        <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-sky-400"></i> +91 9014270009</span>
-        <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-sky-400"></i> gowrimallesh77@gmail.com</span>
+        <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Resume</a>
+        <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition">Email</a>
       </div>
     </div>
   </footer>
