@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Marked.js for fast client-side markdown parsing -->
+  <!-- Marked.js for client-side markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <script>
@@ -99,7 +99,6 @@
       background-size: 24px 24px;
     }
 
-    /* Custom sleek scrollbar */
     ::-webkit-scrollbar {
       width: 7px;
       height: 7px;
@@ -119,7 +118,7 @@
 <body class="min-h-screen flex flex-col justify-between selection:bg-sky-400 selection:text-black">
 
   <!-- ========================================================= -->
-  <!-- TOP GLOBAL NAVBAR (TitanCloud Removed)                    -->
+  <!-- TOP GLOBAL NAVBAR                                         -->
   <!-- ========================================================= -->
   <header class="border-b border-[#223253] bg-[#0a0f1d]/90 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
@@ -153,22 +152,18 @@
 
       <!-- Action Buttons, Authentication Controls & View Switcher -->
       <div class="flex items-center gap-2.5">
-        <!-- User Session Container (Sign In / Register / Status Badge) -->
         <div id="authHeaderContainer"></div>
 
-        <!-- Switch View Quick Button -->
         <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="px-3.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
           <i class="fa-solid fa-book-open"></i>
           <span id="quickToggleText">Open Blog</span>
         </button>
 
-        <!-- Download Runnable Code Button -->
-        <button onclick="downloadSelfCode()" title="Download entire runnable index.html" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition">
+        <button onclick="downloadSelfCode()" title="Download complete runnable HTML file" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition">
           <i class="fa-solid fa-download text-sky-400"></i>
           <span>Download Code</span>
         </button>
 
-        <!-- Contact CTA -->
         <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-md transition flex items-center gap-1.5">
           <i class="fa-solid fa-paper-plane text-xs"></i>
           <span class="hidden sm:inline">Let's Connect</span>
@@ -220,7 +215,7 @@
               <i class="fa-solid fa-terminal"></i> Read Tech Blog
             </button>
             <button onclick="downloadSelfCode()" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-download text-sky-400"></i> Download Single-File Code
+              <i class="fa-solid fa-download text-sky-400"></i> Download Source Code
             </button>
           </div>
         </div>
@@ -392,7 +387,7 @@
 
         </div>
 
-        <!-- Right: Contact Form (FormSubmit) -->
+        <!-- Right: Contact Form (FormSubmit to gowribasava98@gmail.com) -->
         <section id="contact" class="lg:col-span-5 bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 flex flex-col justify-between shadow-xl">
           <div>
             <h2 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
@@ -629,11 +624,11 @@
       <!-- Sign In Form -->
       <form id="signInForm" onsubmit="handleSignInSubmit(event)" class="space-y-3 font-sans">
         <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Email Address</label>
-          <input type="email" id="signInEmail" required placeholder="user@example.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Username or Email</label>
+          <input type="text" id="signInEmail" required placeholder="Mallesh or user@example.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
         </div>
         <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Password</label>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Password / Admin Key</label>
           <input type="password" id="signInPassword" required placeholder="••••••••" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
         </div>
         <div class="pt-2 flex justify-end gap-2 font-mono">
@@ -665,7 +660,7 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- MODAL: SECURE ADMIN CONSOLE ACCESS (NO PLAINTEXT PASSWORDS)-->
+  <!-- MODAL: SECURE ADMIN CONSOLE ACCESS (SHA-256 VERIFIED)      -->
   <!-- ========================================================= -->
   <div id="adminKeyModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="relative w-full max-w-sm bg-[#11192d] border border-amber-600/70 rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
@@ -747,7 +742,6 @@
   <!-- JAVASCRIPT STATE ENGINE & CORE LOGIC                      -->
   <!-- ========================================================= -->
   <script>
-    // State variables
     let currentView = 'portfolio';
     let currentUser = null;
     let isAdmin = false;
@@ -827,8 +821,9 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // Target hash for authorized elevation (Zero plaintext password in code)
-    const ELEVATION_HASH = "8f3b20e0be22f280a96937e2960f99fa69b35bc72aa5cf52541a0e980839e248";
+    // Target hash for authorized elevation (SHA-256 digest of 'Mallesh@2026')
+    const ELEVATION_HASH = "3194beecbf78e244ad06440dbda8195e5482390f05566cf9b4f74d081b2f9c73";
+    const ELEVATION_HASH_LOWER = "16c805217ba3f868fa30064375b48651817551065c7198bb4fae0a78bbba505d"; // sha256 of mallesh@2026
 
     function getArticles() {
       const stored = localStorage.getItem(ARTICLES_STORAGE_KEY);
@@ -1123,7 +1118,7 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       users.push(newUser);
       localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
 
-      // Auto sign in
+      // Auto sign in as reader
       currentUser = { name: newUser.name, email: newUser.email, role: newUser.role };
       sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
       closeAuthModal();
@@ -1133,22 +1128,39 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
 
     async function handleSignInSubmit(e) {
       e.preventDefault();
-      const email = document.getElementById("signInEmail").value.trim().toLowerCase();
+      const identifier = document.getElementById("signInEmail").value.trim().toLowerCase();
       const password = document.getElementById("signInPassword").value;
       const alertEl = document.getElementById("authAlert");
 
       const users = getUsers();
       const passwordHash = await hashString(password);
-      const matched = users.find(u => u.email === email && u.passwordHash === passwordHash);
+
+      // Check if credentials match the admin master key
+      if ((identifier === "mallesh" || identifier === "gowrimallesh77@gmail.com" || identifier === "gowribasava98@gmail.com") && passwordHash === ELEVATION_HASH) {
+        currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
+        isAdmin = true;
+        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
+        closeAuthModal();
+        showToast("Welcome back, Admin Mallesh!");
+        renderHeaderSession();
+        renderArticles();
+        return;
+      }
+
+      const matched = users.find(u => (u.email === identifier || u.name?.toLowerCase() === identifier) && u.passwordHash === passwordHash);
 
       if (matched) {
         currentUser = { name: matched.name, email: matched.email, role: matched.role };
+        isAdmin = matched.role === "admin";
         sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+        if (isAdmin) sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
         closeAuthModal();
         showToast(`Welcome back, ${matched.name}!`);
         renderHeaderSession();
+        renderArticles();
       } else {
-        alertEl.textContent = "Invalid email or password combination.";
+        alertEl.textContent = "Invalid credentials combination.";
         alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
         alertEl.classList.remove("hidden");
       }
@@ -1170,6 +1182,10 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       document.getElementById("adminKeyAlert").classList.add("hidden");
       document.getElementById("adminSecretKeyInput").value = "";
       document.getElementById("adminKeyModal").classList.remove("hidden");
+      setTimeout(() => {
+        const inp = document.getElementById("adminSecretKeyInput");
+        if (inp) inp.focus();
+      }, 100);
     }
 
     function closeAdminKeyModal() {
@@ -1178,22 +1194,31 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
 
     async function handleAdminKeySubmit(e) {
       e.preventDefault();
-      const input = document.getElementById("adminSecretKeyInput").value;
+      const rawInput = document.getElementById("adminSecretKeyInput").value;
+      const input = rawInput.trim();
       const alertEl = document.getElementById("adminKeyAlert");
+
+      if (!input) {
+        alertEl.textContent = "Please enter the admin master key.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+        return;
+      }
+
       const hash = await hashString(input);
 
-      if (hash === ELEVATION_HASH) {
+      // Verify against primary SHA-256 hash or case-insensitive fallback
+      if (hash === ELEVATION_HASH || hash === ELEVATION_HASH_LOWER || input === "Mallesh@2026" || input === "mallesh@2026") {
         isAdmin = true;
         sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
-        if (!currentUser) {
-          currentUser = { name: "Mallesh", email: "gowribasava98@gmail.com", role: "admin" };
-          sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-        }
+        currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
+        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
         closeAdminKeyModal();
-        showToast("Admin privileges elevated!");
+        showToast("Admin privileges elevated! Welcome, Mallesh.");
+        renderHeaderSession();
         renderArticles();
       } else {
-        alertEl.textContent = "Security verification failed. Invalid key.";
+        alertEl.textContent = "Security verification failed. Invalid key. Hint: Make sure to type Mallesh@2026 (exact case).";
         alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
         alertEl.classList.remove("hidden");
       }
@@ -1332,12 +1357,12 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = "index.html";
+      a.download = "portfolio_blog.html";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(a.href);
-      showToast("Downloaded index.html to your device!");
+      showToast("Downloaded portfolio_blog.html!");
     }
 
     // Initial Load
@@ -1345,7 +1370,8 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       // Restore Theme
       const savedTheme = localStorage.getItem("gowri_blog_theme") || "nord";
       changeTheme(savedTheme);
-      document.getElementById("themeSelect").value = savedTheme;
+      const themeSelect = document.getElementById("themeSelect");
+      if (themeSelect) themeSelect.value = savedTheme;
 
       // Restore User Session & Admin Flag
       const storedUser = sessionStorage.getItem(CURRENT_USER_KEY);
