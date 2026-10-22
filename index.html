@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ulligaddala Gowri Mallesh | Portfolio</title>
+  <title>Ulligaddala Gowri Mallesh | Portfolio & Tech Blog</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome for Icons -->
@@ -17,6 +17,9 @@
     .hero-bg {
       background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.18), transparent 45%),
                   radial-gradient(circle at 20% 70%, rgba(30, 58, 138, 0.28), transparent 45%);
+    }
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -37,6 +40,7 @@
         <a href="#skills" class="hover:text-sky-400 transition">Skills</a>
         <a href="#experience" class="hover:text-sky-400 transition">Experience</a>
         <a href="#certifications" class="hover:text-sky-400 transition">Certifications</a>
+        <a href="#blogs" class="hover:text-sky-400 transition">Blog Posts</a>
         <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
       </nav>
 
@@ -60,7 +64,7 @@
             Ulligaddala Gowri Mallesh
           </h1>
           <p class="text-sky-400 text-lg font-medium mt-1">
-            5 Years in SAP Server Management & Cloud Infrastructure
+            4+ Years in SAP Server Management & Cloud Infrastructure
           </p>
           <div class="text-slate-400 text-xs sm:text-sm mt-3 flex flex-wrap gap-4 items-center">
             <span><i class="fa-solid fa-phone text-sky-400 mr-1.5"></i>+91 9014270009</span>
@@ -70,15 +74,15 @@
         </div>
 
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-          Dedicated and detail-oriented professional with 5 years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments. Hands-on expertise in managing daily SAP operations on Linux SUSE, including system monitoring, backup, and performance tuning.
+          Dedicated and detail-oriented professional with 4 years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments. Hands-on expertise in managing daily SAP operations on Linux SUSE, including system monitoring, backup, and performance tuning.
         </p>
 
         <div class="flex flex-wrap gap-4 pt-2">
-          <a href="https://drive.google.com/file/d/1c-lfLXV9hrqZpCJGpXQI6aUxila1QKFe/view" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg transition flex items-center gap-2">
+          <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg transition flex items-center gap-2">
             <i class="fa-solid fa-file-arrow-down"></i> View / Download Resume
           </a>
-          <a href="#contact" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm px-6 py-3 rounded-lg transition flex items-center gap-2">
-            <i class="fa-solid fa-paper-plane"></i> Contact Me
+          <a href="#blogs" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm px-6 py-3 rounded-lg transition flex items-center gap-2">
+            <i class="fa-solid fa-book-open"></i> Read Blog Posts
           </a>
         </div>
       </div>
@@ -123,7 +127,7 @@
   </section>
 
   <!-- Core Content Section -->
-  <main class="max-w-7xl mx-auto px-6 py-16 space-y-12">
+  <main class="max-w-7xl mx-auto px-6 py-16 space-y-16">
     
     <!-- Experience & Responsibilities -->
     <section id="experience" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8">
@@ -197,6 +201,96 @@
       </div>
     </section>
 
+    <!-- NEW SECTION: Blog Posts with Direct File Download -->
+    <section id="blogs" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Knowledge Hub</span>
+          <h2 class="text-2xl font-bold text-white mt-1">Technical Blog Posts & Documentation</h2>
+          <p class="text-sm text-slate-400 mt-1">Field notes, configuration guides, and cheat sheets available for direct download.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Post 1 -->
+        <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="px-2.5 py-1 bg-sky-950 text-sky-300 border border-sky-800 rounded font-semibold text-[11px]">
+                High Availability
+              </span>
+              <span class="text-slate-500 font-mono text-[11px]">SLES / Pacemaker</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition mb-2">
+              Pacemaker & Corosync Setup for SAP HANA HSR
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Comprehensive setup guide for automated failover on SUSE Linux Enterprise Server. Covers STONITH fencing parameters and SAPHanaSR resource agent tuning.
+            </p>
+          </div>
+          
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <button onclick="downloadTextFile('pacemaker-hana-guide.txt', pacemakerContent)" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-download"></i> Download Notes (.txt)
+            </button>
+            <span class="text-[11px] text-slate-500">5 min read</span>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="px-2.5 py-1 bg-amber-950 text-amber-300 border border-amber-800 rounded font-semibold text-[11px]">
+                Storage & Linux
+              </span>
+              <span class="text-slate-500 font-mono text-[11px]">LVM / NFS / CIFS</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition mb-2">
+              Online LVM Disk Expansion & NFS Mount Fixes
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Step-by-step production procedure for resizing Volume Groups and Logical Volumes on running SAP hosts without unmounting or triggering downtime.
+            </p>
+          </div>
+          
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <button onclick="downloadTextFile('lvm-storage-cheatsheet.txt', lvmContent)" class="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-download"></i> Download Notes (.txt)
+            </button>
+            <span class="text-[11px] text-slate-500">4 min read</span>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 border border-emerald-800 rounded font-semibold text-[11px]">
+                Observability
+              </span>
+              <span class="text-slate-500 font-mono text-[11px]">Grafana / SLA</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition mb-2">
+              Proactive Alerting & SLA Breach Prevention
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Configuring metric thresholds in Grafana and Azure Monitor to detect memory ballooning and storage saturation before P1/P2 incidents occur.
+            </p>
+          </div>
+          
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <button onclick="downloadTextFile('monitoring-sla-playbook.txt', monitoringContent)" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-download"></i> Download Notes (.txt)
+            </button>
+            <span class="text-[11px] text-slate-500">6 min read</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
     <!-- Skills, Education & Contact Section -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       
@@ -236,19 +330,21 @@
 
       </div>
 
-      <!-- Right Column: Contact Form -->
+      <!-- Right Column: Contact Form with FormSubmit -->
       <section id="contact" class="lg:col-span-5 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
         <div>
           <h2 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
             <i class="fa-solid fa-envelope text-orange-400"></i> Get In Touch
           </h2>
           <p class="text-xs text-slate-400 mb-6">
-            Fill out the form below. Messages will be delivered directly to my email address.
+            Fill out the form below. Messages will be delivered directly to my inbox at <span class="text-slate-300 font-mono">gowribasava98@gmail.com</span>.
           </p>
 
           <form action="https://formsubmit.co/gowribasava98@gmail.com" method="POST" class="space-y-4">
+            <!-- FormSubmit Anti-spam & Configuration -->
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="New Portfolio Inquiry - Gowri Mallesh">
+            <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
 
             <div>
@@ -267,7 +363,7 @@
             </div>
 
             <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm py-2.5 rounded-lg shadow-md transition flex items-center justify-center gap-2">
-              <i class="fa-solid fa-paper-plane"></i> Send
+              <i class="fa-solid fa-paper-plane"></i> Send Message
             </button>
           </form>
         </div>
@@ -282,11 +378,115 @@
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
       <p>&copy; 2026 Ulligaddala Gowri Mallesh. All rights reserved.</p>
       <div class="flex items-center gap-6">
-        <a href="https://drive.google.com/file/d/1c-lfLXV9hrqZpCJGpXQI6aUxila1QKFe/view" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Resume</a>
+        <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Resume</a>
         <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition">Email</a>
       </div>
     </div>
   </footer>
+
+  <!-- File Download Script for Blog Posts -->
+  <script>
+    const pacemakerContent = `=================================================================
+PACEMAKER & COROSYNC CLUSTER SETUP FOR SAP HANA HSR (SLES)
+Author: Ulligaddala Gowri Mallesh (System Administrator)
+=================================================================
+
+1. PREREQUISITES:
+   - SLES for SAP Applications 15 SPx
+   - HANA System Replication (HSR) configured in sync/syncmem mode
+   - Virtual IP assigned for SAP HANA primary instance
+
+2. COROSYNC VALIDATION:
+   # corosync-cfgtool -s
+   # crm status
+
+3. STONITH FENCING CONFIGURATION (AZURE / ON-PREM):
+   # crm configure primitive rsc_st_azure stonith:fence_azure_arm \\
+       params subscriptionId="..." resourceGroup="..." vmName="..." \\
+       pcmk_reboot_timeout=900 pcmk_monitor_timeout=120
+
+4. SAP HANA RESOURCE DEFINITION:
+   # crm configure primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana \\
+       params SID="HDB" InstanceNumber="00" PREFER_SITE_TAKEOVER="true" \\
+       DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \\
+       op start interval="0" timeout="3600" \\
+       op stop interval="0" timeout="3600" \\
+       op monitor interval="60" role="Master" timeout="700" \\
+       op monitor interval="61" role="Slave" timeout="700"
+
+5. FAILOVER VERIFICATION:
+   # crm node standby <primary-node>
+   Verify automatic takeover by secondary without split-brain.
+=================================================================`;
+
+    const lvmContent = `=================================================================
+ONLINE LVM STORAGE MANAGEMENT & NFS CHEATSHEET
+Author: Ulligaddala Gowri Mallesh (System Administrator)
+=================================================================
+
+1. SCAN FOR NEW LUN / DISK:
+   # echo "- - -" > /sys/class/scsi_host/host0/scan
+   # lsblk
+
+2. INITIALIZE PHYSICAL VOLUME:
+   # pvcreate /dev/sdX
+
+3. EXTEND EXISTING VOLUME GROUP:
+   # vgextend vg_sapdata /dev/sdX
+   # vgs
+
+4. EXTEND LOGICAL VOLUME ONLINE (+100GB or 100% FREE):
+   # lvextend -L +100G /dev/vg_sapdata/lv_data
+   OR
+   # lvextend -l +100%FREE /dev/vg_sapdata/lv_data
+
+5. RESIZE FILESYSTEM (XFS vs EXT4):
+   - For XFS (Online):
+     # xfs_growfs /hana/data
+   - For EXT4 (Online):
+     # resize2fs /dev/vg_sapdata/lv_data
+
+6. FIX STALE NFS MOUNTS:
+   # umount -f -l /mnt/share
+   # mount -t nfs -o rw,bg,hard,intr server:/export /mnt/share
+=================================================================`;
+
+    const monitoringContent = `=================================================================
+ENTERPRISE LINUX OBSERVABILITY & SLA INCIDENT PLAYBOOK
+Author: Ulligaddala Gowri Mallesh (System Administrator)
+=================================================================
+
+1. KEY KERNEL & MEMORY METRICS:
+   - Memory Threshold: Alert when free + cached < 10%
+   - Load Average: Alert when Load > (Total CPU cores * 1.5)
+   - Disk Latency: IO service time > 20ms
+
+2. PROMETHEUS NODE EXPORTER ALERT RULES:
+   - alert: HighMemoryUsage
+     expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes > 0.90
+     for: 5m
+     labels:
+       severity: P2
+     annotations:
+       summary: "Server memory saturation approaching threshold"
+
+3. P1/P2 TRIAGE STEPS:
+   - Step 1: Identify runaway processes: # top -c -b -n 1
+   - Step 2: Check OOM killer logs: # dmesg -T | grep -i oom
+   - Step 3: Investigate I/O wait: # iostat -xz 1 10
+   - Step 4: Ensure SAP dispatcher / watchdog processes are active
+=================================================================`;
+
+    function downloadTextFile(filename, text) {
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+  </script>
 
 </body>
 </html>
