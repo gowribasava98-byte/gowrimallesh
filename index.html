@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="nord">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ulligaddala Gowri Mallesh | System Administrator & Cloud Specialist</title>
+  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <!-- Google Fonts: Inter & Fira Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Marked.js for client-side markdown parsing -->
+  
+  <!-- Marked.js for fast client-side markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <script>
@@ -99,6 +103,7 @@
       background-size: 24px 24px;
     }
 
+    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 7px;
       height: 7px;
@@ -113,17 +118,129 @@
     ::-webkit-scrollbar-thumb:hover {
       background: var(--accent);
     }
+
+    /* Markdown Table Styling for GFM */
+    .prose-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.8125rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      display: block;
+      overflow-x: auto;
+    }
+    .prose-content thead {
+      background-color: var(--bg-card);
+      border-bottom: 2px solid var(--border-color);
+    }
+    .prose-content th {
+      padding: 0.65rem 0.85rem;
+      font-weight: 600;
+      text-align: left;
+      color: var(--accent);
+      font-family: 'Fira Code', monospace;
+      white-space: nowrap;
+    }
+    .prose-content td {
+      padding: 0.6rem 0.85rem;
+      border-top: 1px solid var(--border-color);
+      color: #cbd5e1;
+    }
+    .prose-content tr:nth-child(even) td {
+      background-color: rgba(22, 34, 59, 0.45);
+    }
+    .prose-content tr:hover td {
+      background-color: rgba(56, 189, 248, 0.08);
+    }
+
+    /* Markdown Image Styling */
+    .prose-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-color);
+      margin: 1.25rem auto;
+      display: block;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      background-color: #0d1527;
+    }
+    .prose-content img:hover {
+      border-color: var(--accent);
+    }
+
+    /* Code blocks inside markdown */
+    .prose-content pre {
+      background-color: #070b15 !important;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 0.875rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    .prose-content code {
+      font-family: 'Fira Code', monospace;
+    }
+    .prose-content p code, .prose-content li code {
+      background-color: #16223b;
+      color: var(--accent);
+      padding: 0.15rem 0.35rem;
+      border-radius: 0.25rem;
+      font-size: 0.85em;
+      border: 1px solid var(--border-color);
+    }
+    .prose-content h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      font-family: 'Fira Code', monospace;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.35rem;
+    }
+    .prose-content h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--term-yellow);
+      margin-top: 1.25rem;
+      margin-bottom: 0.45rem;
+      font-family: 'Fira Code', monospace;
+    }
+    .prose-content ul, .prose-content ol {
+      margin: 0.75rem 0 0.75rem 1.25rem;
+      padding-left: 0.5rem;
+    }
+    .prose-content ul {
+      list-style-type: disc;
+    }
+    .prose-content ol {
+      list-style-type: decimal;
+    }
+    .prose-content li {
+      margin-bottom: 0.35rem;
+      color: #cbd5e1;
+    }
+    .prose-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.85rem;
+      margin: 1rem 0;
+      color: var(--text-muted);
+      font-style: italic;
+      background: rgba(56, 189, 248, 0.05);
+      border-radius: 0 0.375rem 0.375rem 0;
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-sky-400 selection:text-black">
 
-  <!-- ========================================================= -->
-  <!-- TOP GLOBAL NAVBAR                                         -->
-  <!-- ========================================================= -->
   <header class="border-b border-[#223253] bg-[#0a0f1d]/90 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
       
-      <!-- Clean Brand Logo / Identity -->
+      <!-- Brand Logo / Identity -->
       <a href="#about" onclick="switchView('portfolio')" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 via-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
           <i class="fa-solid fa-server"></i>
@@ -136,7 +253,7 @@
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
+      <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
         <button onclick="switchView('portfolio')" id="navPortfolioBtn" class="text-sky-400 font-semibold transition flex items-center gap-1.5">
           <i class="fa-solid fa-user-tie text-xs"></i> Portfolio
@@ -150,13 +267,19 @@
         <a href="#contact" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Contact</a>
       </nav>
 
-      <!-- Action Buttons, Authentication Controls & View Switcher -->
+      <!-- Action Buttons -->
       <div class="flex items-center gap-2.5">
-        <div id="authHeaderContainer"></div>
+        <div id="authHeaderContainer">
+          <button onclick="openAuthModal('signin')" class="px-2.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-user-circle text-xs"></i>
+            <span class="hidden sm:inline">Sign In / Register</span>
+          </button>
+        </div>
 
         <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="px-3.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
           <i class="fa-solid fa-book-open"></i>
           <span id="quickToggleText">Open Blog</span>
+
         </button>
 
         <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-md transition flex items-center gap-1.5">
@@ -168,9 +291,6 @@
     </div>
   </header>
 
-  <!-- ========================================================= -->
-  <!-- 1. PORTFOLIO VIEW CONTAINER                               -->
-  <!-- ========================================================= -->
   <div id="portfolioView" class="w-full transition-opacity duration-300">
     
     <!-- Hero Section -->
@@ -198,7 +318,7 @@
           </div>
 
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Dedicated and detail-oriented professional with 4+ years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments at <strong>Tata Consultancy Services (TCS)</strong>. Hands-on expertise managing daily SAP operations on SUSE Linux Enterprise Server (SLES), Pacemaker High-Availability clusters, LVM disk management, NFS/SAMBA CIFS mounts, OS-level troubleshooting, system monitoring, and multi-cloud solutions across Microsoft Azure and Google Cloud.
+            Dedicated professional with 5+ years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments at <strong>Tata Consultancy Services (TCS)</strong>. Hands-on expertise managing daily SAP operations on SUSE Linux Enterprise Server (SLES), Pacemaker High-Availability clusters, LVM disk management, NFS/SAMBA CIFS mounts, OS-level troubleshooting, system monitoring, and multi-cloud solutions across Microsoft Azure and Google Cloud.
           </p>
 
           <!-- Quick Action Buttons -->
@@ -208,7 +328,6 @@
             </a>
             <button onclick="switchView('blog')" class="border border-sky-500/60 bg-sky-950/40 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
               <i class="fa-solid fa-terminal"></i> Read Tech Blog
-            </button>
           </div>
         </div>
 
@@ -262,7 +381,7 @@
             <p class="text-sm text-slate-300">System Administrator • Bengaluru</p>
           </div>
           <span class="text-xs font-mono font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-[#223253] w-fit">
-            2021 – Present (4+ Years)
+            2021 – Present (5+ Years)
           </span>
         </div>
 
@@ -427,9 +546,6 @@
     </main>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- 2. TECHNICAL BLOG VIEW CONTAINER                          -->
-  <!-- ========================================================= -->
   <div id="blogView" class="hidden w-full terminal-grid py-6 px-4 md:px-8 space-y-6">
     <div class="max-w-6xl mx-auto space-y-6">
       
@@ -460,35 +576,37 @@
 
         <div class="p-6 space-y-4">
           <div class="flex flex-wrap items-center gap-2 text-sm font-mono">
-            <span class="text-[var(--term-green)] font-bold">gowri@sles</span>
+            <span class="text-[var(--term-green)] font-bold">gowriMallesh@Linux</span>
             <span class="text-slate-500">:</span>
             <span class="text-[var(--term-purple)] font-semibold">~/articles</span>
             <span class="text-[var(--term-yellow)]">$</span>
-            <span class="text-slate-100 font-semibold">sysadmin-notes --list</span>
+            <span class="text-slate-100 font-semibold">Welcome to the Blog </span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-2 items-center">
             <div class="md:col-span-4 flex flex-col items-center justify-center p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] font-mono text-[10px] text-[var(--accent)] select-none">
               <pre class="leading-tight">
     .--.
-   |o_o |   Host: SLES 15 SP4 / Azure
-   |:_/ |   Topic: SAP HANA & High Availability
-  //   \ \  Storage: LVM & NFS Mounts
- (|     | ) Uptime: 4+ Years Enterprise
-/'\_   _/`\ Certs: AZ-104 & GCP ACE
-\___)=(___/ Status: Operational
+   |o_o |   Hosting by :Ulligaddala Gowri Mallesh
+   |:_/ |   Certs: AZ-104 & GCP ACE
+  //   \ \  Experience: 5+ Years 
+ (|     | ) Status: Operational 
+/'\_   _/`\ 
+\___)=(___/ 
               </pre>
             </div>
 
             <div class="md:col-span-8 space-y-2">
               <h2 class="text-2xl font-bold font-mono text-[var(--text-main)]">
-                Enterprise Linux & SAP HEC Journal
+                Enterprise Linux & SAP Blog
               </h2>
               <p class="text-sm text-[var(--text-muted)] leading-relaxed font-sans">
                 Technical articles, troubleshooting guides, and production command runbooks for enterprise Linux systems administrators.
               </p>
               <div class="flex items-center gap-2 pt-2" id="adminBlogActions">
-                <!-- Dynamically populated buttons for admin post authoring -->
+                <button onclick="openAdminKeyModal()" class="px-3 py-1.5 rounded bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-amber-400 transition flex items-center gap-1.5">
+                  <i class="fa-solid fa-lock text-xs"></i> Admin Elevation
+                </button>
               </div>
             </div>
           </div>
@@ -500,13 +618,7 @@
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
           <div class="relative w-full sm:w-80">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
-            <input 
-              type="text" 
-              id="searchInput" 
-              oninput="filterArticles()" 
-              placeholder="grep -i articles by title or tag..." 
-              class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]"
-            >
+            <input type="text" id="searchInput" oninput="filterArticles()" placeholder="grep -i articles by title or tag..." class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]">
           </div>
           <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto" id="tagFilterContainer"></div>
         </div>
@@ -518,9 +630,6 @@
     </div>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- FOOTER                                                    -->
-  <!-- ========================================================= -->
   <footer class="border-t border-[#223253] bg-[#070b15] py-6 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
       <div class="flex items-center gap-2">
@@ -541,9 +650,7 @@
     </div>
   </footer>
 
-  <!-- ========================================================= -->
-  <!-- MODAL: ARTICLE READER (SOCIAL SHARING & URL ANCHORS)      -->
-  <!-- ========================================================= -->
+  <!-- 1. ARTICLE READER MODAL (TABLES, IMAGES, SOCIAL SHARING, & COMMENTS) -->
   <div id="articleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col font-sans">
       
@@ -560,7 +667,7 @@
         </button>
       </div>
 
-      <!-- Article Content -->
+      <!-- Article Content (with table and image support via prose-content) -->
       <div class="p-6 sm:p-8 overflow-y-auto space-y-6" id="modalArticleContent"></div>
 
       <!-- Social Media Share & Action Footer -->
@@ -596,15 +703,14 @@
     </div>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- MODAL: USER AUTHENTICATION (SIGN IN & REGISTER)           -->
-  <!-- ========================================================= -->
+  <!-- 2. USER AUTHENTICATION MODAL (SIGN IN, REGISTER & FORGOT PASSWORD) -->
   <div id="authModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="relative w-full max-w-sm bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
       <div class="flex items-center justify-between border-b border-[#223253] pb-3">
         <div class="flex gap-4">
           <button id="tabSignInBtn" onclick="switchAuthTab('signin')" class="font-bold text-sky-400 border-b-2 border-sky-400 pb-1">Sign In</button>
           <button id="tabRegisterBtn" onclick="switchAuthTab('register')" class="font-bold text-slate-400 hover:text-white pb-1">Create Account</button>
+          <button id="tabForgotBtn" onclick="switchAuthTab('forgot')" class="font-bold text-slate-400 hover:text-white pb-1">Reset Key</button>
         </div>
         <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
       </div>
@@ -646,12 +752,26 @@
           <button type="submit" class="px-4 py-1.5 rounded bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition">Register</button>
         </div>
       </form>
+
+      <!-- Forgot Password Form -->
+      <form id="forgotForm" onsubmit="handleForgotSubmit(event)" class="hidden space-y-3 font-sans">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Registered Email Address</label>
+          <input type="email" id="forgotEmail" required placeholder="name@domain.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">New Password</label>
+          <input type="password" id="forgotNewPassword" required placeholder="At least 6 characters" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div class="pt-2 flex justify-end gap-2 font-mono">
+          <button type="button" onclick="closeAuthModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
+          <button type="submit" class="px-4 py-1.5 rounded bg-amber-400 text-black font-bold hover:bg-amber-300 transition">Update Password</button>
+        </div>
+      </form>
     </div>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- MODAL: SECURE ADMIN CONSOLE ACCESS (SHA-256 VERIFIED)      -->
-  <!-- ========================================================= -->
+  <!-- 3. ADMIN ELEVATION MODAL -->
   <div id="adminKeyModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="relative w-full max-w-sm bg-[#11192d] border border-amber-600/70 rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
       <div class="flex items-center justify-between border-b border-[#223253] pb-3">
@@ -680,9 +800,7 @@
     </div>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- MODAL: POST WRITER & EDITOR (AUTHORIZED ADMIN ONLY)       -->
-  <!-- ========================================================= -->
+  <!-- 4. MARKDOWN POST WRITER & EDITOR (WITH TABLE & IMAGE TOOLBAR) -->
   <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
     <div class="relative w-full max-w-5xl bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl flex flex-col font-mono text-xs max-h-[92vh] overflow-hidden">
       <div class="flex items-center justify-between px-4 py-2.5 bg-[#16223b] border-b border-[#223253]">
@@ -709,12 +827,32 @@
       <!-- Split Editor & Live Render -->
       <div class="flex-1 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#223253] min-h-[300px] overflow-hidden">
         <div class="flex flex-col h-full bg-[#11192d]">
-          <div class="px-3 py-1 bg-[#16223b] text-slate-400 text-[11px] border-b border-[#223253]">MARKDOWN SOURCE</div>
-          <textarea id="editorMarkdown" oninput="updateEditorPreview()" placeholder="# Write article in Markdown...&#10;&#10;```bash&#10;crm status&#10;```" class="flex-1 p-3 bg-transparent text-white resize-none font-mono text-xs focus:outline-none leading-relaxed overflow-y-auto"></textarea>
+          <!-- Markdown Insertion Quick Toolbar -->
+          <div class="px-3 py-1.5 bg-[#16223b] text-slate-300 text-[11px] border-b border-[#223253] flex flex-wrap items-center justify-between gap-1">
+            <span class="text-slate-400 font-bold">MARKDOWN SOURCE</span>
+            <div class="flex items-center gap-1">
+              <button type="button" onclick="insertMarkdownSnippet('table')" title="Insert Markdown Table" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-sky-400 border border-[#223253] flex items-center gap-1 transition">
+                <i class="fa-solid fa-table"></i> +Table
+              </button>
+              <button type="button" onclick="insertMarkdownSnippet('image')" title="Insert Markdown Image" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-emerald-400 border border-[#223253] flex items-center gap-1 transition">
+                <i class="fa-solid fa-image"></i> +Image
+              </button>
+              <button type="button" onclick="insertMarkdownSnippet('code')" title="Insert Code Block" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-amber-300 border border-[#223253] flex items-center gap-1 transition">
+                <i class="fa-solid fa-code"></i> Code
+              </button>
+              <button type="button" onclick="insertMarkdownSnippet('bold')" title="Insert Bold Text" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-slate-200 border border-[#223253] transition">
+                <strong>B</strong>
+              </button>
+            </div>
+          </div>
+          <textarea id="editorMarkdown" oninput="updateEditorPreview()" placeholder="# Write article in Markdown...&#10;&#10;Insert Tables:&#10;| Metric | Value | Threshold |&#10;|---|---|---|&#10;| Mem | 82% | 90% |&#10;&#10;Insert Images:&#10;![Cluster Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)" class="flex-1 p-3 bg-transparent text-white resize-none font-mono text-xs focus:outline-none leading-relaxed overflow-y-auto"></textarea>
         </div>
         <div class="flex flex-col h-full bg-[#0a0f1d]">
-          <div class="px-3 py-1 bg-[#16223b] text-slate-400 text-[11px] border-b border-[#223253]">LIVE PREVIEW</div>
-          <div id="editorPreview" class="flex-1 p-4 overflow-y-auto font-sans text-xs text-slate-200 space-y-3 leading-relaxed"></div>
+          <div class="px-3 py-1.5 bg-[#16223b] text-slate-400 text-[11px] border-b border-[#223253] flex items-center justify-between">
+            <span class="font-bold">LIVE PREVIEW</span>
+            <span class="text-[10px] text-slate-500">GFM Tables & Images active</span>
+          </div>
+          <div id="editorPreview" class="flex-1 p-4 overflow-y-auto font-sans text-xs text-slate-200 space-y-3 leading-relaxed prose-content"></div>
         </div>
       </div>
 
@@ -728,13 +866,24 @@
   <!-- Toast Notification Container -->
   <div id="toastNotification" class="fixed bottom-6 right-6 z-50 hidden px-4 py-2.5 rounded-lg border font-mono text-xs shadow-2xl transition transform duration-300 bg-sky-400 text-black font-semibold"></div>
 
-  <!-- ========================================================= -->
-  <!-- JAVASCRIPT STATE ENGINE & CORE LOGIC                      -->
-  <!-- ========================================================= -->
   <script>
     let currentView = 'portfolio';
     let currentUser = null;
     let isAdmin = false;
+    let activeArticleId = null;
+
+    // Configure Marked.js options to strictly enable GFM tables and images
+    if (typeof marked !== 'undefined') {
+      marked.setOptions({
+        gfm: true,
+        tables: true,
+        breaks: true,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false
+      });
+    }
 
     // Default Enterprise Linux Articles
     const defaultPosts = [
@@ -749,14 +898,28 @@
 
 In enterprise SAP HANA deployments on SUSE Linux Enterprise Server (SLES), achieving high availability requires automated takeover during host or database failure. Pacemaker works alongside Corosync and the SAPHanaSR resource agent to monitor system replication (HSR) health.
 
+![SAP HANA Pacemaker High Availability Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)
+
 \`\`\`bash
 crm status
 # Verify node state and SAPHana topology:
 SAPHanaSR-showAttr
 \`\`\`
 
-### 2. STONITH & Split-Brain Prevention
-A reliable fencing mechanism (such as SBD or hyperscaler fencing agents in Azure) is non-negotiable to prevent split-brain conditions where both nodes attempt to write to primary data volumes.`
+### 2. High-Availability Cluster Parameter Matrix
+
+The table below outlines production settings for Corosync and Pacemaker timeouts in enterprise environments:
+
+| Parameter | Recommended Value | Purpose & Impact |
+| :--- | :--- | :--- |
+| **totem.token** | \`30000\` ms | Time to detect token loss before node is considered down |
+| **totem.consensus** | \`36000\` ms | Minimum duration required before electing a new cluster coordinator |
+| **stonith-enabled** | \`true\` | Mandatory fencing prevention to isolate failed primary node |
+| **no-quorum-policy** | \`ignore\` | Prevents cluster split-brain on 2-node SAP deployments |
+| **migration-threshold** | \`3\` | Resource retry attempts before failing over to secondary |
+
+### 3. STONITH & Split-Brain Prevention
+A reliable fencing mechanism (such as SBD with shared watchdog storage or hyperscaler fencing agents in Azure) is non-negotiable to prevent split-brain conditions where both nodes attempt to write to primary data volumes simultaneously.`
       },
       {
         id: "online-lvm-disk-expansion",
@@ -769,6 +932,8 @@ A reliable fencing mechanism (such as SBD or hyperscaler fencing agents in Azure
 
 When disk space reaches critical thresholds on production SAP systems, LVM allows dynamic storage growth without taking the database offline.
 
+![Linux LVM Storage Architecture](https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=1200&q=80)
+
 \`\`\`bash
 # Rescan SCSI bus and expand LVM:
 echo 1 > /sys/class/block/sdb/device/rescan
@@ -776,7 +941,15 @@ pvresize /dev/sdb
 lvextend -r -l +100%FREE /dev/datavg/datalv
 \`\`\`
 
-### 2. NFS & SAMBA CIFS Mount Lockups
+### 2. Storage Expansion Comparison Table
+
+| Filesystem Type | Shrink Supported | Online Expansion Command | Maximum Filesystem Size |
+| :--- | :--- | :--- | :--- |
+| **XFS** | No | \`xfs_growfs /hana/data\` | 8 Exabytes |
+| **Ext4** | Yes (offline only) | \`resize2fs /dev/datavg/datalv\` | 16 Terabytes |
+| **Btrfs** | Yes (online) | \`btrfs filesystem resize max /mount\` | 16 Exabytes |
+
+### 3. NFS & SAMBA CIFS Mount Lockups
 Troubleshooting stale file handles, permission locks, and network timeout parameters (\`hard,intr,timeo=600\`) to ensure background backup scripts run without hanging.`
       },
       {
@@ -790,6 +963,17 @@ Troubleshooting stale file handles, permission locks, and network timeout parame
 
 Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes before they escalate to P1/P2 outages. Combining Node Exporter with custom Grafana dashboards gives full system visibility.
 
+![Grafana Prometheus Monitoring Telemetry Dashboard](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80)
+
+### 2. SLA Incident Severity Thresholds
+
+| Severity Tier | Response SLA | Target Resolution | Alert Trigger Criteria |
+| :--- | :--- | :--- | :--- |
+| **P1 - Critical** | < 15 mins | 2 Hours | Node down, SAP HANA primary instance stopped, cluster split |
+| **P2 - High** | < 30 mins | 4 Hours | Filesystem > 90% full, replication delay > 120s |
+| **P3 - Medium** | < 2 Hours | 24 Hours | CPU wait > 25%, non-critical NFS backup mount latency |
+| **P4 - Low** | < 4 Hours | 48 Hours | Informational patch check, standard query report |
+
 \`\`\`bash
 # Sample PromQL memory exhaustion threshold alert:
 (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
@@ -801,6 +985,7 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
     let searchQuery = "";
     const ARTICLES_STORAGE_KEY = "gowri_single_file_blog";
     const USERS_STORAGE_KEY = "gowri_registered_users";
+    const COMMENTS_STORAGE_KEY = "gowri_blog_comments";
     const CURRENT_USER_KEY = "gowri_current_session";
     const ADMIN_FLAG_KEY = "gowri_admin_session_flag";
 
@@ -813,7 +998,7 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
 
     // Target hash for authorized elevation (SHA-256 digest of 'Mallesh@2026')
     const ELEVATION_HASH = "3194beecbf78e244ad06440dbda8195e5482390f05566cf9b4f74d081b2f9c73";
-    const ELEVATION_HASH_LOWER = "16c805217ba3f868fa30064375b48651817551065c7198bb4fae0a78bbba505d"; // sha256 of mallesh@2026
+    const ELEVATION_HASH_LOWER = "16c805217ba3f868fa30064375b48651817551065c7198bb4fae0a78bbba505d";
 
     function getArticles() {
       const stored = localStorage.getItem(ARTICLES_STORAGE_KEY);
@@ -829,6 +1014,18 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
         try { return JSON.parse(stored); } catch (e) {}
       }
       return [];
+    }
+
+    function getComments() {
+      const stored = localStorage.getItem(COMMENTS_STORAGE_KEY);
+      if (stored) {
+        try { return JSON.parse(stored); } catch (e) {}
+      }
+      return [];
+    }
+
+    function saveComments(comments) {
+      localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(comments));
     }
 
     // View Switching
@@ -856,9 +1053,7 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       }
     }
 
-    // ==========================================
-    // UNIQUE URL HASH ROUTING (#post-<id>)
-    // ==========================================
+    // Deep Linking via hash (#post-<id>)
     function checkHashRoute() {
       const hash = window.location.hash;
       if (hash && hash.startsWith("#post-")) {
@@ -875,9 +1070,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       return `${baseURL}#post-${postId}`;
     }
 
-    // ==========================================
-    // ARTICLE RENDERING & SOCIAL SHARING
-    // ==========================================
     function renderArticles() {
       const container = document.getElementById("articlesContainer");
       const list = getArticles().filter(p => {
@@ -938,6 +1130,8 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       const post = getArticles().find(p => p.id === postId);
       if (!post) return;
 
+      activeArticleId = post.id;
+
       if (updateHash) {
         history.pushState(null, null, `#post-${post.id}`);
       }
@@ -954,7 +1148,33 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
           <span>•</span>
           <span class="text-amber-300">#${(post.tags || []).join(', #')}</span>
         </div>
-        <div class="text-sm leading-relaxed text-slate-200 space-y-4 font-sans">${rendered}</div>
+        <div class="text-sm leading-relaxed text-slate-200 space-y-4 font-sans prose-content">${rendered}</div>
+
+        <!-- Discussion & Comments Section -->
+        <div class="mt-8 pt-6 border-t border-[var(--border-color)] space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold font-mono text-white flex items-center gap-2">
+              <i class="fa-solid fa-comments text-sky-400"></i> Discussion & Notes
+            </h3>
+            <span class="text-[11px] font-mono text-slate-400" id="commentCountBadge">0 comments</span>
+          </div>
+
+          <!-- Add Comment Form -->
+          <div class="p-3.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] space-y-3">
+            <textarea id="commentInput" rows="2" placeholder="${currentUser ? `Leave a technical note or feedback as ${currentUser.name}...` : 'Sign in to leave a technical note or question...'}" class="w-full bg-[#11192d] border border-[#223253] rounded p-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] text-slate-400 font-mono">
+                ${currentUser ? `<span class="text-emerald-400"><i class="fa-solid fa-circle-check"></i> ${currentUser.name}</span>` : '<a href="javascript:openAuthModal(\'signin\')" class="text-sky-400 underline">Sign In</a> to participate'}
+              </span>
+              <button onclick="submitComment()" class="px-3 py-1.5 rounded bg-sky-400 text-black font-bold text-xs hover:bg-sky-300 transition flex items-center gap-1.5">
+                <i class="fa-solid fa-paper-plane text-[10px]"></i> Post Comment
+              </button>
+            </div>
+          </div>
+
+          <!-- Render Comments List -->
+          <div id="commentsList" class="space-y-2.5 pt-2"></div>
+        </div>
       `;
 
       // Set up social share links
@@ -974,7 +1194,76 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
         copyPostURL(post.id);
       };
 
+      renderArticleComments(post.id);
       document.getElementById("articleModal").classList.remove("hidden");
+    }
+
+    function renderArticleComments(postId) {
+      const allComments = getComments().filter(c => c.postId === postId);
+      const container = document.getElementById("commentsList");
+      const badge = document.getElementById("commentCountBadge");
+      if (badge) badge.textContent = `${allComments.length} comment${allComments.length === 1 ? '' : 's'}`;
+
+      if (!container) return;
+      if (allComments.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-500 italic">No notes or comments on this article yet. Be the first to start the discussion!</p>`;
+        return;
+      }
+
+      container.innerHTML = allComments.map(c => `
+        <div class="p-3 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] text-xs space-y-1.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-slate-200 font-mono">${c.author}</span>
+              ${c.isAdmin ? '<span class="text-[9px] bg-amber-950 text-amber-300 border border-amber-700/60 px-1 py-0.5 rounded font-mono">Admin</span>' : ''}
+              <span class="text-[10px] text-slate-500 font-mono">${c.date}</span>
+            </div>
+            ${(isAdmin || (currentUser && currentUser.email === c.authorEmail)) ? `
+              <button onclick="deleteComment('${c.id}')" class="text-slate-500 hover:text-rose-400 transition" title="Delete comment">
+                <i class="fa-solid fa-trash-can text-[10px]"></i>
+              </button>
+            ` : ''}
+          </div>
+          <p class="text-slate-300 leading-relaxed">${c.text}</p>
+        </div>
+      `).join("");
+    }
+
+    function submitComment() {
+      if (!currentUser) {
+        openAuthModal('signin');
+        return;
+      }
+      const input = document.getElementById("commentInput");
+      const text = input ? input.value.trim() : "";
+      if (!text) {
+        showToast("Please enter a comment before posting.", true);
+        return;
+      }
+
+      const newComment = {
+        id: `cmt-${Date.now()}`,
+        postId: activeArticleId,
+        author: currentUser.name,
+        authorEmail: currentUser.email,
+        isAdmin: isAdmin,
+        text: text,
+        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+      };
+
+      const comments = getComments();
+      comments.unshift(newComment);
+      saveComments(comments);
+      input.value = "";
+      renderArticleComments(activeArticleId);
+      showToast("Comment posted!");
+    }
+
+    function deleteComment(commentId) {
+      let comments = getComments().filter(c => c.id !== commentId);
+      saveComments(comments);
+      renderArticleComments(activeArticleId);
+      showToast("Comment removed.");
     }
 
     function closeModal() { 
@@ -1005,9 +1294,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       setTimeout(() => { t.classList.add("hidden"); }, 3000);
     }
 
-    // ==========================================
-    // USER REGISTRATION & SESSION MANAGEMENT
-    // ==========================================
     function renderHeaderSession() {
       const container = document.getElementById("authHeaderContainer");
       const blogActions = document.getElementById("adminBlogActions");
@@ -1065,19 +1351,27 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
     function switchAuthTab(tab) {
       const signInBtn = document.getElementById("tabSignInBtn");
       const regBtn = document.getElementById("tabRegisterBtn");
+      const forgotBtn = document.getElementById("tabForgotBtn");
       const signInForm = document.getElementById("signInForm");
       const regForm = document.getElementById("registerForm");
+      const forgotForm = document.getElementById("forgotForm");
+
+      signInBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
+      regBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
+      forgotBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
+      signInForm.classList.add("hidden");
+      regForm.classList.add("hidden");
+      forgotForm.classList.add("hidden");
 
       if (tab === 'signin') {
         signInBtn.className = "font-bold text-sky-400 border-b-2 border-sky-400 pb-1";
-        regBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
         signInForm.classList.remove("hidden");
-        regForm.classList.add("hidden");
-      } else {
+      } else if (tab === 'register') {
         regBtn.className = "font-bold text-emerald-400 border-b-2 border-emerald-400 pb-1";
-        signInBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
         regForm.classList.remove("hidden");
-        signInForm.classList.add("hidden");
+      } else if (tab === 'forgot') {
+        forgotBtn.className = "font-bold text-amber-400 border-b-2 border-amber-400 pb-1";
+        forgotForm.classList.remove("hidden");
       }
     }
 
@@ -1108,7 +1402,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       users.push(newUser);
       localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
 
-      // Auto sign in as reader
       currentUser = { name: newUser.name, email: newUser.email, role: newUser.role };
       sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
       closeAuthModal();
@@ -1119,14 +1412,15 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
     async function handleSignInSubmit(e) {
       e.preventDefault();
       const identifier = document.getElementById("signInEmail").value.trim().toLowerCase();
-      const password = document.getElementById("signInPassword").value;
+      const password = document.getElementById("signInPassword").value.trim();
       const alertEl = document.getElementById("authAlert");
 
       const users = getUsers();
       const passwordHash = await hashString(password);
 
       // Check if credentials match the admin master key
-      if ((identifier === "mallesh" || identifier === "gowrimallesh77@gmail.com" || identifier === "gowribasava98@gmail.com") && passwordHash === ELEVATION_HASH) {
+      if ((identifier === "mallesh" || identifier === "gowrimallesh77@gmail.com" || identifier === "gowribasava98@gmail.com") && 
+          (passwordHash === ELEVATION_HASH || passwordHash === ELEVATION_HASH_LOWER || password === "Mallesh@2026")) {
         currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
         isAdmin = true;
         sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
@@ -1156,6 +1450,38 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       }
     }
 
+    async function handleForgotSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById("forgotEmail").value.trim().toLowerCase();
+      const newPassword = document.getElementById("forgotNewPassword").value;
+      const alertEl = document.getElementById("authAlert");
+
+      if (newPassword.length < 6) {
+        alertEl.textContent = "Password must be at least 6 characters.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+        return;
+      }
+
+      let users = getUsers();
+      const userIndex = users.findIndex(u => u.email === email);
+      if (userIndex === -1) {
+        alertEl.textContent = "No registered user found with this email address.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+        return;
+      }
+
+      const newHash = await hashString(newPassword);
+      users[userIndex].passwordHash = newHash;
+      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
+
+      alertEl.textContent = "Password successfully updated! You may now sign in.";
+      alertEl.className = "p-2.5 rounded bg-emerald-950/80 border border-emerald-700 text-emerald-300 text-[11px]";
+      alertEl.classList.remove("hidden");
+      setTimeout(() => switchAuthTab('signin'), 1500);
+    }
+
     function logoutSession() {
       currentUser = null;
       isAdmin = false;
@@ -1165,9 +1491,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       renderArticles();
     }
 
-    // ==========================================
-    // HIDDEN ADMIN ELEVATION (HASH VERIFICATION)
-    // ==========================================
     function openAdminKeyModal() {
       document.getElementById("adminKeyAlert").classList.add("hidden");
       document.getElementById("adminSecretKeyInput").value = "";
@@ -1214,9 +1537,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       }
     }
 
-    // ==========================================
-    // POST AUTHORING (WRITE / EDIT / DELETE)
-    // ==========================================
     function openEditorModal() {
       document.getElementById("editorModalTitle").textContent = "Write New Article";
       document.getElementById("editPostId").value = "";
@@ -1247,6 +1567,39 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       const raw = document.getElementById("editorMarkdown").value;
       const preview = document.getElementById("editorPreview");
       preview.innerHTML = raw.trim() ? marked.parse(raw) : `<span class="text-slate-500 italic">Live preview will render here...</span>`;
+    }
+
+    // Helper to insert markdown snippets for tables, images, code, etc.
+    function insertMarkdownSnippet(type) {
+      const textarea = document.getElementById("editorMarkdown");
+      if (!textarea) return;
+
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const selected = textarea.value.substring(start, end);
+      let snippet = "";
+
+      switch (type) {
+        case "table":
+          snippet = `\n| Component | Status | Description |\n| :--- | :--- | :--- |\n| Pacemaker Node 1 | Online | Primary HANA active node |\n| Pacemaker Node 2 | Standby | Secondary HSR sync node |\n| Fencing STONITH | Configured | SBD watchdog fencing active |\n\n`;
+          break;
+        case "image":
+          snippet = selected ? `![${selected}](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)` : `![Architecture Diagram](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)\n`;
+          break;
+        case "code":
+          snippet = `\n\`\`\`bash\n# Run command\ncrm status\n\`\`\`\n`;
+          break;
+        case "bold":
+          snippet = selected ? `**${selected}**` : `**bold text**`;
+          break;
+        default:
+          break;
+      }
+
+      textarea.value = textarea.value.substring(0, start) + snippet + textarea.value.substring(end);
+      textarea.focus();
+      textarea.setSelectionRange(start + snippet.length, start + snippet.length);
+      updateEditorPreview();
     }
 
     function saveAndPublishArticle() {
@@ -1309,9 +1662,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       renderArticles();
     }
 
-    // ==========================================
-    // FILTERING & THEME
-    // ==========================================
     function renderTagFilters() {
       const container = document.getElementById("tagFilterContainer");
       const tags = new Set(["All"]);
@@ -1339,7 +1689,7 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       localStorage.setItem("gowri_blog_theme", theme);
     }
 
-    // Initial Load
+    // Initial Execution
     document.addEventListener("DOMContentLoaded", () => {
       // Restore Theme
       const savedTheme = localStorage.getItem("gowri_blog_theme") || "nord";
