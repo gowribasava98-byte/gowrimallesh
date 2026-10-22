@@ -159,11 +159,6 @@
           <span id="quickToggleText">Open Blog</span>
         </button>
 
-        <button onclick="downloadSelfCode()" title="Download complete runnable HTML file" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition">
-          <i class="fa-solid fa-download text-sky-400"></i>
-          <span>Download Code</span>
-        </button>
-
         <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-md transition flex items-center gap-1.5">
           <i class="fa-solid fa-paper-plane text-xs"></i>
           <span class="hidden sm:inline">Let's Connect</span>
@@ -213,9 +208,6 @@
             </a>
             <button onclick="switchView('blog')" class="border border-sky-500/60 bg-sky-950/40 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
               <i class="fa-solid fa-terminal"></i> Read Tech Blog
-            </button>
-            <button onclick="downloadSelfCode()" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-download text-sky-400"></i> Download Source Code
             </button>
           </div>
         </div>
@@ -542,9 +534,7 @@
         <button onclick="switchView('blog')" class="hover:text-sky-400 text-sky-400 transition font-mono">Tech Blog</button>
         <button onclick="openAdminKeyModal()" class="hover:text-amber-400 text-slate-500 transition font-mono flex items-center gap-1">
           <i class="fa-solid fa-terminal text-[10px]"></i> Admin Console
-        </button>
-        <button onclick="downloadSelfCode()" class="hover:text-emerald-400 text-slate-400 transition font-mono flex items-center gap-1">
-          <i class="fa-solid fa-code text-xs"></i> Download Code
+
         </button>
         <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition font-sans">Email</a>
       </div>
@@ -1347,22 +1337,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
     function changeTheme(theme) {
       document.documentElement.setAttribute("data-theme", theme);
       localStorage.setItem("gowri_blog_theme", theme);
-    }
-
-    // ==========================================
-    // RUNNABLE CODE DOWNLOADER (.html)
-    // ==========================================
-    function downloadSelfCode() {
-      const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = "portfolio_blog.html";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(a.href);
-      showToast("Downloaded portfolio_blog.html!");
     }
 
     // Initial Load
