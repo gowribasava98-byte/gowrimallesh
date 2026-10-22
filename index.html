@@ -3,490 +3,1077 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ulligaddala Gowri Mallesh | Portfolio & Tech Blog</title>
+  <title>Ulligaddala Gowri Mallesh | Senior System Engineer & Cloud Infrastructure Specialist</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts: JetBrains Mono / Fira Code & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Marked.js for fast client-side markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"Fira Code"', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
+    /* CSS Variables for Dynamic Terminal & Web Themes */
+    :root, [data-theme="nord"] {
+      --bg-base: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-card: #1e293b;
+      --bg-subtle: #09101f;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.25);
+      --term-green: #4ade80;
+      --term-yellow: #facc15;
+      --term-red: #f87171;
+      --term-purple: #c084fc;
+    }
+
+    [data-theme="matrix"] {
+      --bg-base: #020b05;
+      --bg-surface: #051409;
+      --bg-card: #081f0d;
+      --bg-subtle: #010603;
+      --border-color: #165324;
+      --text-main: #4ade80;
+      --text-muted: #22c55e;
+      --accent: #00ff66;
+      --accent-glow: rgba(0, 255, 102, 0.35);
+      --term-green: #00ff66;
+      --term-yellow: #a3e635;
+      --term-red: #f87171;
+      --term-purple: #86efac;
+    }
+
+    [data-theme="monokai"] {
+      --bg-base: #1b1d1e;
+      --bg-surface: #272822;
+      --bg-card: #32332c;
+      --bg-subtle: #121314;
+      --border-color: #49483e;
+      --text-main: #f8f8f2;
+      --text-muted: #8b8878;
+      --accent: #a6e22e;
+      --accent-glow: rgba(166, 226, 46, 0.25);
+      --term-green: #a6e22e;
+      --term-yellow: #e6db74;
+      --term-red: #f92672;
+      --term-purple: #fd971f;
+    }
+
+    [data-theme="dracula"] {
+      --bg-base: #1e1f29;
+      --bg-surface: #282a36;
+      --bg-card: #343746;
+      --bg-subtle: #14151c;
+      --border-color: #44475a;
+      --text-main: #f8f8f2;
+      --text-muted: #9499b7;
+      --accent: #bd93f9;
+      --accent-glow: rgba(189, 147, 249, 0.25);
+      --term-green: #50fa7b;
+      --term-yellow: #f1fa8c;
+      --term-red: #ff5555;
+      --term-purple: #ff79c6;
+    }
+
+    [data-theme="paper"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: #f1f5f9;
+      --bg-subtle: #e2e8f0;
+      --border-color: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+      --accent-glow: rgba(2, 132, 199, 0.25);
+      --term-green: #16a34a;
+      --term-yellow: #d97706;
+      --term-red: #dc2626;
+      --term-purple: #7c3aed;
+    }
+
     body {
-      background-color: #0d1527;
-      color: #e2e8f0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
-    .hero-bg {
-      background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.18), transparent 45%),
-                  radial-gradient(circle at 20% 70%, rgba(30, 58, 138, 0.28), transparent 45%);
+
+    .hero-glow {
+      background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.16), transparent 50%),
+                  radial-gradient(circle at 15% 85%, rgba(30, 58, 138, 0.22), transparent 50%);
     }
-    html {
-      scroll-behavior: smooth;
+
+    .terminal-dots {
+      background-image: radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between selection:bg-sky-400 selection:text-black">
 
-  <!-- Navigation Bar -->
-  <header class="border-b border-slate-800 bg-[#0d1527]/90 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+  <!-- ========================================================= -->
+  <!-- TOP GLOBAL NAVIGATION BAR                                 -->
+  <!-- ========================================================= -->
+  <header class="border-b border-slate-800 bg-[#0c1424]/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-2">
+      
+      <!-- Brand Logo / Identity -->
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('portfolio')">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 via-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold text-lg shadow-lg">
           <i class="fa-solid fa-server"></i>
         </div>
-        <span class="text-xl font-bold tracking-tight text-white">Gowri<span class="text-sky-400">Mallesh</span></span>
+        <div>
+          <span class="text-lg font-bold tracking-tight text-white flex items-center gap-1">
+            Gowri<span class="text-sky-400">Mallesh</span>
+          </span>
+          <span class="text-[10px] text-slate-400 font-mono block -mt-1">Senior System Engineer</span>
+        </div>
       </div>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-sky-400 transition">About</a>
-        <a href="#skills" class="hover:text-sky-400 transition">Skills</a>
-        <a href="#experience" class="hover:text-sky-400 transition">Experience</a>
-        <a href="#certifications" class="hover:text-sky-400 transition">Certifications</a>
-        <a href="#blogs" class="hover:text-sky-400 transition">Blog Posts</a>
-        <a href="#contact" class="hover:text-sky-400 transition">Contact</a>
+      <!-- Center Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <button onclick="switchView('portfolio')" id="navPortfolioBtn" class="text-sky-400 font-semibold transition hover:text-sky-300">
+          Portfolio
+        </button>
+        <button onclick="switchView('blog')" id="navBlogBtn" class="hover:text-sky-400 transition flex items-center gap-1.5 font-mono">
+          <i class="fa-solid fa-terminal text-xs text-sky-400"></i> Tech Journal
+        </button>
+        <a href="#about" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">About</a>
+        <a href="#skills" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Skills</a>
+        <a href="#experience" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Experience</a>
+        <a href="#certifications" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Certifications</a>
+        <a href="#contact" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Contact</a>
       </nav>
 
-      <a href="#contact" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-md transition">
-        Let's Connect
-      </a>
+      <!-- Action Buttons: Download HTML & Tab Switcher -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Direct File Download Button -->
+        <button onclick="downloadSelfHTML()" title="Download entire single-file HTML code" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/70 border border-emerald-700/80 text-emerald-300 hover:bg-emerald-900 text-xs font-mono transition">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>Save .html</span>
+        </button>
+
+        <!-- View Switch Toggle -->
+        <button onclick="toggleView()" id="quickToggleBtn" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-terminal text-xs"></i>
+          <span id="quickToggleText">Open Tech Blog</span>
+        </button>
+
+        <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md transition">
+          Connect
+        </a>
+      </div>
+
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="about" class="hero-bg border-b border-slate-800 py-16 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-      
-      <!-- Bio Summary -->
-      <div class="lg:col-span-7 space-y-5">
-        <div>
-          <span class="px-3 py-1 bg-sky-950 border border-sky-800 text-sky-400 rounded-full text-xs font-semibold uppercase tracking-wider">
-            System Administrator
-          </span>
-          <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 leading-tight">
-            Ulligaddala Gowri Mallesh
-          </h1>
-          <p class="text-sky-400 text-lg font-medium mt-1">
-            4+ Years in SAP Server Management & Cloud Infrastructure
-          </p>
-          <div class="text-slate-400 text-xs sm:text-sm mt-3 flex flex-wrap gap-4 items-center">
-            <span><i class="fa-solid fa-phone text-sky-400 mr-1.5"></i>+91 9014270009</span>
-            <span><i class="fa-solid fa-envelope text-sky-400 mr-1.5"></i>gowrimallesh77@gmail.com</span>
-            <span><i class="fa-solid fa-location-dot text-sky-400 mr-1.5"></i>Bengaluru, India</span>
-          </div>
-        </div>
-
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-          Dedicated and detail-oriented professional with 4 years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments. Hands-on expertise in managing daily SAP operations on Linux SUSE, including system monitoring, backup, and performance tuning.
-        </p>
-
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg transition flex items-center gap-2">
-            <i class="fa-solid fa-file-arrow-down"></i> View / Download Resume
-          </a>
-          <a href="#blogs" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm px-6 py-3 rounded-lg transition flex items-center gap-2">
-            <i class="fa-solid fa-book-open"></i> Read Blog Posts
-          </a>
-        </div>
-      </div>
-
-      <!-- Certification Cards -->
-      <div id="certifications" class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- AZ-104 -->
-        <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl">
-          <div class="flex justify-between items-center mb-2">
-            <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
-            <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
-          </div>
-          <p class="text-xs text-slate-400">Microsoft Certified</p>
-          <h2 class="text-sm font-bold text-white mt-0.5">Azure Administrator Associate</h2>
-          <p class="text-xs text-sky-400 font-mono mt-1 font-semibold">AZ-104</p>
-        </div>
-
-        <!-- AZ-900 -->
-        <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl">
-          <div class="flex justify-between items-center mb-2">
-            <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
-            <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
-          </div>
-          <p class="text-xs text-slate-400">Microsoft Certified</p>
-          <h2 class="text-sm font-bold text-white mt-0.5">Azure Fundamentals</h2>
-          <p class="text-xs text-sky-400 font-mono mt-1 font-semibold">AZ-900</p>
-        </div>
-
-        <!-- GCP ACE -->
-        <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl sm:col-span-2">
-          <div class="flex justify-between items-center mb-2">
-            <i class="fa-brands fa-google text-red-400 text-2xl"></i>
-            <span class="text-[10px] bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800 font-semibold">Verified</span>
-          </div>
-          <p class="text-xs text-slate-400">Google Cloud Certified</p>
-          <h2 class="text-sm font-bold text-white mt-0.5">Associate Cloud Engineer</h2>
-          <p class="text-xs text-emerald-400 font-mono mt-1 font-semibold">GCP ACE</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Core Content Section -->
-  <main class="max-w-7xl mx-auto px-6 py-16 space-y-16">
+  <!-- ========================================================= -->
+  <!-- 1. PORTFOLIO VIEW CONTAINER                               -->
+  <!-- ========================================================= -->
+  <div id="portfolioView" class="w-full">
     
-    <!-- Experience & Responsibilities -->
-    <section id="experience" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8">
-      <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 mb-6">
-        <div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Work Experience</span>
-          <h2 class="text-xl font-bold text-white mt-1">Tata Consultancy Services Limited</h2>
-          <p class="text-sm text-slate-300">System Administrator • Bengaluru</p>
-        </div>
-        <span class="text-xs font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-slate-700 w-fit">
-          2021 – Present
-        </span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
-        <div>
-          <h3 class="font-semibold text-white mb-3 flex items-center gap-2">
-            <i class="fa-solid fa-server text-sky-400"></i> Infrastructure & High Availability Operations
-          </h3>
-          <ul class="space-y-2 text-slate-300 list-disc list-inside">
-            <li>Managing SAP servers in HANA Enterprise Cloud environment running on SUSE Linux Enterprise Server (SLES).</li>
-            <li>Handling system incidents, backup operations, and OS-level troubleshooting for HANA systems.</li>
-            <li>Configuring and maintaining Pacemaker clusters for high availability.</li>
-            <li>Coordinating with customers, TSMs, and CDMs for issue resolution and maintenance.</li>
-            <li>Collaborating with Azure support and hyperscaler teams for infrastructure changes and improvements.</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-semibold text-white mb-3 flex items-center gap-2">
-            <i class="fa-solid fa-chart-line text-emerald-400"></i> Monitoring, Audit & Governance
-          </h3>
-          <ul class="space-y-2 text-slate-300 list-disc list-inside">
-            <li>Monitoring system health and performance using Grafana, Azure Monitor, and custom dashboards.</li>
-            <li>Ensuring compliance with GxP audit standards, updating documentation, and conducting monthly checks.</li>
-            <li>Facilitating root cause analysis (RCA) and proactive monitoring to reduce recurring issues.</li>
-            <li>Leading a technical team for shift operations, task delegation, and training on automation scripts.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Key Responsibilities Grid -->
-      <div class="mt-8 pt-6 border-t border-slate-800">
-        <h3 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-slate-400">Core Daily Responsibilities</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs text-slate-300">
-          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
-            <strong class="text-white block mb-1">Patching & Updates</strong>
-            Performing patching for Linux servers and installing/updating software packages.
-          </div>
-          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
-            <strong class="text-white block mb-1">Incident Resolution</strong>
-            Handling P1, P2, P3, and P4 incident tickets strictly within SLA targets.
-          </div>
-          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
-            <strong class="text-white block mb-1">Storage & Filesystems</strong>
-            Linux LVM disk management, NFS/SAMBA configurations, and CIFS mount resolution.
-          </div>
-          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
-            <strong class="text-white block mb-1">Outage & Handovers</strong>
-            Managing critical outages and maintaining Linux handover servers for smooth shift transitions.
-          </div>
-          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
-            <strong class="text-white block mb-1">Knowledge Transfer</strong>
-            Providing technical knowledge transfer (KT) and onboarding guidance to new associates.
-          </div>
-          <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
-            <strong class="text-white block mb-1">Server Deployment</strong>
-            Installation, baseline configuration, and hardening of Linux server environments.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEW SECTION: Blog Posts with Direct File Download -->
-    <section id="blogs" class="space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4">
-        <div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Knowledge Hub</span>
-          <h2 class="text-2xl font-bold text-white mt-1">Technical Blog Posts & Documentation</h2>
-          <p class="text-sm text-slate-400 mt-1">Field notes, configuration guides, and cheat sheets available for direct download.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Hero Section -->
+    <section id="about" class="hero-glow border-b border-slate-800 py-14 sm:py-16 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        <!-- Post 1 -->
-        <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition group shadow-lg">
-          <div>
-            <div class="flex items-center justify-between text-xs mb-3">
-              <span class="px-2.5 py-1 bg-sky-950 text-sky-300 border border-sky-800 rounded font-semibold text-[11px]">
-                High Availability
-              </span>
-              <span class="text-slate-500 font-mono text-[11px]">SLES / Pacemaker</span>
+        <!-- Bio and Intro -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-950/80 border border-sky-800 text-sky-400 rounded-full text-xs font-semibold uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              System Administrator • Enterprise Cloud & Linux
             </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition mb-2">
-              Pacemaker & Corosync Setup for SAP HANA HSR
-            </h3>
-            <p class="text-xs text-slate-300 leading-relaxed mb-4">
-              Comprehensive setup guide for automated failover on SUSE Linux Enterprise Server. Covers STONITH fencing parameters and SAPHanaSR resource agent tuning.
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+              Ulligaddala Gowri Mallesh
+            </h1>
+            <p class="text-sky-400 text-base sm:text-xl font-medium">
+              4+ Years in SAP Server Management & Cloud Infrastructure
             </p>
-          </div>
-          
-          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-            <button onclick="downloadTextFile('pacemaker-hana-guide.txt', pacemakerContent)" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1.5 transition">
-              <i class="fa-solid fa-download"></i> Download Notes (.txt)
-            </button>
-            <span class="text-[11px] text-slate-500">5 min read</span>
-          </div>
-        </article>
-
-        <!-- Post 2 -->
-        <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition group shadow-lg">
-          <div>
-            <div class="flex items-center justify-between text-xs mb-3">
-              <span class="px-2.5 py-1 bg-amber-950 text-amber-300 border border-amber-800 rounded font-semibold text-[11px]">
-                Storage & Linux
-              </span>
-              <span class="text-slate-500 font-mono text-[11px]">LVM / NFS / CIFS</span>
+            <div class="text-slate-400 text-xs sm:text-sm pt-2 flex flex-wrap gap-4 items-center">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-sky-400"></i>+91 9014270009</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-sky-400"></i>gowrimallesh77@gmail.com</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sky-400"></i>Bengaluru, India</span>
             </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition mb-2">
-              Online LVM Disk Expansion & NFS Mount Fixes
-            </h3>
-            <p class="text-xs text-slate-300 leading-relaxed mb-4">
-              Step-by-step production procedure for resizing Volume Groups and Logical Volumes on running SAP hosts without unmounting or triggering downtime.
-            </p>
           </div>
-          
-          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-            <button onclick="downloadTextFile('lvm-storage-cheatsheet.txt', lvmContent)" class="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition">
-              <i class="fa-solid fa-download"></i> Download Notes (.txt)
-            </button>
-            <span class="text-[11px] text-slate-500">4 min read</span>
-          </div>
-        </article>
 
-        <!-- Post 3 -->
-        <article class="bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 flex flex-col justify-between transition group shadow-lg">
-          <div>
-            <div class="flex items-center justify-between text-xs mb-3">
-              <span class="px-2.5 py-1 bg-emerald-950 text-emerald-300 border border-emerald-800 rounded font-semibold text-[11px]">
-                Observability
-              </span>
-              <span class="text-slate-500 font-mono text-[11px]">Grafana / SLA</span>
-            </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition mb-2">
-              Proactive Alerting & SLA Breach Prevention
-            </h3>
-            <p class="text-xs text-slate-300 leading-relaxed mb-4">
-              Configuring metric thresholds in Grafana and Azure Monitor to detect memory ballooning and storage saturation before P1/P2 incidents occur.
-            </p>
-          </div>
-          
-          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-            <button onclick="downloadTextFile('monitoring-sla-playbook.txt', monitoringContent)" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 transition">
-              <i class="fa-solid fa-download"></i> Download Notes (.txt)
-            </button>
-            <span class="text-[11px] text-slate-500">6 min read</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Skills, Education & Contact Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      
-      <!-- Left Column: Skills & Education -->
-      <div class="lg:col-span-7 space-y-8">
-        
-        <!-- Skills Badges -->
-        <section id="skills" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-          <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-gears text-sky-400"></i> Technical Skills
-          </h2>
-          <div class="flex flex-wrap gap-2 text-xs">
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">SAP HEC Infrastructure & Operations</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Linux SUSE Server Administration</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Pacemaker Cluster</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">HANA DB Backup</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Grafana, Prometheus & DT Chat</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Azure & GCP Cloud Fundamentals</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">CIFS / NFS Mount & Ownership Issues</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Root Cause Analysis (RCA)</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Incident / Problem / Change Management</span>
-            <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">LVM & Disk Partitioning</span>
-          </div>
-        </section>
-
-        <!-- Education Card -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-          <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-            <i class="fa-solid fa-graduation-cap text-orange-400"></i> Education
-          </h2>
-          <div>
-            <h3 class="text-sm font-semibold text-white">B.Tech in Mechanical Engineering</h3>
-            <p class="text-xs text-slate-300">Brindavan Institute of Technology and Science, Kurnool</p>
-            <p class="text-xs text-sky-400 font-medium mt-1">2017 – 2020</p>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Right Column: Contact Form with FormSubmit -->
-      <section id="contact" class="lg:col-span-5 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
-        <div>
-          <h2 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-            <i class="fa-solid fa-envelope text-orange-400"></i> Get In Touch
-          </h2>
-          <p class="text-xs text-slate-400 mb-6">
-            Fill out the form below. Messages will be delivered directly to my inbox at <span class="text-slate-300 font-mono">gowribasava98@gmail.com</span>.
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Dedicated and detail-oriented professional with 4 years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments. Hands-on expertise in managing daily SAP operations on Linux SUSE (SLES), Pacemaker High Availability clustering, OS-level troubleshooting, backup operations, storage LVM expansions, and multi-cloud administration across Microsoft Azure and GCP.
           </p>
 
-          <form action="https://formsubmit.co/gowribasava98@gmail.com" method="POST" class="space-y-4">
-            <!-- FormSubmit Anti-spam & Configuration -->
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="New Portfolio Inquiry - Gowri Mallesh">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none">
-
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">Your Name</label>
-              <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
-            </div>
-
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">Your Email</label>
-              <input type="email" name="email" required placeholder="name@example.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
-            </div>
-
-            <div>
-              <label class="block text-xs font-semibold text-slate-400 mb-1">Message</label>
-              <textarea name="message" rows="4" required placeholder="Write your message..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
-            </div>
-
-            <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-sm py-2.5 rounded-lg shadow-md transition flex items-center justify-center gap-2">
-              <i class="fa-solid fa-paper-plane"></i> Send Message
+          <!-- Core Call to Actions -->
+          <div class="flex flex-wrap gap-3 pt-3">
+            <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg shadow-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf"></i> View / Download Resume
+            </a>
+            <button onclick="switchView('blog')" class="border border-sky-500/70 bg-sky-950/50 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2 font-mono">
+              <i class="fa-solid fa-terminal"></i> Read Linux Tech Blog
             </button>
-          </form>
+            <button onclick="downloadSelfHTML()" class="border border-emerald-600/70 bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition flex items-center gap-2 font-mono">
+              <i class="fa-solid fa-download"></i> Download HTML Code
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Official Cloud Certifications Card Grid -->
+        <div id="certifications" class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- AZ-104 -->
+          <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl hover:border-sky-500 transition">
+            <div class="flex justify-between items-center mb-2">
+              <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
+              <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
+            </div>
+            <p class="text-xs text-slate-400">Microsoft Certified</p>
+            <h2 class="text-sm font-bold text-white mt-0.5">Azure Administrator Associate</h2>
+            <p class="text-xs text-sky-400 font-mono mt-1 font-semibold">AZ-104</p>
+          </div>
+
+          <!-- AZ-900 -->
+          <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl hover:border-sky-500 transition">
+            <div class="flex justify-between items-center mb-2">
+              <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
+              <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
+            </div>
+            <p class="text-xs text-slate-400">Microsoft Certified</p>
+            <h2 class="text-sm font-bold text-white mt-0.5">Azure Fundamentals</h2>
+            <p class="text-xs text-sky-400 font-mono mt-1 font-semibold">AZ-900</p>
+          </div>
+
+          <!-- GCP ACE -->
+          <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl sm:col-span-2 hover:border-emerald-500 transition">
+            <div class="flex justify-between items-center mb-2">
+              <i class="fa-brands fa-google text-red-400 text-2xl"></i>
+              <span class="text-[10px] bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800 font-semibold">Verified</span>
+            </div>
+            <p class="text-xs text-slate-400">Google Cloud Certified</p>
+            <h2 class="text-sm font-bold text-white mt-0.5">Associate Cloud Engineer</h2>
+            <p class="text-xs text-emerald-400 font-mono mt-1 font-semibold">GCP ACE</p>
+            <p class="text-[11px] text-slate-400 mt-1">Multi-cloud deployments, VPC peering, cloud load balancing, and IAM management.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Main Experience & Competencies Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-14 space-y-12">
+      
+      <!-- Work Experience Details -->
+      <section id="experience" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 mb-6">
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Work Experience</span>
+            <h2 class="text-xl font-bold text-white mt-1">Tata Consultancy Services Limited</h2>
+            <p class="text-sm text-slate-300">System Administrator • Bengaluru</p>
+          </div>
+          <span class="text-xs font-mono font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-slate-700 w-fit">
+            2021 – Present (4+ Years)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm">
+          <div>
+            <h3 class="font-semibold text-white mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-server text-sky-400"></i> Infrastructure & HA Cluster Operations
+            </h3>
+            <ul class="space-y-2 text-slate-300 list-disc list-inside leading-relaxed text-xs sm:text-sm">
+              <li>Managing enterprise SAP servers in HANA Enterprise Cloud (HEC) environments on SUSE Linux Enterprise Server (SLES).</li>
+              <li>Configuring and maintaining Pacemaker and Corosync high-availability clusters for automated SAP HANA failover protection.</li>
+              <li>Executing daily OS-level troubleshooting, system incidents, and HANA DB backup management.</li>
+              <li>Collaborating with Azure hyperscaler teams and customer technical managers (TSM/CDM) for smooth changes.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-white mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-chart-line text-emerald-400"></i> Observability, Compliance & Shift Leadership
+            </h3>
+            <ul class="space-y-2 text-slate-300 list-disc list-inside leading-relaxed text-xs sm:text-sm">
+              <li>Continuous health & performance monitoring using Grafana, Azure Monitor, Prometheus, and DT Chat.</li>
+              <li>Strict adherence to GxP audit standards, maintaining SOP documentations, and monthly compliance verification.</li>
+              <li>Facilitating root cause analysis (RCA) on recurring technical faults to achieve strict SLAs.</li>
+              <li>Leading operational shift handovers, task delegation, and imparting technical knowledge transfer (KT).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6-Box Daily Responsibilities Grid -->
+        <div class="mt-8 pt-6 border-t border-slate-800">
+          <h3 class="font-semibold text-white mb-4 text-xs uppercase tracking-wider text-slate-400 font-mono">
+            Core Daily Responsibilities
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs text-slate-300">
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+              <strong class="text-white block mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-wrench text-sky-400"></i> Patching & Software Updates
+              </strong>
+              Executing scheduled OS patching on Linux servers and maintaining package repositories.
+            </div>
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+              <strong class="text-white block mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-ticket text-amber-400"></i> P1 - P4 Ticket Resolution
+              </strong>
+              Resolving priority incidents strictly within client Service Level Agreements (SLAs).
+            </div>
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+              <strong class="text-white block mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-hard-drive text-emerald-400"></i> LVM & Filesystem Management
+              </strong>
+              Online LVM disk expansions, volume group extensions, and resolving NFS/SAMBA CIFS locks.
+            </div>
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+              <strong class="text-white block mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-arrows-spin text-purple-400"></i> Outage & Shift Handover
+              </strong>
+              Managing critical outages with cross-functional teams and ensuring seamless 24/7 handover servers.
+            </div>
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+              <strong class="text-white block mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-chalkboard-user text-cyan-400"></i> Knowledge Transfer (KT)
+              </strong>
+              Authoring standard operating procedures (SOPs) and onboarding new sysadmins onto accounts.
+            </div>
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+              <strong class="text-white block mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-shield text-rose-400"></i> Server Hardening & Setup
+              </strong>
+              Installation, baseline configuration, and security hardening of enterprise SUSE Linux systems.
+            </div>
+          </div>
         </div>
       </section>
 
+      <!-- Technical Skills, Education & Contact Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left: Skills Badges & Education -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <section id="skills" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <i class="fa-solid fa-gears text-sky-400"></i> Technical Competencies
+            </h2>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">SAP HEC Infrastructure</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">SUSE Linux (SLES)</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Pacemaker & Corosync</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">HANA DB Backup & Recovery</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Grafana & Prometheus</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Microsoft Azure (AZ-104)</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Google Cloud (GCP ACE)</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">CIFS & NFS Mount Ownership</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Root Cause Analysis (RCA)</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">ITIL Incident & Problem Mgmt</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">LVM Partitioning & Expansion</span>
+              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Docker & Kubernetes Basics</span>
+            </div>
+          </section>
+
+          <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-graduation-cap text-orange-400"></i> Education Details
+            </h2>
+            <div class="space-y-1">
+              <h3 class="text-sm font-semibold text-white">B.Tech in Mechanical Engineering</h3>
+              <p class="text-xs text-slate-300">Brindavan Institute of Technology and Science, Kurnool</p>
+              <p class="text-xs text-sky-400 font-mono mt-1">2017 – 2020</p>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Right: Working Contact Form connected to gowribasava98@gmail.com -->
+        <section id="contact" class="lg:col-span-5 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+          <div>
+            <h2 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-envelope text-orange-400"></i> Let's Connect
+            </h2>
+            <p class="text-xs text-slate-400 mb-5 leading-relaxed">
+              Have an enterprise opportunity or question? Submit this form and it will be delivered directly to <span class="text-slate-300 font-mono">gowribasava98@gmail.com</span>.
+            </p>
+
+            <form action="https://formsubmit.co/gowribasava98@gmail.com" method="POST" class="space-y-3.5">
+              <!-- FormSubmit Anti-Spam & Format fields -->
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_subject" value="New Portfolio Inquiry - Gowri Mallesh">
+              <input type="hidden" name="_template" value="table">
+              <input type="text" name="_honey" style="display:none">
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-400 mb-1">Your Name</label>
+                <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-400 mb-1">Your Email</label>
+                <input type="email" name="email" required placeholder="email@example.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-400 mb-1">Subject</label>
+                <input type="text" name="subject" required placeholder="SAP HANA / Cloud Infrastructure Opportunity" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-400 mb-1">Message</label>
+                <textarea name="message" rows="4" required placeholder="Write your message here..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm py-2.5 rounded-lg shadow-md transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 2. LINUX DEVELOPER BLOG VIEW CONTAINER                    -->
+  <!-- ========================================================= -->
+  <div id="blogView" class="hidden w-full terminal-dots py-8 px-4 sm:px-6 md:px-8 space-y-6">
+    <div class="max-w-6xl mx-auto space-y-6">
+      
+      <!-- Linux Terminal Window Banner -->
+      <section class="rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-2xl overflow-hidden font-mono">
+        <div class="flex items-center justify-between px-4 py-2.5 bg-[var(--bg-card)] border-b border-[var(--border-color)]">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[var(--term-red)] inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-[var(--term-yellow)] inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-[var(--term-green)] inline-block"></span>
+            <span class="ml-2 text-xs font-semibold text-[var(--text-muted)]">gowri@sles-hana: ~/articles</span>
+          </div>
+          
+          <div class="flex items-center gap-3">
+            <!-- Theme Switcher -->
+            <div class="flex items-center gap-1 bg-[var(--bg-base)] px-2 py-0.5 rounded border border-[var(--border-color)]">
+              <i data-lucide="palette" class="w-3 h-3 text-[var(--accent)]"></i>
+              <select id="themeSelect" onchange="changeTheme(this.value)" class="bg-transparent text-[var(--text-main)] outline-none cursor-pointer text-xs font-mono">
+                <option value="nord" class="bg-slate-900 text-white">Nord</option>
+                <option value="matrix" class="bg-black text-green-400">Matrix</option>
+                <option value="monokai" class="bg-neutral-900 text-yellow-300">Monokai</option>
+                <option value="dracula" class="bg-[#282a36] text-[#bd93f9]">Dracula</option>
+                <option value="paper" class="bg-white text-slate-900">Paper</option>
+              </select>
+            </div>
+
+            <button onclick="switchView('portfolio')" class="text-xs text-[var(--accent)] hover:underline flex items-center gap-1">
+              <i data-lucide="arrow-left" class="w-3 h-3"></i> Back
+            </button>
+          </div>
+        </div>
+
+        <div class="p-4 sm:p-6 space-y-4">
+          <!-- Terminal Host Prompt -->
+          <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+            <span class="text-[var(--term-green)] font-bold">gowri@sles</span>
+            <span class="text-[var(--text-muted)]">:</span>
+            <span class="text-[var(--term-purple)] font-semibold">~/articles</span>
+            <span class="text-[var(--term-yellow)]">$</span>
+            <span class="text-[var(--text-main)] font-semibold">sysadmin-notes --list</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-2 items-center">
+            <!-- Tux ASCII / Neofetch Profile -->
+            <div class="md:col-span-4 flex flex-col items-center justify-center p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] font-mono text-[10px] text-[var(--accent)] select-none">
+              <pre class="leading-tight">
+    .--.
+   |o_o |   OS: SUSE Linux Enterprise (SLES)
+   |:_/ |   Topic: SAP HANA HEC & HA
+  //   \ \  Cluster: Pacemaker + Corosync
+ (|     | ) Storage: LVM / NFS / CIFS
+/'\_   _/`\ Certs: AZ-104 & GCP ACE
+\___)=(___/ Host: TCS Enterprise Cloud
+              </pre>
+            </div>
+
+            <!-- Blog Description & Primary Controls -->
+            <div class="md:col-span-8 space-y-3 font-sans">
+              <h2 class="text-2xl font-bold font-mono text-[var(--text-main)]">
+                Enterprise Linux & Cloud Journal
+              </h2>
+              <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+                Practical runbooks, cluster failover guides, LVM storage expansions, and enterprise monitoring practices from my experience managing SAP HANA environments.
+              </p>
+              
+              <div class="flex flex-wrap items-center gap-2 pt-2">
+                <button onclick="openEditorModal()" class="px-3 py-1.5 rounded bg-[var(--accent)] text-black font-bold text-xs font-mono flex items-center gap-1.5 shadow-sm hover:opacity-90 transition">
+                  <i data-lucide="pen-tool" class="w-3.5 h-3.5"></i>
+                  <span>+ New Post</span>
+                </button>
+                <button onclick="exportAllArticlesJSON()" class="px-3 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-mono text-[var(--text-muted)] hover:text-white flex items-center gap-1 transition">
+                  <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                  <span>Backup JSON</span>
+                </button>
+                <button onclick="downloadSelfHTML()" class="px-3 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-mono text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition">
+                  <i data-lucide="file-code" class="w-3.5 h-3.5"></i>
+                  <span>Export Source .html</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search, Tag Badges & View Filter -->
+      <section class="space-y-4">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
+          <!-- Live grep search -->
+          <div class="relative w-full sm:w-80">
+            <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"></i>
+            <input 
+              type="text" 
+              id="searchInput" 
+              oninput="filterArticles()" 
+              placeholder="grep -i articles by title or keyword..." 
+              class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]"
+            >
+          </div>
+          <!-- Filter Tags -->
+          <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1" id="tagFilterContainer"></div>
+        </div>
+
+        <!-- Rendered Articles Grid -->
+        <div id="articlesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      </section>
+
     </div>
+  </div>
 
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-800 bg-[#080d19] py-6 px-6">
+  <!-- ========================================================= -->
+  <!-- GLOBAL FOOTER                                             -->
+  <!-- ========================================================= -->
+  <footer class="border-t border-slate-800 bg-[#070d18] py-6 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <p>&copy; 2026 Ulligaddala Gowri Mallesh. All rights reserved.</p>
-      <div class="flex items-center gap-6">
-        <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Resume</a>
-        <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition">Email</a>
+      <div class="flex items-center gap-2 font-mono">
+        <i class="fa-solid fa-terminal text-sky-400"></i>
+        <span>&copy; 2026 Ulligaddala Gowri Mallesh • Enterprise System Engineer</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Resume PDF</a>
+        <button onclick="downloadSelfHTML()" class="hover:text-emerald-400 text-emerald-400 font-mono transition flex items-center gap-1">
+          <i class="fa-solid fa-download"></i> Download Source (.html)
+        </button>
+        <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="hover:text-sky-400 text-sky-400 font-mono transition">
+          Switch View
+        </button>
       </div>
     </div>
   </footer>
 
-  <!-- File Download Script for Blog Posts -->
+  <!-- ========================================================= -->
+  <!-- MODAL 1: ARTICLE READER MODAL                             -->
+  <!-- ========================================================= -->
+  <div id="articleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col font-sans">
+      <div class="flex items-center justify-between px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-color)] shrink-0 font-mono">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[var(--term-red)] inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-[var(--term-yellow)] inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-[var(--term-green)] inline-block"></span>
+          <span id="modalDocTitle" class="ml-2 text-xs text-[var(--text-muted)]">cat article.md</span>
+        </div>
+        <button onclick="closeModal()" class="text-[var(--text-muted)] hover:text-white p-1">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-6 font-sans text-xs sm:text-sm leading-relaxed" id="modalArticleContent"></div>
+      <div class="p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex items-center justify-between font-mono text-xs">
+        <button id="modalDownloadBtn" class="px-3 py-1.5 rounded bg-[var(--bg-base)] border border-[var(--border-color)] text-[var(--accent)] hover:border-[var(--accent)] transition flex items-center gap-1.5">
+          <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
+          <span>Export .md</span>
+        </button>
+        <button onclick="closeModal()" class="px-3 py-1.5 rounded bg-[var(--bg-base)] border border-[var(--border-color)] text-[var(--text-main)] hover:border-[var(--accent)]">
+          :q (close)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODAL 2: WRITE / DRAFT POST MODAL                         -->
+  <!-- ========================================================= -->
+  <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-2xl flex flex-col font-mono text-xs max-h-[92vh] overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-2.5 bg-[var(--bg-card)] border-b border-[var(--border-color)]">
+        <span class="font-bold text-white flex items-center gap-2">
+          <i data-lucide="pen-tool" class="w-3.5 h-3.5 text-[var(--accent)]"></i>
+          <span>vim /var/log/articles/new_entry.md</span>
+        </span>
+        <button onclick="closeEditorModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div class="p-4 space-y-3 bg-[var(--bg-base)] overflow-y-auto">
+        <div>
+          <label class="block text-[var(--text-muted)] mb-1 font-semibold">Title *</label>
+          <input id="editorTitle" type="text" placeholder="e.g., Pacemaker Failover Runbook on SUSE Linux" class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded p-2 text-white focus:outline-none focus:border-[var(--accent)]">
+        </div>
+        <div>
+          <label class="block text-[var(--text-muted)] mb-1 font-semibold">Tags (comma separated)</label>
+          <input id="editorTags" type="text" placeholder="SAP HANA, SLES, Pacemaker, High Availability" class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded p-2 text-white focus:outline-none focus:border-[var(--accent)]">
+        </div>
+        <div>
+          <label class="block text-[var(--text-muted)] mb-1 font-semibold">Markdown Content *</label>
+          <textarea id="editorMarkdown" rows="10" placeholder="# Overview&#10;&#10;Explain technical configurations, CLI commands, and log outputs here...&#10;&#10;```bash&#10;crm status&#10;```" class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded p-2 text-white focus:outline-none focus:border-[var(--accent)] leading-relaxed"></textarea>
+        </div>
+      </div>
+      <div class="p-3 bg-[var(--bg-card)] flex justify-end gap-2 border-t border-[var(--border-color)]">
+        <button onclick="closeEditorModal()" class="px-3.5 py-1.5 rounded bg-[var(--bg-base)] text-slate-300">Cancel</button>
+        <button onclick="saveAndPublishArticle()" class="px-4 py-1.5 rounded bg-[var(--accent)] text-black font-bold flex items-center gap-1.5">
+          <i data-lucide="save" class="w-3.5 h-3.5"></i>
+          <span>Save & Publish</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- JAVASCRIPT APPLICATION LOGIC                              -->
+  <!-- ========================================================= -->
   <script>
-    const pacemakerContent = `=================================================================
-PACEMAKER & COROSYNC CLUSTER SETUP FOR SAP HANA HSR (SLES)
-Author: Ulligaddala Gowri Mallesh (System Administrator)
-=================================================================
+    // State Tracking
+    let currentView = 'portfolio';
+    let activeTag = "All";
+    let searchQuery = "";
+    const STORAGE_KEY = "gowri_linux_tech_journal_posts";
 
-1. PREREQUISITES:
-   - SLES for SAP Applications 15 SPx
-   - HANA System Replication (HSR) configured in sync/syncmem mode
-   - Virtual IP assigned for SAP HANA primary instance
+    // Preloaded Technical Articles
+    const initialArticles = [
+      {
+        id: "pacemaker-sles-sap-hana",
+        title: "Pacemaker & Corosync Setup for SAP HANA High Availability on SLES",
+        date: "2026-10-10",
+        readTime: "8 min read",
+        tags: ["SAP HANA", "SLES", "Pacemaker", "High Availability"],
+        summary: "Step-by-step setup of automated two-node SAP HANA System Replication (HSR) failover using Pacemaker, Corosync, and SAPHanaSR on SUSE Linux Enterprise Server.",
+        rawMarkdown: `# Pacemaker & Corosync Clustering for SAP HANA HSR
 
-2. COROSYNC VALIDATION:
-   # corosync-cfgtool -s
-   # crm status
+In mission-critical enterprise SAP environments running on SUSE Linux Enterprise Server (SLES), high availability is achieved through Pacemaker, Corosync, and the \`SAPHanaSR\` resource agent hook.
 
-3. STONITH FENCING CONFIGURATION (AZURE / ON-PREM):
-   # crm configure primitive rsc_st_azure stonith:fence_azure_arm \\
-       params subscriptionId="..." resourceGroup="..." vmName="..." \\
-       pcmk_reboot_timeout=900 pcmk_monitor_timeout=120
+## 1. Verifying Cluster Communication
+Ensure Corosync communication is healthy across rings:
+\`\`\`bash
+corosync-cfgtool -s
+crm status
+\`\`\`
 
-4. SAP HANA RESOURCE DEFINITION:
-   # crm configure primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana \\
-       params SID="HDB" InstanceNumber="00" PREFER_SITE_TAKEOVER="true" \\
-       DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \\
-       op start interval="0" timeout="3600" \\
-       op stop interval="0" timeout="3600" \\
-       op monitor interval="60" role="Master" timeout="700" \\
-       op monitor interval="61" role="Slave" timeout="700"
+## 2. STONITH Fencing Configuration
+A resilient fencing mechanism prevents split-brain scenarios:
+\`\`\`bash
+crm configure primitive rsc_st_azure stonith:fence_azure_arm \\
+    params subscriptionId="xxxx" resourceGroup="rg-sap-prod" vmName="sles-hana-01" \\
+    pcmk_reboot_timeout=900 pcmk_monitor_timeout=120
+\`\`\`
 
-5. FAILOVER VERIFICATION:
-   # crm node standby <primary-node>
-   Verify automatic takeover by secondary without split-brain.
-=================================================================`;
+## 3. Configuring SAPHana Topology
+\`\`\`bash
+crm configure primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana \\
+    params SID="HDB" InstanceNumber="00" PREFER_SITE_TAKEOVER="true" \\
+    DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \\
+    op start interval="0" timeout="3600" \\
+    op stop interval="0" timeout="3600" \\
+    op monitor interval="60" role="Master" timeout="700" \\
+    op monitor interval="61" role="Slave" timeout="700"
+\`\`\`
 
-    const lvmContent = `=================================================================
-ONLINE LVM STORAGE MANAGEMENT & NFS CHEATSHEET
-Author: Ulligaddala Gowri Mallesh (System Administrator)
-=================================================================
+## 4. Validating Replication State
+Use \`SAPHanaSR-showAttr\` to monitor real-time sync status:
+\`\`\`bash
+SAPHanaSR-showAttr
+\`\`\``
+      },
+      {
+        id: "online-lvm-disk-expansion",
+        title: "Online LVM Disk Expansion & Resolving NFS/SAMBA CIFS Mount Locks",
+        date: "2026-09-22",
+        readTime: "7 min read",
+        tags: ["Linux", "LVM", "Storage", "NFS"],
+        summary: "Field guide to safely expanding Physical Volumes, Volume Groups, and XFS/ext4 filesystems on running SAP production servers without service disruption.",
+        rawMarkdown: `# Online LVM Disk Expansion & Storage Recovery
 
-1. SCAN FOR NEW LUN / DISK:
-   # echo "- - -" > /sys/class/scsi_host/host0/scan
-   # lsblk
+When SAP HANA database volumes approach capacity thresholds, LVM allows non-disruptive storage increases.
 
-2. INITIALIZE PHYSICAL VOLUME:
-   # pvcreate /dev/sdX
+## 1. Rescan SCSI Bus for New LUN Storage
+\`\`\`bash
+echo "- - -" > /sys/class/scsi_host/host0/scan
+lsblk
+\`\`\`
 
-3. EXTEND EXISTING VOLUME GROUP:
-   # vgextend vg_sapdata /dev/sdX
-   # vgs
+## 2. Initialize Physical Volume & Extend Volume Group
+\`\`\`bash
+pvcreate /dev/sdc
+vgextend vg_sapdata /dev/sdc
+vgs
+\`\`\`
 
-4. EXTEND LOGICAL VOLUME ONLINE (+100GB or 100% FREE):
-   # lvextend -L +100G /dev/vg_sapdata/lv_data
-   OR
-   # lvextend -l +100%FREE /dev/vg_sapdata/lv_data
+## 3. Extend Logical Volume Online (+100GB or 100% Free)
+\`\`\`bash
+lvextend -L +100G /dev/vg_sapdata/lv_data
+# Or consume all remaining space:
+lvextend -l +100%FREE /dev/vg_sapdata/lv_data
+\`\`\`
 
-5. RESIZE FILESYSTEM (XFS vs EXT4):
-   - For XFS (Online):
-     # xfs_growfs /hana/data
-   - For EXT4 (Online):
-     # resize2fs /dev/vg_sapdata/lv_data
+## 4. Resize Filesystem Online
+- **For XFS:**
+\`\`\`bash
+xfs_growfs /hana/data
+\`\`\`
+- **For EXT4:**
+\`\`\`bash
+resize2fs /dev/vg_sapdata/lv_data
+\`\`\`
 
-6. FIX STALE NFS MOUNTS:
-   # umount -f -l /mnt/share
-   # mount -t nfs -o rw,bg,hard,intr server:/export /mnt/share
-=================================================================`;
+## 5. Clearing Stale NFS Mount Locks
+\`\`\`bash
+umount -f -l /mnt/sapbackup
+mount -t nfs -o rw,bg,hard,intr nas01:/sapbackups /mnt/sapbackup
+\`\`\``
+      },
+      {
+        id: "proactive-monitoring-prometheus-grafana",
+        title: "Proactive Linux Monitoring: Setting Dashboards for P1/P2 SLA Prevention",
+        date: "2026-08-15",
+        readTime: "6 min read",
+        tags: ["Monitoring", "Grafana", "Prometheus", "Azure"],
+        summary: "Designing real-time metric thresholds in Prometheus, Grafana, and Azure Monitor to detect memory ballooning and I/O wait before SLAs are breached.",
+        rawMarkdown: `# Proactive Linux Monitoring for Enterprise SLAs
 
-    const monitoringContent = `=================================================================
-ENTERPRISE LINUX OBSERVABILITY & SLA INCIDENT PLAYBOOK
-Author: Ulligaddala Gowri Mallesh (System Administrator)
-=================================================================
+Preventing critical P1 and P2 incidents requires early warning detection before operating system kernel limits are breached.
 
-1. KEY KERNEL & MEMORY METRICS:
-   - Memory Threshold: Alert when free + cached < 10%
-   - Load Average: Alert when Load > (Total CPU cores * 1.5)
-   - Disk Latency: IO service time > 20ms
+## 1. Key Metric Thresholds
+- **Memory Pressure:** Trigger warning alert when \`Available < 15%\`.
+- **I/O Wait:** Alert when \`iowait > 25%\` for longer than 5 minutes.
+- **Load Average:** Alert when load exceeds \`CPU Cores * 1.5\`.
 
-2. PROMETHEUS NODE EXPORTER ALERT RULES:
-   - alert: HighMemoryUsage
-     expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes > 0.90
-     for: 5m
-     labels:
-       severity: P2
-     annotations:
-       summary: "Server memory saturation approaching threshold"
+## 2. Prometheus Alerting Expression
+\`\`\`yaml
+- alert: SLESMemoryCritical
+  expr: (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
+  for: 3m
+  labels:
+    severity: P2
+  annotations:
+    summary: "Host {{ $labels.instance }} memory critically low."
+\`\`\`
 
-3. P1/P2 TRIAGE STEPS:
-   - Step 1: Identify runaway processes: # top -c -b -n 1
-   - Step 2: Check OOM killer logs: # dmesg -T | grep -i oom
-   - Step 3: Investigate I/O wait: # iostat -xz 1 10
-   - Step 4: Ensure SAP dispatcher / watchdog processes are active
-=================================================================`;
+## 3. High CPU / Disk Contention Triage Commands
+\`\`\`bash
+# Identify memory hogging processes
+top -o %MEM -b -n 1 | head -n 20
 
-    function downloadTextFile(filename, text) {
-      const element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-      element.setAttribute('download', filename);
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
+# Identify processes stuck in uninterruptible sleep (D state)
+ps aux | awk '{if ($8 ~ /D/) print $0}'
+
+# Check live I/O activity
+iostat -xz 1 5
+\`\`\``
+      }
+    ];
+
+    // Load articles from localStorage or fallback
+    function getArticles() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try { return JSON.parse(stored); } catch (e) { console.error(e); }
+      }
+      return initialArticles;
     }
-  </script>
 
+    // Switch between Portfolio and Blog views
+    function switchView(view) {
+      currentView = view;
+      const portEl = document.getElementById("portfolioView");
+      const blogEl = document.getElementById("blogView");
+      const navPort = document.getElementById("navPortfolioBtn");
+      const navBlog = document.getElementById("navBlogBtn");
+      const toggleText = document.getElementById("quickToggleText");
+
+      if (view === 'blog') {
+        portEl.classList.add("hidden");
+        blogEl.classList.remove("hidden");
+        navBlog.className = "text-sky-400 font-semibold font-mono";
+        navPort.className = "hover:text-sky-400 text-slate-300 font-medium";
+        toggleText.textContent = "View Portfolio";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderTagFilters();
+        renderArticles();
+      } else {
+        blogEl.classList.add("hidden");
+        portEl.classList.remove("hidden");
+        navPort.className = "text-sky-400 font-semibold font-medium";
+        navBlog.className = "hover:text-sky-400 text-slate-300 font-mono";
+        toggleText.textContent = "Open Tech Blog";
+      }
+      lucide.createIcons();
+    }
+
+    function toggleView() {
+      switchView(currentView === 'portfolio' ? 'blog' : 'portfolio');
+    }
+
+    // Render Tag Filters
+    function renderTagFilters() {
+      const container = document.getElementById("tagFilterContainer");
+      const tags = new Set(["All"]);
+      getArticles().forEach(post => (post.tags || []).forEach(t => tags.add(t)));
+      container.innerHTML = Array.from(tags).map(tag => `
+        <button onclick="selectTag('${tag}')" class="px-2.5 py-1 rounded-lg border text-[11px] whitespace-nowrap transition ${
+          activeTag === tag 
+            ? 'bg-[var(--accent)] text-black font-bold border-[var(--accent)]' 
+            : 'bg-[var(--bg-card)] text-[var(--text-muted)] border-[var(--border-color)] hover:border-[var(--accent)] hover:text-white'
+        }">#${tag}</button>
+      `).join("");
+    }
+
+    function selectTag(tag) {
+      activeTag = tag;
+      renderTagFilters();
+      renderArticles();
+    }
+
+    function filterArticles() {
+      searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
+      renderArticles();
+    }
+
+    // Render Article Cards
+    function renderArticles() {
+      const container = document.getElementById("articlesContainer");
+      const articles = getArticles();
+
+      const filtered = articles.filter(post => {
+        const matchesTag = activeTag === "All" || (post.tags && post.tags.includes(activeTag));
+        const matchesSearch = !searchQuery || 
+          post.title.toLowerCase().includes(searchQuery) ||
+          (post.summary && post.summary.toLowerCase().includes(searchQuery));
+        return matchesTag && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center font-mono text-xs text-[var(--text-muted)] border border-[var(--border-color)] rounded-xl bg-[var(--bg-surface)]">
+            <i data-lucide="terminal" class="w-8 h-8 mx-auto mb-2 text-yellow-400"></i>
+            grep: 0 matching records found.
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = filtered.map(post => `
+        <article class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent)] transition duration-200 flex flex-col justify-between group shadow-lg">
+          <div>
+            <div class="text-[11px] font-mono text-[var(--text-muted)] mb-2 flex items-center justify-between">
+              <span class="flex items-center gap-1 text-[var(--term-green)]">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i> ${post.date}
+              </span>
+              <span>${post.readTime || '5 min read'}</span>
+            </div>
+            <h3 class="text-base font-bold font-mono text-[var(--text-main)] group-hover:text-[var(--accent)] transition leading-snug mb-2">
+              ${post.title}
+            </h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
+              ${post.summary || ''}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-[var(--border-color)] mt-auto">
+            <div class="flex flex-wrap gap-1.5 mb-3">
+              ${(post.tags || []).map(t => `
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--accent)] border border-[var(--border-color)]">
+                  #${t}
+                </span>
+              `).join('')}
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="openArticle('${post.id}')" class="flex-1 py-1.5 px-3 rounded-lg bg-[var(--bg-card)] hover:bg-[var(--accent)] hover:text-black border border-[var(--border-color)] hover:border-[var(--accent)] text-xs font-mono font-medium transition flex items-center justify-center gap-1.5">
+                <span>cat --read</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+              <button onclick="downloadMarkdownFile('${post.id}')" title="Download .md notes" class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] text-[var(--text-muted)] hover:text-[var(--accent)] transition">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      lucide.createIcons();
+    }
+
+    // Modal Operations
+    function openArticle(postId) {
+      const post = getArticles().find(p => p.id === postId);
+      if (!post) return;
+
+      document.getElementById("modalDocTitle").textContent = `cat ${post.id}.md`;
+      const rendered = post.rawMarkdown ? marked.parse(post.rawMarkdown) : (post.content || '');
+      
+      document.getElementById("modalArticleContent").innerHTML = `
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-2 font-mono text-[11px]">
+            ${(post.tags || []).map(t => `<span class="px-2 py-0.5 rounded bg-[var(--bg-card)] text-[var(--accent)] border border-[var(--border-color)]">#${t}</span>`).join('')}
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold font-mono text-[var(--text-main)] mb-1">${post.title}</h1>
+          <div class="text-xs font-mono text-[var(--text-muted)] mb-4">${post.date} • ${post.readTime || '5 min read'}</div>
+          ${post.summary ? `<p class="text-xs italic text-[var(--text-muted)] border-l-2 border-[var(--accent)] pl-3 mb-6">${post.summary}</p>` : ''}
+        </div>
+        <div class="prose max-w-none text-xs sm:text-sm text-[var(--text-main)] space-y-4">
+          ${rendered}
+        </div>
+      `;
+
+      document.getElementById("modalDownloadBtn").onclick = () => downloadMarkdownFile(post.id);
+      document.getElementById("articleModal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      document.getElementById("articleModal").classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+
+    function openEditorModal() {
+      document.getElementById("editorModal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      lucide.createIcons();
+    }
+
+    function closeEditorModal() {
+      document.getElementById("editorModal").classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+
+    // Save and Publish New Post
+    function saveAndPublishArticle() {
+      const title = document.getElementById("editorTitle").value.trim();
+      const rawTags = document.getElementById("editorTags").value;
+      const markdown = document.getElementById("editorMarkdown").value.trim();
+
+      if (!title || !markdown) {
+        alert("Please enter both a Title and Markdown content.");
+        return;
+      }
+
+      const tagsArray = rawTags ? rawTags.split(',').map(t => t.trim()).filter(Boolean) : ["SLES", "Linux"];
+      const newPost = {
+        id: `post-${Date.now()}`,
+        title: title,
+        date: new Date().toISOString().split('T')[0],
+        readTime: `${Math.max(1, Math.ceil(markdown.split(/\s+/).length / 200))} min read`,
+        tags: tagsArray,
+        summary: markdown.substring(0, 140) + "...",
+        rawMarkdown: markdown
+      };
+
+      const existing = getArticles();
+      const updated = [newPost, ...existing];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+
+      // Reset Inputs
+      document.getElementById("editorTitle").value = "";
+      document.getElementById("editorTags").value = "";
+      document.getElementById("editorMarkdown").value = "";
+
+      closeEditorModal();
+      renderTagFilters();
+      renderArticles();
+    }
+
+    // File Downloads & Backups
+    function downloadMarkdownFile(postId) {
+      const post = getArticles().find(p => p.id === postId);
+      if (!post) return;
+      const content = `# ${post.title}\nDate: ${post.date}\nTags: ${(post.tags || []).join(', ')}\n\n${post.rawMarkdown || post.summary}`;
+      triggerFileDownload(`${post.id}.md`, content, 'text/markdown');
+    }
+
+    function exportAllArticlesJSON() {
+      const data = JSON.stringify(getArticles(), null, 2);
+      triggerFileDownload('gowri-articles-backup.json', data, 'application/json');
+    }
+
+    // Browser Self HTML Downloader (Downloads the current running page as index.html)
+    function downloadSelfHTML() {
+      const fullHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      triggerFileDownload('index.html', fullHTML, 'text/html');
+    }
+
+    function triggerFileDownload(filename, text, mimeType) {
+      const blob = new Blob([text], { type: mimeType });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Terminal Theme Switcher
+    function changeTheme(themeName) {
+      document.documentElement.setAttribute("data-theme", themeName);
+      localStorage.setItem("gowri_site_theme", themeName);
+      const sel = document.getElementById("themeSelect");
+      if (sel) sel.value = themeName;
+    }
+
+    // Initialize application on load
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      const savedTheme = localStorage.getItem("gowri_site_theme") || "nord";
+      changeTheme(savedTheme);
+      renderTagFilters();
+      renderArticles();
+
+      // Keyboard Esc handler for modals
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+          closeEditorModal();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
