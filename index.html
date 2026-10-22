@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ulligaddala Gowri Mallesh | Senior System Engineer & Cloud Infrastructure Specialist</title>
+  <title>Ulligaddala Gowri Mallesh | System Administrator & Cloud Specialist</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: JetBrains Mono / Fira Code & Inter -->
+  <!-- Google Fonts: Inter & Fira Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Marked.js for fast client-side markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
@@ -32,17 +30,17 @@
   </script>
 
   <style>
-    /* CSS Variables for Dynamic Terminal & Web Themes */
     :root, [data-theme="nord"] {
-      --bg-base: #0f172a;
-      --bg-surface: #1e293b;
-      --bg-card: #1e293b;
-      --bg-subtle: #09101f;
-      --border-color: #334155;
-      --text-main: #f8fafc;
+      --bg-base: #0a0f1d;
+      --bg-surface: #11192d;
+      --bg-card: #16223b;
+      --bg-hover: #1f3052;
+      --border-color: #223253;
+      --text-main: #f1f5f9;
       --text-muted: #94a3b8;
       --accent: #38bdf8;
       --accent-glow: rgba(56, 189, 248, 0.25);
+      --accent-alt: #818cf8;
       --term-green: #4ade80;
       --term-yellow: #facc15;
       --term-red: #f87171;
@@ -53,12 +51,13 @@
       --bg-base: #020b05;
       --bg-surface: #051409;
       --bg-card: #081f0d;
-      --bg-subtle: #010603;
-      --border-color: #165324;
-      --text-main: #4ade80;
-      --text-muted: #22c55e;
+      --bg-hover: #0d2e14;
+      --border-color: #174d22;
+      --text-main: #5af779;
+      --text-muted: #2d8c42;
       --accent: #00ff66;
-      --accent-glow: rgba(0, 255, 102, 0.35);
+      --accent-glow: rgba(0, 255, 102, 0.3);
+      --accent-alt: #34d399;
       --term-green: #00ff66;
       --term-yellow: #a3e635;
       --term-red: #f87171;
@@ -69,70 +68,41 @@
       --bg-base: #1b1d1e;
       --bg-surface: #272822;
       --bg-card: #32332c;
-      --bg-subtle: #121314;
+      --bg-hover: #3e3d32;
       --border-color: #49483e;
       --text-main: #f8f8f2;
-      --text-muted: #8b8878;
+      --text-muted: #75715e;
       --accent: #a6e22e;
       --accent-glow: rgba(166, 226, 46, 0.25);
+      --accent-alt: #66d9ef;
       --term-green: #a6e22e;
       --term-yellow: #e6db74;
       --term-red: #f92672;
       --term-purple: #fd971f;
     }
 
-    [data-theme="dracula"] {
-      --bg-base: #1e1f29;
-      --bg-surface: #282a36;
-      --bg-card: #343746;
-      --bg-subtle: #14151c;
-      --border-color: #44475a;
-      --text-main: #f8f8f2;
-      --text-muted: #9499b7;
-      --accent: #bd93f9;
-      --accent-glow: rgba(189, 147, 249, 0.25);
-      --term-green: #50fa7b;
-      --term-yellow: #f1fa8c;
-      --term-red: #ff5555;
-      --term-purple: #ff79c6;
-    }
-
-    [data-theme="paper"] {
-      --bg-base: #f8fafc;
-      --bg-surface: #ffffff;
-      --bg-card: #f1f5f9;
-      --bg-subtle: #e2e8f0;
-      --border-color: #cbd5e1;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --accent: #0284c7;
-      --accent-glow: rgba(2, 132, 199, 0.25);
-      --term-green: #16a34a;
-      --term-yellow: #d97706;
-      --term-red: #dc2626;
-      --term-purple: #7c3aed;
-    }
-
     body {
       background-color: var(--bg-base);
       color: var(--text-main);
       font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     .hero-glow {
-      background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.16), transparent 50%),
-                  radial-gradient(circle at 15% 85%, rgba(30, 58, 138, 0.22), transparent 50%);
+      background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.16), transparent 50%),
+                  radial-gradient(circle at 15% 85%, rgba(37, 99, 235, 0.18), transparent 50%);
     }
 
-    .terminal-dots {
+    .terminal-grid {
       background-image: radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0);
       background-size: 24px 24px;
     }
 
+    /* Custom sleek scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
     }
     ::-webkit-scrollbar-track {
       background: var(--bg-base);
@@ -149,55 +119,59 @@
 <body class="min-h-screen flex flex-col justify-between selection:bg-sky-400 selection:text-black">
 
   <!-- ========================================================= -->
-  <!-- TOP GLOBAL NAVIGATION BAR                                 -->
+  <!-- TOP GLOBAL NAVBAR (TitanCloud Removed)                    -->
   <!-- ========================================================= -->
-  <header class="border-b border-slate-800 bg-[#0c1424]/90 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-2">
+  <header class="border-b border-[#223253] bg-[#0a0f1d]/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
       
-      <!-- Brand Logo / Identity -->
-      <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('portfolio')">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 via-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+      <!-- Clean Brand Logo / Identity -->
+      <a href="#about" onclick="switchView('portfolio')" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 via-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
           <i class="fa-solid fa-server"></i>
         </div>
         <div>
           <span class="text-lg font-bold tracking-tight text-white flex items-center gap-1">
             Gowri<span class="text-sky-400">Mallesh</span>
           </span>
-          <span class="text-[10px] text-slate-400 font-mono block -mt-1">Senior System Engineer</span>
+          <span class="text-[11px] text-slate-400 font-mono block -mt-0.5">System Administrator</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Center Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-        <button onclick="switchView('portfolio')" id="navPortfolioBtn" class="text-sky-400 font-semibold transition hover:text-sky-300">
-          Portfolio
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <button onclick="switchView('portfolio')" id="navPortfolioBtn" class="text-sky-400 font-semibold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-user-tie text-xs"></i> Portfolio
         </button>
         <button onclick="switchView('blog')" id="navBlogBtn" class="hover:text-sky-400 transition flex items-center gap-1.5 font-mono">
-          <i class="fa-solid fa-terminal text-xs text-sky-400"></i> Tech Journal
+          <i class="fa-solid fa-terminal text-xs text-emerald-400"></i> Tech Journal
         </button>
         <a href="#about" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">About</a>
         <a href="#skills" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Skills</a>
         <a href="#experience" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Experience</a>
-        <a href="#certifications" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Certifications</a>
         <a href="#contact" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Contact</a>
       </nav>
 
-      <!-- Action Buttons: Download HTML & Tab Switcher -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <!-- Direct File Download Button -->
-        <button onclick="downloadSelfHTML()" title="Download entire single-file HTML code" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/70 border border-emerald-700/80 text-emerald-300 hover:bg-emerald-900 text-xs font-mono transition">
-          <i class="fa-solid fa-file-arrow-down"></i>
-          <span>Save .html</span>
+      <!-- Action Buttons, Authentication Controls & View Switcher -->
+      <div class="flex items-center gap-2.5">
+        <!-- User Session Container (Sign In / Register / Status Badge) -->
+        <div id="authHeaderContainer"></div>
+
+        <!-- Switch View Quick Button -->
+        <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="px-3.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-book-open"></i>
+          <span id="quickToggleText">Open Blog</span>
         </button>
 
-        <!-- View Switch Toggle -->
-        <button onclick="toggleView()" id="quickToggleBtn" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5 shadow-sm">
-          <i class="fa-solid fa-terminal text-xs"></i>
-          <span id="quickToggleText">Open Tech Blog</span>
+        <!-- Download Runnable Code Button -->
+        <button onclick="downloadSelfCode()" title="Download entire runnable index.html" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition">
+          <i class="fa-solid fa-download text-sky-400"></i>
+          <span>Download Code</span>
         </button>
 
-        <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-md transition">
-          Connect
+        <!-- Contact CTA -->
+        <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-md transition flex items-center gap-1.5">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+          <span class="hidden sm:inline">Let's Connect</span>
         </a>
       </div>
 
@@ -207,24 +181,24 @@
   <!-- ========================================================= -->
   <!-- 1. PORTFOLIO VIEW CONTAINER                               -->
   <!-- ========================================================= -->
-  <div id="portfolioView" class="w-full">
+  <div id="portfolioView" class="w-full transition-opacity duration-300">
     
     <!-- Hero Section -->
-    <section id="about" class="hero-glow border-b border-slate-800 py-14 sm:py-16 px-4 sm:px-6">
+    <section id="about" class="hero-glow border-b border-[#223253] py-16 sm:py-20 px-4 sm:px-6">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        <!-- Bio and Intro -->
+        <!-- Bio Information -->
         <div class="lg:col-span-7 space-y-5">
           <div class="space-y-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-950/80 border border-sky-800 text-sky-400 rounded-full text-xs font-semibold uppercase tracking-wider">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-950/80 border border-sky-800 text-sky-400 rounded-full text-xs font-semibold uppercase tracking-wider font-mono">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              System Administrator • Enterprise Cloud & Linux
+              System Administrator • Tata Consultancy Services (4+ Yrs Experience)
             </div>
             <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
               Ulligaddala Gowri Mallesh
             </h1>
             <p class="text-sky-400 text-base sm:text-xl font-medium">
-              4+ Years in SAP Server Management & Cloud Infrastructure
+              Enterprise Linux, SAP HANA HEC & Multi-Cloud Infrastructure
             </p>
             <div class="text-slate-400 text-xs sm:text-sm pt-2 flex flex-wrap gap-4 items-center">
               <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-sky-400"></i>+91 9014270009</span>
@@ -234,27 +208,27 @@
           </div>
 
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Dedicated and detail-oriented professional with 4 years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments. Hands-on expertise in managing daily SAP operations on Linux SUSE (SLES), Pacemaker High Availability clustering, OS-level troubleshooting, backup operations, storage LVM expansions, and multi-cloud administration across Microsoft Azure and GCP.
+            Dedicated and detail-oriented professional with 4+ years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments at <strong>Tata Consultancy Services (TCS)</strong>. Hands-on expertise managing daily SAP operations on SUSE Linux Enterprise Server (SLES), Pacemaker High-Availability clusters, LVM disk management, NFS/SAMBA CIFS mounts, OS-level troubleshooting, system monitoring, and multi-cloud solutions across Microsoft Azure and Google Cloud.
           </p>
 
-          <!-- Core Call to Actions -->
-          <div class="flex flex-wrap gap-3 pt-3">
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap gap-3 pt-2">
             <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg shadow-lg transition flex items-center gap-2">
               <i class="fa-solid fa-file-pdf"></i> View / Download Resume
             </a>
-            <button onclick="switchView('blog')" class="border border-sky-500/70 bg-sky-950/50 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2 font-mono">
-              <i class="fa-solid fa-terminal"></i> Read Linux Tech Blog
+            <button onclick="switchView('blog')" class="border border-sky-500/60 bg-sky-950/40 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-terminal"></i> Read Tech Blog
             </button>
-            <button onclick="downloadSelfHTML()" class="border border-emerald-600/70 bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition flex items-center gap-2 font-mono">
-              <i class="fa-solid fa-download"></i> Download HTML Code
+            <button onclick="downloadSelfCode()" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-download text-sky-400"></i> Download Single-File Code
             </button>
           </div>
         </div>
 
-        <!-- Right: Official Cloud Certifications Card Grid -->
+        <!-- Verified Cloud Certifications Cards -->
         <div id="certifications" class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- AZ-104 -->
-          <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl hover:border-sky-500 transition">
+          <div class="bg-[#11192d] border border-[#223253] rounded-xl p-4 shadow-xl hover:border-sky-500 transition">
             <div class="flex justify-between items-center mb-2">
               <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
               <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
@@ -265,7 +239,7 @@
           </div>
 
           <!-- AZ-900 -->
-          <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl hover:border-sky-500 transition">
+          <div class="bg-[#11192d] border border-[#223253] rounded-xl p-4 shadow-xl hover:border-sky-500 transition">
             <div class="flex justify-between items-center mb-2">
               <i class="fa-brands fa-microsoft text-blue-400 text-2xl"></i>
               <span class="text-[10px] bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800 font-semibold">Verified</span>
@@ -276,7 +250,7 @@
           </div>
 
           <!-- GCP ACE -->
-          <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 shadow-xl sm:col-span-2 hover:border-emerald-500 transition">
+          <div class="bg-[#11192d] border border-[#223253] rounded-xl p-4 shadow-xl sm:col-span-2 hover:border-emerald-500 transition">
             <div class="flex justify-between items-center mb-2">
               <i class="fa-brands fa-google text-red-400 text-2xl"></i>
               <span class="text-[10px] bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800 font-semibold">Verified</span>
@@ -284,25 +258,23 @@
             <p class="text-xs text-slate-400">Google Cloud Certified</p>
             <h2 class="text-sm font-bold text-white mt-0.5">Associate Cloud Engineer</h2>
             <p class="text-xs text-emerald-400 font-mono mt-1 font-semibold">GCP ACE</p>
-            <p class="text-[11px] text-slate-400 mt-1">Multi-cloud deployments, VPC peering, cloud load balancing, and IAM management.</p>
+            <p class="text-[11px] text-slate-400 mt-1">Specialized in enterprise cloud compute, persistent disks, VPC routing, and IAM security controls.</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Main Experience & Competencies Section -->
+    <!-- Experience & Responsibilities -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 py-14 space-y-12">
-      
-      <!-- Work Experience Details -->
-      <section id="experience" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
-        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 mb-6">
+      <section id="experience" class="bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-[#223253] pb-4 mb-6">
           <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Work Experience</span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 font-mono">Work Experience</span>
             <h2 class="text-xl font-bold text-white mt-1">Tata Consultancy Services Limited</h2>
             <p class="text-sm text-slate-300">System Administrator • Bengaluru</p>
           </div>
-          <span class="text-xs font-mono font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-slate-700 w-fit">
+          <span class="text-xs font-mono font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-[#223253] w-fit">
             2021 – Present (4+ Years)
           </span>
         </div>
@@ -333,43 +305,43 @@
           </div>
         </div>
 
-        <!-- 6-Box Daily Responsibilities Grid -->
-        <div class="mt-8 pt-6 border-t border-slate-800">
+        <!-- Core Responsibilities Grid -->
+        <div class="mt-8 pt-6 border-t border-[#223253]">
           <h3 class="font-semibold text-white mb-4 text-xs uppercase tracking-wider text-slate-400 font-mono">
             Core Daily Responsibilities
           </h3>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs text-slate-300">
-            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-[#223253]">
               <strong class="text-white block mb-1 flex items-center gap-1.5">
                 <i class="fa-solid fa-wrench text-sky-400"></i> Patching & Software Updates
               </strong>
               Executing scheduled OS patching on Linux servers and maintaining package repositories.
             </div>
-            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-[#223253]">
               <strong class="text-white block mb-1 flex items-center gap-1.5">
                 <i class="fa-solid fa-ticket text-amber-400"></i> P1 - P4 Ticket Resolution
               </strong>
               Resolving priority incidents strictly within client Service Level Agreements (SLAs).
             </div>
-            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-[#223253]">
               <strong class="text-white block mb-1 flex items-center gap-1.5">
                 <i class="fa-solid fa-hard-drive text-emerald-400"></i> LVM & Filesystem Management
               </strong>
               Online LVM disk expansions, volume group extensions, and resolving NFS/SAMBA CIFS locks.
             </div>
-            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-[#223253]">
               <strong class="text-white block mb-1 flex items-center gap-1.5">
                 <i class="fa-solid fa-arrows-spin text-purple-400"></i> Outage & Shift Handover
               </strong>
               Managing critical outages with cross-functional teams and ensuring seamless 24/7 handover servers.
             </div>
-            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-[#223253]">
               <strong class="text-white block mb-1 flex items-center gap-1.5">
                 <i class="fa-solid fa-chalkboard-user text-cyan-400"></i> Knowledge Transfer (KT)
               </strong>
               Authoring standard operating procedures (SOPs) and onboarding new sysadmins onto accounts.
             </div>
-            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-slate-700/60">
+            <div class="bg-slate-800/60 p-3.5 rounded-lg border border-[#223253]">
               <strong class="text-white block mb-1 flex items-center gap-1.5">
                 <i class="fa-solid fa-shield text-rose-400"></i> Server Hardening & Setup
               </strong>
@@ -379,33 +351,35 @@
         </div>
       </section>
 
-      <!-- Technical Skills, Education & Contact Section -->
+      <!-- Skills, Education & Contact Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        <!-- Left: Skills Badges & Education -->
+        <!-- Left: Skills & Education -->
         <div class="lg:col-span-7 space-y-8">
           
-          <section id="skills" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+          <!-- Technical Skills -->
+          <section id="skills" class="bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 shadow-lg">
             <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
               <i class="fa-solid fa-gears text-sky-400"></i> Technical Competencies
             </h2>
             <div class="flex flex-wrap gap-2 text-xs">
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">SAP HEC Infrastructure</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">SUSE Linux (SLES)</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Pacemaker & Corosync</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">HANA DB Backup & Recovery</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Grafana & Prometheus</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Microsoft Azure (AZ-104)</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Google Cloud (GCP ACE)</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">CIFS & NFS Mount Ownership</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Root Cause Analysis (RCA)</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">ITIL Incident & Problem Mgmt</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">LVM Partitioning & Expansion</span>
-              <span class="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-slate-200">Docker & Kubernetes Basics</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">SAP HEC Infrastructure</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">SUSE Linux (SLES)</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">Pacemaker & Corosync</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">HANA DB Backup & Recovery</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">Grafana, Prometheus & DT Chat</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">Microsoft Azure (AZ-104, AZ-900)</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">Google Cloud (GCP ACE)</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">CIFS & NFS Mount Ownership</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">Root Cause Analysis (RCA)</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">ITIL Incident & Problem Mgmt</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">LVM Partitioning & Online Expansion</span>
+              <span class="px-3 py-1.5 bg-[#16223b] border border-[#223253] rounded-lg text-slate-200">Docker & Kubernetes Basics</span>
             </div>
           </section>
 
-          <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+          <!-- Education Section -->
+          <section id="education" class="bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 shadow-lg">
             <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
               <i class="fa-solid fa-graduation-cap text-orange-400"></i> Education Details
             </h2>
@@ -418,18 +392,18 @@
 
         </div>
 
-        <!-- Right: Working Contact Form connected to gowribasava98@gmail.com -->
-        <section id="contact" class="lg:col-span-5 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+        <!-- Right: Contact Form (FormSubmit) -->
+        <section id="contact" class="lg:col-span-5 bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 flex flex-col justify-between shadow-xl">
           <div>
             <h2 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-              <i class="fa-solid fa-envelope text-orange-400"></i> Let's Connect
+              <i class="fa-solid fa-envelope text-orange-400"></i> Get In Touch
             </h2>
             <p class="text-xs text-slate-400 mb-5 leading-relaxed">
-              Have an enterprise opportunity or question? Submit this form and it will be delivered directly to <span class="text-slate-300 font-mono">gowribasava98@gmail.com</span>.
+              Have an enterprise opportunity or question? Submit this form and messages will arrive directly in my inbox at <span class="text-slate-300 font-mono">gowribasava98@gmail.com</span>.
             </p>
 
             <form action="https://formsubmit.co/gowribasava98@gmail.com" method="POST" class="space-y-3.5">
-              <!-- FormSubmit Anti-Spam & Format fields -->
+              <!-- FormSubmit Anti-Spam & Configuration -->
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_subject" value="New Portfolio Inquiry - Gowri Mallesh">
               <input type="hidden" name="_template" value="table">
@@ -437,22 +411,22 @@
 
               <div>
                 <label class="block text-xs font-semibold text-slate-400 mb-1">Your Name</label>
-                <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+                <input type="text" name="name" required placeholder="Full Name" class="w-full bg-[#16223b] border border-[#223253] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
               </div>
 
               <div>
                 <label class="block text-xs font-semibold text-slate-400 mb-1">Your Email</label>
-                <input type="email" name="email" required placeholder="email@example.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+                <input type="email" name="email" required placeholder="email@example.com" class="w-full bg-[#16223b] border border-[#223253] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
               </div>
 
               <div>
                 <label class="block text-xs font-semibold text-slate-400 mb-1">Subject</label>
-                <input type="text" name="subject" required placeholder="SAP HANA / Cloud Infrastructure Opportunity" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+                <input type="text" name="subject" required placeholder="SAP HANA / Cloud Infrastructure Role" class="w-full bg-[#16223b] border border-[#223253] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
               </div>
 
               <div>
                 <label class="block text-xs font-semibold text-slate-400 mb-1">Message</label>
-                <textarea name="message" rows="4" required placeholder="Write your message here..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
+                <textarea name="message" rows="4" required placeholder="Write your message here..." class="w-full bg-[#16223b] border border-[#223253] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
               </div>
 
               <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm py-2.5 rounded-lg shadow-md transition flex items-center justify-center gap-2">
@@ -467,111 +441,90 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- 2. LINUX DEVELOPER BLOG VIEW CONTAINER                    -->
+  <!-- 2. TECHNICAL BLOG VIEW CONTAINER                          -->
   <!-- ========================================================= -->
-  <div id="blogView" class="hidden w-full terminal-dots py-8 px-4 sm:px-6 md:px-8 space-y-6">
+  <div id="blogView" class="hidden w-full terminal-grid py-6 px-4 md:px-8 space-y-6">
     <div class="max-w-6xl mx-auto space-y-6">
       
-      <!-- Linux Terminal Window Banner -->
+      <!-- Terminal Header / Info Banner -->
       <section class="rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] shadow-2xl overflow-hidden font-mono">
         <div class="flex items-center justify-between px-4 py-2.5 bg-[var(--bg-card)] border-b border-[var(--border-color)]">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-[var(--term-red)] inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-[var(--term-yellow)] inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-[var(--term-green)] inline-block"></span>
-            <span class="ml-2 text-xs font-semibold text-[var(--text-muted)]">gowri@sles-hana: ~/articles</span>
+            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+            <span class="ml-2 text-xs font-semibold text-slate-400">gowri@sles-journal: ~</span>
           </div>
-          
           <div class="flex items-center gap-3">
-            <!-- Theme Switcher -->
+            <!-- Theme Selector -->
             <div class="flex items-center gap-1 bg-[var(--bg-base)] px-2 py-0.5 rounded border border-[var(--border-color)]">
-              <i data-lucide="palette" class="w-3 h-3 text-[var(--accent)]"></i>
+              <span class="text-[10px] text-[var(--text-muted)]">Theme:</span>
               <select id="themeSelect" onchange="changeTheme(this.value)" class="bg-transparent text-[var(--text-main)] outline-none cursor-pointer text-xs font-mono">
                 <option value="nord" class="bg-slate-900 text-white">Nord</option>
                 <option value="matrix" class="bg-black text-green-400">Matrix</option>
-                <option value="monokai" class="bg-neutral-900 text-yellow-300">Monokai</option>
-                <option value="dracula" class="bg-[#282a36] text-[#bd93f9]">Dracula</option>
-                <option value="paper" class="bg-white text-slate-900">Paper</option>
+                <option value="monokai" class="bg-stone-900 text-yellow-300">Monokai</option>
               </select>
             </div>
-
-            <button onclick="switchView('portfolio')" class="text-xs text-[var(--accent)] hover:underline flex items-center gap-1">
-              <i data-lucide="arrow-left" class="w-3 h-3"></i> Back
+            <button onclick="switchView('portfolio')" class="text-xs text-[var(--accent)] hover:underline flex items-center gap-1 font-mono">
+              <i class="fa-solid fa-arrow-left text-xs"></i> Back to Portfolio
             </button>
           </div>
         </div>
 
-        <div class="p-4 sm:p-6 space-y-4">
-          <!-- Terminal Host Prompt -->
-          <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+        <div class="p-6 space-y-4">
+          <div class="flex flex-wrap items-center gap-2 text-sm font-mono">
             <span class="text-[var(--term-green)] font-bold">gowri@sles</span>
-            <span class="text-[var(--text-muted)]">:</span>
+            <span class="text-slate-500">:</span>
             <span class="text-[var(--term-purple)] font-semibold">~/articles</span>
             <span class="text-[var(--term-yellow)]">$</span>
-            <span class="text-[var(--text-main)] font-semibold">sysadmin-notes --list</span>
+            <span class="text-slate-100 font-semibold">sysadmin-notes --list</span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-2 items-center">
-            <!-- Tux ASCII / Neofetch Profile -->
             <div class="md:col-span-4 flex flex-col items-center justify-center p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] font-mono text-[10px] text-[var(--accent)] select-none">
               <pre class="leading-tight">
     .--.
-   |o_o |   OS: SUSE Linux Enterprise (SLES)
-   |:_/ |   Topic: SAP HANA HEC & HA
-  //   \ \  Cluster: Pacemaker + Corosync
- (|     | ) Storage: LVM / NFS / CIFS
+   |o_o |   Host: SLES 15 SP4 / Azure
+   |:_/ |   Topic: SAP HANA & High Availability
+  //   \ \  Storage: LVM & NFS Mounts
+ (|     | ) Uptime: 4+ Years Enterprise
 /'\_   _/`\ Certs: AZ-104 & GCP ACE
-\___)=(___/ Host: TCS Enterprise Cloud
+\___)=(___/ Status: Operational
               </pre>
             </div>
 
-            <!-- Blog Description & Primary Controls -->
-            <div class="md:col-span-8 space-y-3 font-sans">
+            <div class="md:col-span-8 space-y-2">
               <h2 class="text-2xl font-bold font-mono text-[var(--text-main)]">
-                Enterprise Linux & Cloud Journal
+                Enterprise Linux & SAP HEC Journal
               </h2>
-              <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                Practical runbooks, cluster failover guides, LVM storage expansions, and enterprise monitoring practices from my experience managing SAP HANA environments.
+              <p class="text-sm text-[var(--text-muted)] leading-relaxed font-sans">
+                Technical articles, troubleshooting guides, and production command runbooks for enterprise Linux systems administrators.
               </p>
-              
-              <div class="flex flex-wrap items-center gap-2 pt-2">
-                <button onclick="openEditorModal()" class="px-3 py-1.5 rounded bg-[var(--accent)] text-black font-bold text-xs font-mono flex items-center gap-1.5 shadow-sm hover:opacity-90 transition">
-                  <i data-lucide="pen-tool" class="w-3.5 h-3.5"></i>
-                  <span>+ New Post</span>
-                </button>
-                <button onclick="exportAllArticlesJSON()" class="px-3 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-mono text-[var(--text-muted)] hover:text-white flex items-center gap-1 transition">
-                  <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                  <span>Backup JSON</span>
-                </button>
-                <button onclick="downloadSelfHTML()" class="px-3 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-mono text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition">
-                  <i data-lucide="file-code" class="w-3.5 h-3.5"></i>
-                  <span>Export Source .html</span>
-                </button>
+              <div class="flex items-center gap-2 pt-2" id="adminBlogActions">
+                <!-- Dynamically populated buttons for admin post authoring -->
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Search, Tag Badges & View Filter -->
+      <!-- Search, Tag Filter and Articles Grid -->
       <section class="space-y-4">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
-          <!-- Live grep search -->
           <div class="relative w-full sm:w-80">
-            <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"></i>
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
             <input 
               type="text" 
               id="searchInput" 
               oninput="filterArticles()" 
-              placeholder="grep -i articles by title or keyword..." 
+              placeholder="grep -i articles by title or tag..." 
               class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]"
             >
           </div>
-          <!-- Filter Tags -->
-          <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1" id="tagFilterContainer"></div>
+          <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto" id="tagFilterContainer"></div>
         </div>
 
-        <!-- Rendered Articles Grid -->
+        <!-- Articles Grid Container -->
         <div id="articlesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
       </section>
 
@@ -579,498 +532,838 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- GLOBAL FOOTER                                             -->
+  <!-- FOOTER                                                    -->
   <!-- ========================================================= -->
-  <footer class="border-t border-slate-800 bg-[#070d18] py-6 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <div class="flex items-center gap-2 font-mono">
+  <footer class="border-t border-[#223253] bg-[#070b15] py-6 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
+      <div class="flex items-center gap-2">
         <i class="fa-solid fa-terminal text-sky-400"></i>
-        <span>&copy; 2026 Ulligaddala Gowri Mallesh • Enterprise System Engineer</span>
+        <span>&copy; 2026 Ulligaddala Gowri Mallesh • System Administrator</span>
       </div>
       <div class="flex items-center gap-5">
-        <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Resume PDF</a>
-        <button onclick="downloadSelfHTML()" class="hover:text-emerald-400 text-emerald-400 font-mono transition flex items-center gap-1">
-          <i class="fa-solid fa-download"></i> Download Source (.html)
+        <a href="https://drive.google.com/file/d/1c-IfLXV9hrqZpC/GpXQJ6aUxila1QKFe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5 font-sans">
+          <i class="fa-solid fa-file-pdf text-orange-400"></i> Resume
+        </a>
+        <button onclick="switchView('blog')" class="hover:text-sky-400 text-sky-400 transition font-mono">Tech Blog</button>
+        <button onclick="openAdminKeyModal()" class="hover:text-amber-400 text-slate-500 transition font-mono flex items-center gap-1">
+          <i class="fa-solid fa-terminal text-[10px]"></i> Admin Console
         </button>
-        <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="hover:text-sky-400 text-sky-400 font-mono transition">
-          Switch View
+        <button onclick="downloadSelfCode()" class="hover:text-emerald-400 text-slate-400 transition font-mono flex items-center gap-1">
+          <i class="fa-solid fa-code text-xs"></i> Download Code
         </button>
+        <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition font-sans">Email</a>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================= -->
-  <!-- MODAL 1: ARTICLE READER MODAL                             -->
+  <!-- MODAL: ARTICLE READER (SOCIAL SHARING & URL ANCHORS)      -->
   <!-- ========================================================= -->
   <div id="articleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col font-sans">
-      <div class="flex items-center justify-between px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-color)] shrink-0 font-mono">
+      
+      <!-- Modal Top Bar -->
+      <div class="flex items-center justify-between px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-color)] shrink-0 font-mono text-xs">
         <div class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full bg-[var(--term-red)] inline-block"></span>
-          <span class="w-3 h-3 rounded-full bg-[var(--term-yellow)] inline-block"></span>
-          <span class="w-3 h-3 rounded-full bg-[var(--term-green)] inline-block"></span>
-          <span id="modalDocTitle" class="ml-2 text-xs text-[var(--text-muted)]">cat article.md</span>
+          <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+          <span id="modalDocTitle" class="ml-2 text-[var(--text-muted)] truncate max-w-[200px] sm:max-w-md">cat article.md</span>
         </div>
-        <button onclick="closeModal()" class="text-[var(--text-muted)] hover:text-white p-1">
-          <i data-lucide="x" class="w-4 h-4"></i>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-base"></i>
         </button>
       </div>
-      <div class="p-6 sm:p-8 overflow-y-auto space-y-6 font-sans text-xs sm:text-sm leading-relaxed" id="modalArticleContent"></div>
-      <div class="p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex items-center justify-between font-mono text-xs">
-        <button id="modalDownloadBtn" class="px-3 py-1.5 rounded bg-[var(--bg-base)] border border-[var(--border-color)] text-[var(--accent)] hover:border-[var(--accent)] transition flex items-center gap-1.5">
-          <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
-          <span>Export .md</span>
-        </button>
-        <button onclick="closeModal()" class="px-3 py-1.5 rounded bg-[var(--bg-base)] border border-[var(--border-color)] text-[var(--text-main)] hover:border-[var(--accent)]">
+
+      <!-- Article Content -->
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-6" id="modalArticleContent"></div>
+
+      <!-- Social Media Share & Action Footer -->
+      <div class="p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex flex-wrap items-center justify-between gap-3 shrink-0 font-mono text-xs">
+        
+        <div class="flex items-center gap-2">
+          <span class="text-[var(--text-muted)] text-[11px] font-semibold flex items-center gap-1.5">
+            <i class="fa-solid fa-share-nodes text-[var(--accent)]"></i> Share:
+          </span>
+          <!-- LinkedIn -->
+          <button id="shareLinkedinBtn" title="Share on LinkedIn" class="p-1.5 px-2 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-sky-400 text-sky-400 transition">
+            <i class="fa-brands fa-linkedin text-xs"></i>
+          </button>
+          <!-- X (Twitter) -->
+          <button id="shareTwitterBtn" title="Share on X" class="p-1.5 px-2 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-white text-slate-200 transition">
+            <i class="fa-brands fa-x-twitter text-xs"></i>
+          </button>
+          <!-- WhatsApp -->
+          <button id="shareWhatsappBtn" title="Share on WhatsApp" class="p-1.5 px-2 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-emerald-400 text-emerald-400 transition">
+            <i class="fa-brands fa-whatsapp text-xs"></i>
+          </button>
+          <!-- Copy Unique Link -->
+          <button id="copyShareLinkBtn" title="Copy Direct URL" class="px-2.5 py-1 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-[var(--accent)] text-[var(--text-muted)] hover:text-white transition flex items-center gap-1 text-[11px]">
+            <i class="fa-solid fa-link text-[10px]"></i> Copy Link
+          </button>
+        </div>
+
+        <button onclick="closeModal()" class="px-3.5 py-1 rounded bg-[var(--bg-base)] border border-[var(--border-color)] text-[var(--text-main)] hover:border-[var(--accent)] transition">
           :q (close)
         </button>
       </div>
+
     </div>
   </div>
 
   <!-- ========================================================= -->
-  <!-- MODAL 2: WRITE / DRAFT POST MODAL                         -->
+  <!-- MODAL: USER AUTHENTICATION (SIGN IN & REGISTER)           -->
   <!-- ========================================================= -->
-  <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-    <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-2xl flex flex-col font-mono text-xs max-h-[92vh] overflow-hidden">
-      <div class="flex items-center justify-between px-4 py-2.5 bg-[var(--bg-card)] border-b border-[var(--border-color)]">
-        <span class="font-bold text-white flex items-center gap-2">
-          <i data-lucide="pen-tool" class="w-3.5 h-3.5 text-[var(--accent)]"></i>
-          <span>vim /var/log/articles/new_entry.md</span>
+  <div id="authModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-sm bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
+      <div class="flex items-center justify-between border-b border-[#223253] pb-3">
+        <div class="flex gap-4">
+          <button id="tabSignInBtn" onclick="switchAuthTab('signin')" class="font-bold text-sky-400 border-b-2 border-sky-400 pb-1">Sign In</button>
+          <button id="tabRegisterBtn" onclick="switchAuthTab('register')" class="font-bold text-slate-400 hover:text-white pb-1">Create Account</button>
+        </div>
+        <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+      </div>
+
+      <div id="authAlert" class="hidden p-2.5 rounded text-[11px]"></div>
+
+      <!-- Sign In Form -->
+      <form id="signInForm" onsubmit="handleSignInSubmit(event)" class="space-y-3 font-sans">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Email Address</label>
+          <input type="email" id="signInEmail" required placeholder="user@example.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Password</label>
+          <input type="password" id="signInPassword" required placeholder="••••••••" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div class="pt-2 flex justify-end gap-2 font-mono">
+          <button type="button" onclick="closeAuthModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
+          <button type="submit" class="px-4 py-1.5 rounded bg-sky-400 text-black font-bold hover:bg-sky-300 transition">Sign In</button>
+        </div>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" onsubmit="handleRegisterSubmit(event)" class="hidden space-y-3 font-sans">
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Full Name</label>
+          <input type="text" id="regName" required placeholder="Your Name" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Email Address</label>
+          <input type="email" id="regEmail" required placeholder="name@domain.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Create Password</label>
+          <input type="password" id="regPassword" required placeholder="At least 6 characters" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div class="pt-2 flex justify-end gap-2 font-mono">
+          <button type="button" onclick="closeAuthModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
+          <button type="submit" class="px-4 py-1.5 rounded bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODAL: SECURE ADMIN CONSOLE ACCESS (NO PLAINTEXT PASSWORDS)-->
+  <!-- ========================================================= -->
+  <div id="adminKeyModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-sm bg-[#11192d] border border-amber-600/70 rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
+      <div class="flex items-center justify-between border-b border-[#223253] pb-3">
+        <span class="font-bold text-amber-400 flex items-center gap-1.5 text-sm">
+          <i class="fa-solid fa-terminal"></i> sudo elevation
         </span>
-        <button onclick="closeEditorModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <button onclick="closeAdminKeyModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
       </div>
-      <div class="p-4 space-y-3 bg-[var(--bg-base)] overflow-y-auto">
+
+      <p class="text-slate-400 text-[11px] leading-relaxed">
+        Input the security authorization key to elevate authoring privileges (verified via SHA-256 cryptographic digest; no plaintext credentials stored).
+      </p>
+
+      <div id="adminKeyAlert" class="hidden p-2.5 rounded text-[11px]"></div>
+
+      <form onsubmit="handleAdminKeySubmit(event)" class="space-y-3 font-sans">
         <div>
-          <label class="block text-[var(--text-muted)] mb-1 font-semibold">Title *</label>
-          <input id="editorTitle" type="text" placeholder="e.g., Pacemaker Failover Runbook on SUSE Linux" class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded p-2 text-white focus:outline-none focus:border-[var(--accent)]">
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Admin Master Key</label>
+          <input type="password" id="adminSecretKeyInput" required placeholder="Enter key..." class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-amber-400 text-xs font-mono">
         </div>
-        <div>
-          <label class="block text-[var(--text-muted)] mb-1 font-semibold">Tags (comma separated)</label>
-          <input id="editorTags" type="text" placeholder="SAP HANA, SLES, Pacemaker, High Availability" class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded p-2 text-white focus:outline-none focus:border-[var(--accent)]">
+        <div class="pt-2 flex justify-end gap-2 font-mono">
+          <button type="button" onclick="closeAdminKeyModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
+          <button type="submit" class="px-4 py-1.5 rounded bg-amber-400 text-black font-bold hover:bg-amber-300 transition">Verify Key</button>
         </div>
-        <div>
-          <label class="block text-[var(--text-muted)] mb-1 font-semibold">Markdown Content *</label>
-          <textarea id="editorMarkdown" rows="10" placeholder="# Overview&#10;&#10;Explain technical configurations, CLI commands, and log outputs here...&#10;&#10;```bash&#10;crm status&#10;```" class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded p-2 text-white focus:outline-none focus:border-[var(--accent)] leading-relaxed"></textarea>
-        </div>
-      </div>
-      <div class="p-3 bg-[var(--bg-card)] flex justify-end gap-2 border-t border-[var(--border-color)]">
-        <button onclick="closeEditorModal()" class="px-3.5 py-1.5 rounded bg-[var(--bg-base)] text-slate-300">Cancel</button>
-        <button onclick="saveAndPublishArticle()" class="px-4 py-1.5 rounded bg-[var(--accent)] text-black font-bold flex items-center gap-1.5">
-          <i data-lucide="save" class="w-3.5 h-3.5"></i>
-          <span>Save & Publish</span>
-        </button>
-      </div>
+      </form>
     </div>
   </div>
 
   <!-- ========================================================= -->
-  <!-- JAVASCRIPT APPLICATION LOGIC                              -->
+  <!-- MODAL: POST WRITER & EDITOR (AUTHORIZED ADMIN ONLY)       -->
+  <!-- ========================================================= -->
+  <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
+    <div class="relative w-full max-w-5xl bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl flex flex-col font-mono text-xs max-h-[92vh] overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-2.5 bg-[#16223b] border-b border-[#223253]">
+        <span id="editorModalTitle" class="font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-code"></i> vim /var/log/articles/post.md
+        </span>
+        <button onclick="closeEditorModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+      </div>
+      
+      <div class="p-4 space-y-3 bg-[#0a0f1d] border-b border-[#223253]">
+        <input type="hidden" id="editPostId">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+          <div class="md:col-span-8">
+            <label class="text-slate-400 block mb-1">Title *</label>
+            <input id="editorTitle" type="text" placeholder="Article Title" class="w-full bg-[#11192d] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 font-sans">
+          </div>
+          <div class="md:col-span-4">
+            <label class="text-slate-400 block mb-1">Tags (comma separated)</label>
+            <input id="editorTags" type="text" placeholder="SAP HANA, SLES, Pacemaker" class="w-full bg-[#11192d] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Split Editor & Live Render -->
+      <div class="flex-1 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#223253] min-h-[300px] overflow-hidden">
+        <div class="flex flex-col h-full bg-[#11192d]">
+          <div class="px-3 py-1 bg-[#16223b] text-slate-400 text-[11px] border-b border-[#223253]">MARKDOWN SOURCE</div>
+          <textarea id="editorMarkdown" oninput="updateEditorPreview()" placeholder="# Write article in Markdown...&#10;&#10;```bash&#10;crm status&#10;```" class="flex-1 p-3 bg-transparent text-white resize-none font-mono text-xs focus:outline-none leading-relaxed overflow-y-auto"></textarea>
+        </div>
+        <div class="flex flex-col h-full bg-[#0a0f1d]">
+          <div class="px-3 py-1 bg-[#16223b] text-slate-400 text-[11px] border-b border-[#223253]">LIVE PREVIEW</div>
+          <div id="editorPreview" class="flex-1 p-4 overflow-y-auto font-sans text-xs text-slate-200 space-y-3 leading-relaxed"></div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-[#16223b] flex justify-end gap-2 border-t border-[#223253]">
+        <button onclick="closeEditorModal()" class="px-3 py-1.5 rounded bg-[#0a0f1d] text-slate-300 border border-[#223253]">Cancel</button>
+        <button onclick="saveAndPublishArticle()" class="px-4 py-1.5 rounded bg-sky-400 text-black font-bold hover:bg-sky-300 transition">Save & Publish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 hidden px-4 py-2.5 rounded-lg border font-mono text-xs shadow-2xl transition transform duration-300 bg-sky-400 text-black font-semibold"></div>
+
+  <!-- ========================================================= -->
+  <!-- JAVASCRIPT STATE ENGINE & CORE LOGIC                      -->
   <!-- ========================================================= -->
   <script>
-    // State Tracking
+    // State variables
     let currentView = 'portfolio';
-    let activeTag = "All";
-    let searchQuery = "";
-    const STORAGE_KEY = "gowri_linux_tech_journal_posts";
+    let currentUser = null;
+    let isAdmin = false;
 
-    // Preloaded Technical Articles
-    const initialArticles = [
+    // Default Enterprise Linux Articles
+    const defaultPosts = [
       {
         id: "pacemaker-sles-sap-hana",
-        title: "Pacemaker & Corosync Setup for SAP HANA High Availability on SLES",
-        date: "2026-10-10",
+        title: "Automated Failover for SAP HANA System Replication with Pacemaker on SLES",
+        date: "2026-09-15",
         readTime: "8 min read",
         tags: ["SAP HANA", "SLES", "Pacemaker", "High Availability"],
-        summary: "Step-by-step setup of automated two-node SAP HANA System Replication (HSR) failover using Pacemaker, Corosync, and SAPHanaSR on SUSE Linux Enterprise Server.",
-        rawMarkdown: `# Pacemaker & Corosync Clustering for SAP HANA HSR
+        summary: "Step-by-step setup of two-node Corosync and Pacemaker clustering on SUSE Linux Enterprise Server with SAPHanaSR and STONITH fencing.",
+        rawMarkdown: `## 1. Pacemaker Cluster Architecture
 
-In mission-critical enterprise SAP environments running on SUSE Linux Enterprise Server (SLES), high availability is achieved through Pacemaker, Corosync, and the \`SAPHanaSR\` resource agent hook.
+In enterprise SAP HANA deployments on SUSE Linux Enterprise Server (SLES), achieving high availability requires automated takeover during host or database failure. Pacemaker works alongside Corosync and the SAPHanaSR resource agent to monitor system replication (HSR) health.
 
-## 1. Verifying Cluster Communication
-Ensure Corosync communication is healthy across rings:
 \`\`\`bash
-corosync-cfgtool -s
 crm status
-\`\`\`
-
-## 2. STONITH Fencing Configuration
-A resilient fencing mechanism prevents split-brain scenarios:
-\`\`\`bash
-crm configure primitive rsc_st_azure stonith:fence_azure_arm \\
-    params subscriptionId="xxxx" resourceGroup="rg-sap-prod" vmName="sles-hana-01" \\
-    pcmk_reboot_timeout=900 pcmk_monitor_timeout=120
-\`\`\`
-
-## 3. Configuring SAPHana Topology
-\`\`\`bash
-crm configure primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana \\
-    params SID="HDB" InstanceNumber="00" PREFER_SITE_TAKEOVER="true" \\
-    DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \\
-    op start interval="0" timeout="3600" \\
-    op stop interval="0" timeout="3600" \\
-    op monitor interval="60" role="Master" timeout="700" \\
-    op monitor interval="61" role="Slave" timeout="700"
-\`\`\`
-
-## 4. Validating Replication State
-Use \`SAPHanaSR-showAttr\` to monitor real-time sync status:
-\`\`\`bash
+# Verify node state and SAPHana topology:
 SAPHanaSR-showAttr
-\`\`\``
+\`\`\`
+
+### 2. STONITH & Split-Brain Prevention
+A reliable fencing mechanism (such as SBD or hyperscaler fencing agents in Azure) is non-negotiable to prevent split-brain conditions where both nodes attempt to write to primary data volumes.`
       },
       {
         id: "online-lvm-disk-expansion",
-        title: "Online LVM Disk Expansion & Resolving NFS/SAMBA CIFS Mount Locks",
-        date: "2026-09-22",
+        title: "Zero-Downtime Logical Volume (LVM) Resizing and CIFS/NFS Mount Troubleshooting",
+        date: "2026-08-20",
         readTime: "7 min read",
-        tags: ["Linux", "LVM", "Storage", "NFS"],
-        summary: "Field guide to safely expanding Physical Volumes, Volume Groups, and XFS/ext4 filesystems on running SAP production servers without service disruption.",
-        rawMarkdown: `# Online LVM Disk Expansion & Storage Recovery
+        tags: ["Linux", "LVM", "NFS", "Storage"],
+        summary: "Safely expanding physical volumes, volume groups, and XFS/ext4 filesystems on live production servers without unmounting databases.",
+        rawMarkdown: `## 1. Online Volume Expansion on SLES
 
-When SAP HANA database volumes approach capacity thresholds, LVM allows non-disruptive storage increases.
+When disk space reaches critical thresholds on production SAP systems, LVM allows dynamic storage growth without taking the database offline.
 
-## 1. Rescan SCSI Bus for New LUN Storage
 \`\`\`bash
-echo "- - -" > /sys/class/scsi_host/host0/scan
-lsblk
+# Rescan SCSI bus and expand LVM:
+echo 1 > /sys/class/block/sdb/device/rescan
+pvresize /dev/sdb
+lvextend -r -l +100%FREE /dev/datavg/datalv
 \`\`\`
 
-## 2. Initialize Physical Volume & Extend Volume Group
-\`\`\`bash
-pvcreate /dev/sdc
-vgextend vg_sapdata /dev/sdc
-vgs
-\`\`\`
-
-## 3. Extend Logical Volume Online (+100GB or 100% Free)
-\`\`\`bash
-lvextend -L +100G /dev/vg_sapdata/lv_data
-# Or consume all remaining space:
-lvextend -l +100%FREE /dev/vg_sapdata/lv_data
-\`\`\`
-
-## 4. Resize Filesystem Online
-- **For XFS:**
-\`\`\`bash
-xfs_growfs /hana/data
-\`\`\`
-- **For EXT4:**
-\`\`\`bash
-resize2fs /dev/vg_sapdata/lv_data
-\`\`\`
-
-## 5. Clearing Stale NFS Mount Locks
-\`\`\`bash
-umount -f -l /mnt/sapbackup
-mount -t nfs -o rw,bg,hard,intr nas01:/sapbackups /mnt/sapbackup
-\`\`\``
+### 2. NFS & SAMBA CIFS Mount Lockups
+Troubleshooting stale file handles, permission locks, and network timeout parameters (\`hard,intr,timeo=600\`) to ensure background backup scripts run without hanging.`
       },
       {
         id: "proactive-monitoring-prometheus-grafana",
-        title: "Proactive Linux Monitoring: Setting Dashboards for P1/P2 SLA Prevention",
-        date: "2026-08-15",
+        title: "Building Real-Time Dashboards with Prometheus and Grafana for SLA Adherence",
+        date: "2026-07-10",
         readTime: "6 min read",
-        tags: ["Monitoring", "Grafana", "Prometheus", "Azure"],
-        summary: "Designing real-time metric thresholds in Prometheus, Grafana, and Azure Monitor to detect memory ballooning and I/O wait before SLAs are breached.",
-        rawMarkdown: `# Proactive Linux Monitoring for Enterprise SLAs
+        tags: ["Monitoring", "Grafana", "Prometheus", "Azure Monitor"],
+        summary: "Configuring metric collection, threshold alerts, and incident prevention dashboards to meet strict 99.99% enterprise SLAs.",
+        rawMarkdown: `## 1. Proactive Monitoring & Incident Prevention
 
-Preventing critical P1 and P2 incidents requires early warning detection before operating system kernel limits are breached.
+Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes before they escalate to P1/P2 outages. Combining Node Exporter with custom Grafana dashboards gives full system visibility.
 
-## 1. Key Metric Thresholds
-- **Memory Pressure:** Trigger warning alert when \`Available < 15%\`.
-- **I/O Wait:** Alert when \`iowait > 25%\` for longer than 5 minutes.
-- **Load Average:** Alert when load exceeds \`CPU Cores * 1.5\`.
-
-## 2. Prometheus Alerting Expression
-\`\`\`yaml
-- alert: SLESMemoryCritical
-  expr: (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
-  for: 3m
-  labels:
-    severity: P2
-  annotations:
-    summary: "Host {{ $labels.instance }} memory critically low."
-\`\`\`
-
-## 3. High CPU / Disk Contention Triage Commands
 \`\`\`bash
-# Identify memory hogging processes
-top -o %MEM -b -n 1 | head -n 20
-
-# Identify processes stuck in uninterruptible sleep (D state)
-ps aux | awk '{if ($8 ~ /D/) print $0}'
-
-# Check live I/O activity
-iostat -xz 1 5
+# Sample PromQL memory exhaustion threshold alert:
+(node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
 \`\`\``
       }
     ];
 
-    // Load articles from localStorage or fallback
-    function getArticles() {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        try { return JSON.parse(stored); } catch (e) { console.error(e); }
-      }
-      return initialArticles;
+    let activeTag = "All";
+    let searchQuery = "";
+    const ARTICLES_STORAGE_KEY = "gowri_single_file_blog";
+    const USERS_STORAGE_KEY = "gowri_registered_users";
+    const CURRENT_USER_KEY = "gowri_current_session";
+    const ADMIN_FLAG_KEY = "gowri_admin_session_flag";
+
+    // Cryptographic SHA-256 Hash Helper for secure verification
+    async function hashString(str) {
+      const buffer = new TextEncoder().encode(str);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+      return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // Switch between Portfolio and Blog views
+    // Target hash for authorized elevation (Zero plaintext password in code)
+    const ELEVATION_HASH = "8f3b20e0be22f280a96937e2960f99fa69b35bc72aa5cf52541a0e980839e248";
+
+    function getArticles() {
+      const stored = localStorage.getItem(ARTICLES_STORAGE_KEY);
+      if (stored) {
+        try { return JSON.parse(stored); } catch (e) {}
+      }
+      return defaultPosts;
+    }
+
+    function getUsers() {
+      const stored = localStorage.getItem(USERS_STORAGE_KEY);
+      if (stored) {
+        try { return JSON.parse(stored); } catch (e) {}
+      }
+      return [];
+    }
+
+    // View Switching
     function switchView(view) {
       currentView = view;
       const portEl = document.getElementById("portfolioView");
       const blogEl = document.getElementById("blogView");
       const navPort = document.getElementById("navPortfolioBtn");
       const navBlog = document.getElementById("navBlogBtn");
-      const toggleText = document.getElementById("quickToggleText");
+      const quickBtn = document.getElementById("quickToggleText");
 
       if (view === 'blog') {
         portEl.classList.add("hidden");
         blogEl.classList.remove("hidden");
-        navBlog.className = "text-sky-400 font-semibold font-mono";
-        navPort.className = "hover:text-sky-400 text-slate-300 font-medium";
-        toggleText.textContent = "View Portfolio";
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        renderTagFilters();
+        navBlog.className = "text-sky-400 font-semibold font-mono flex items-center gap-1.5";
+        navPort.className = "hover:text-sky-400 text-slate-300 flex items-center gap-1.5";
+        quickBtn.textContent = "Switch to Portfolio";
         renderArticles();
       } else {
         blogEl.classList.add("hidden");
         portEl.classList.remove("hidden");
-        navPort.className = "text-sky-400 font-semibold font-medium";
-        navBlog.className = "hover:text-sky-400 text-slate-300 font-mono";
-        toggleText.textContent = "Open Tech Blog";
+        navPort.className = "text-sky-400 font-semibold flex items-center gap-1.5";
+        navBlog.className = "hover:text-sky-400 text-slate-300 font-mono flex items-center gap-1.5";
+        quickBtn.textContent = "Open Blog";
       }
-      lucide.createIcons();
     }
 
-    function toggleView() {
-      switchView(currentView === 'portfolio' ? 'blog' : 'portfolio');
+    // ==========================================
+    // UNIQUE URL HASH ROUTING (#post-<id>)
+    // ==========================================
+    function checkHashRoute() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith("#post-")) {
+        const postId = hash.replace("#post-", "");
+        switchView('blog');
+        openArticle(postId, false);
+      }
     }
 
-    // Render Tag Filters
-    function renderTagFilters() {
-      const container = document.getElementById("tagFilterContainer");
-      const tags = new Set(["All"]);
-      getArticles().forEach(post => (post.tags || []).forEach(t => tags.add(t)));
-      container.innerHTML = Array.from(tags).map(tag => `
-        <button onclick="selectTag('${tag}')" class="px-2.5 py-1 rounded-lg border text-[11px] whitespace-nowrap transition ${
-          activeTag === tag 
-            ? 'bg-[var(--accent)] text-black font-bold border-[var(--accent)]' 
-            : 'bg-[var(--bg-card)] text-[var(--text-muted)] border-[var(--border-color)] hover:border-[var(--accent)] hover:text-white'
-        }">#${tag}</button>
-      `).join("");
+    window.addEventListener("hashchange", checkHashRoute);
+
+    function getPostDirectURL(postId) {
+      const baseURL = window.location.origin + window.location.pathname;
+      return `${baseURL}#post-${postId}`;
     }
 
-    function selectTag(tag) {
-      activeTag = tag;
-      renderTagFilters();
-      renderArticles();
-    }
-
-    function filterArticles() {
-      searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
-      renderArticles();
-    }
-
-    // Render Article Cards
+    // ==========================================
+    // ARTICLE RENDERING & SOCIAL SHARING
+    // ==========================================
     function renderArticles() {
       const container = document.getElementById("articlesContainer");
-      const articles = getArticles();
-
-      const filtered = articles.filter(post => {
-        const matchesTag = activeTag === "All" || (post.tags && post.tags.includes(activeTag));
-        const matchesSearch = !searchQuery || 
-          post.title.toLowerCase().includes(searchQuery) ||
-          (post.summary && post.summary.toLowerCase().includes(searchQuery));
-        return matchesTag && matchesSearch;
+      const list = getArticles().filter(p => {
+        const matchesTag = activeTag === "All" || (p.tags && p.tags.includes(activeTag));
+        const matchesQ = !searchQuery || p.title.toLowerCase().includes(searchQuery) || (p.summary && p.summary.toLowerCase().includes(searchQuery));
+        return matchesTag && matchesQ;
       });
 
-      if (filtered.length === 0) {
-        container.innerHTML = `
-          <div class="col-span-full py-12 text-center font-mono text-xs text-[var(--text-muted)] border border-[var(--border-color)] rounded-xl bg-[var(--bg-surface)]">
-            <i data-lucide="terminal" class="w-8 h-8 mx-auto mb-2 text-yellow-400"></i>
-            grep: 0 matching records found.
-          </div>
-        `;
-        lucide.createIcons();
+      if (list.length === 0) {
+        container.innerHTML = `<div class="col-span-3 text-center py-10 font-mono text-xs text-slate-400 border border-[var(--border-color)] rounded-xl bg-[var(--bg-surface)]">No matching enterprise articles found.</div>`;
         return;
       }
 
-      container.innerHTML = filtered.map(post => `
-        <article class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent)] transition duration-200 flex flex-col justify-between group shadow-lg">
+      container.innerHTML = list.map(post => `
+        <article class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:border-[var(--accent)] transition flex flex-col justify-between group">
           <div>
-            <div class="text-[11px] font-mono text-[var(--text-muted)] mb-2 flex items-center justify-between">
-              <span class="flex items-center gap-1 text-[var(--term-green)]">
-                <i data-lucide="calendar" class="w-3.5 h-3.5"></i> ${post.date}
-              </span>
+            <div class="text-[11px] text-[var(--text-muted)] font-mono mb-2 flex justify-between">
+              <span class="text-[var(--term-green)]"><i class="fa-solid fa-calendar-days mr-1"></i>${post.date}</span>
               <span>${post.readTime || '5 min read'}</span>
             </div>
-            <h3 class="text-base font-bold font-mono text-[var(--text-main)] group-hover:text-[var(--accent)] transition leading-snug mb-2">
-              ${post.title}
-            </h3>
-            <p class="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
-              ${post.summary || ''}
-            </p>
+            <h3 class="text-base font-bold font-mono text-white mb-2 leading-snug group-hover:text-[var(--accent)] transition cursor-pointer" onclick="openArticle('${post.id}')">${post.title}</h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed mb-4">${post.summary || ''}</p>
           </div>
 
-          <div class="pt-3 border-t border-[var(--border-color)] mt-auto">
-            <div class="flex flex-wrap gap-1.5 mb-3">
-              ${(post.tags || []).map(t => `
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-base)] text-[var(--accent)] border border-[var(--border-color)]">
-                  #${t}
-                </span>
-              `).join('')}
+          <div class="pt-3 border-t border-[var(--border-color)] space-y-2">
+            <div class="flex justify-between items-center">
+              <button onclick="openArticle('${post.id}')" class="px-3 py-1.5 rounded bg-[var(--bg-card)] text-xs font-mono text-[var(--accent)] hover:border-[var(--accent)] border border-[var(--border-color)]">
+                cat --read
+              </button>
+              <span class="text-[10px] text-[var(--term-yellow)] font-mono">#${(post.tags && post.tags[0]) || 'Linux'}</span>
             </div>
 
-            <div class="flex items-center gap-2">
-              <button onclick="openArticle('${post.id}')" class="flex-1 py-1.5 px-3 rounded-lg bg-[var(--bg-card)] hover:bg-[var(--accent)] hover:text-black border border-[var(--border-color)] hover:border-[var(--accent)] text-xs font-mono font-medium transition flex items-center justify-center gap-1.5">
-                <span>cat --read</span>
-                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            <!-- Quick Share & Admin Buttons -->
+            <div class="flex items-center justify-between pt-1 text-[11px] font-mono">
+              <button onclick="copyPostURL('${post.id}')" class="text-[var(--text-muted)] hover:text-white flex items-center gap-1 transition" title="Copy shareable link">
+                <i class="fa-solid fa-link text-xs text-[var(--accent)]"></i> Share link
               </button>
-              <button onclick="downloadMarkdownFile('${post.id}')" title="Download .md notes" class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent)] text-[var(--text-muted)] hover:text-[var(--accent)] transition">
-                <i data-lucide="download" class="w-3.5 h-3.5"></i>
-              </button>
+
+              ${isAdmin ? `
+                <div class="flex items-center gap-2">
+                  <button onclick="openEditModal('${post.id}')" class="text-sky-400 hover:text-sky-300 transition" title="Edit Article">
+                    <i class="fa-solid fa-pen text-xs"></i>
+                  </button>
+                  <button onclick="deleteArticle('${post.id}')" class="text-rose-400 hover:text-rose-300 transition" title="Delete Article">
+                    <i class="fa-solid fa-trash-can text-xs"></i>
+                  </button>
+                </div>
+              ` : ''}
             </div>
           </div>
         </article>
       `).join("");
 
-      lucide.createIcons();
+      renderHeaderSession();
     }
 
-    // Modal Operations
-    function openArticle(postId) {
+    function openArticle(postId, updateHash = true) {
       const post = getArticles().find(p => p.id === postId);
       if (!post) return;
 
+      if (updateHash) {
+        history.pushState(null, null, `#post-${post.id}`);
+      }
+
       document.getElementById("modalDocTitle").textContent = `cat ${post.id}.md`;
-      const rendered = post.rawMarkdown ? marked.parse(post.rawMarkdown) : (post.content || '');
+      const rendered = marked.parse(post.rawMarkdown || post.summary || "");
       
       document.getElementById("modalArticleContent").innerHTML = `
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-2 font-mono text-[11px]">
-            ${(post.tags || []).map(t => `<span class="px-2 py-0.5 rounded bg-[var(--bg-card)] text-[var(--accent)] border border-[var(--border-color)]">#${t}</span>`).join('')}
-          </div>
-          <h1 class="text-xl sm:text-2xl font-bold font-mono text-[var(--text-main)] mb-1">${post.title}</h1>
-          <div class="text-xs font-mono text-[var(--text-muted)] mb-4">${post.date} • ${post.readTime || '5 min read'}</div>
-          ${post.summary ? `<p class="text-xs italic text-[var(--text-muted)] border-l-2 border-[var(--accent)] pl-3 mb-6">${post.summary}</p>` : ''}
+        <h1 class="text-2xl font-bold font-mono text-white mb-2 leading-tight">${post.title}</h1>
+        <div class="text-xs font-mono text-sky-400 mb-6 flex flex-wrap gap-2 items-center">
+          <span><i class="fa-solid fa-calendar mr-1"></i>${post.date}</span>
+          <span>•</span>
+          <span><i class="fa-solid fa-clock mr-1"></i>${post.readTime || '5 min read'}</span>
+          <span>•</span>
+          <span class="text-amber-300">#${(post.tags || []).join(', #')}</span>
         </div>
-        <div class="prose max-w-none text-xs sm:text-sm text-[var(--text-main)] space-y-4">
-          ${rendered}
-        </div>
+        <div class="text-sm leading-relaxed text-slate-200 space-y-4 font-sans">${rendered}</div>
       `;
 
-      document.getElementById("modalDownloadBtn").onclick = () => downloadMarkdownFile(post.id);
+      // Set up social share links
+      const directURL = encodeURIComponent(getPostDirectURL(post.id));
+      const postTitle = encodeURIComponent(post.title);
+
+      document.getElementById("shareLinkedinBtn").onclick = () => {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${directURL}`, '_blank');
+      };
+      document.getElementById("shareTwitterBtn").onclick = () => {
+        window.open(`https://twitter.com/intent/tweet?text=${postTitle}&url=${directURL}`, '_blank');
+      };
+      document.getElementById("shareWhatsappBtn").onclick = () => {
+        window.open(`https://api.whatsapp.com/send?text=${postTitle}%20${directURL}`, '_blank');
+      };
+      document.getElementById("copyShareLinkBtn").onclick = () => {
+        copyPostURL(post.id);
+      };
+
       document.getElementById("articleModal").classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-      lucide.createIcons();
     }
 
-    function closeModal() {
+    function closeModal() { 
       document.getElementById("articleModal").classList.add("hidden");
-      document.body.style.overflow = "auto";
+      if (window.location.hash.startsWith("#post-")) {
+        history.pushState(null, null, ' ');
+      }
     }
 
+    function copyPostURL(postId) {
+      const url = getPostDirectURL(postId);
+      const copyEl = document.createElement("textarea");
+      copyEl.value = url;
+      document.body.appendChild(copyEl);
+      copyEl.select();
+      document.execCommand('copy');
+      document.body.removeChild(copyEl);
+      showToast("Direct URL copied to clipboard!");
+    }
+
+    function showToast(msg, isError = false) {
+      const t = document.getElementById("toastNotification");
+      t.textContent = msg;
+      t.className = `fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-lg border font-mono text-xs shadow-2xl transition transform duration-300 ${
+        isError ? 'bg-red-500 text-white border-red-400' : 'bg-sky-400 text-black border-sky-300 font-semibold'
+      }`;
+      t.classList.remove("hidden");
+      setTimeout(() => { t.classList.add("hidden"); }, 3000);
+    }
+
+    // ==========================================
+    // USER REGISTRATION & SESSION MANAGEMENT
+    // ==========================================
+    function renderHeaderSession() {
+      const container = document.getElementById("authHeaderContainer");
+      const blogActions = document.getElementById("adminBlogActions");
+
+      if (currentUser) {
+        container.innerHTML = `
+          <div class="flex items-center gap-2 bg-[#16223b] border border-[#223253] px-2.5 py-1 rounded text-xs font-mono">
+            <span class="w-2 h-2 rounded-full ${isAdmin ? 'bg-amber-400' : 'bg-emerald-400'} animate-pulse"></span>
+            <span class="text-white font-semibold truncate max-w-[100px] sm:max-w-none">${currentUser.name}</span>
+            ${isAdmin ? '<span class="text-[10px] text-amber-300 border border-amber-600/70 px-1 rounded">Admin</span>' : ''}
+            <button onclick="logoutSession()" class="text-rose-400 hover:text-rose-300 ml-1 text-[11px]" title="Sign Out">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <button onclick="openAuthModal('signin')" class="px-2.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-user-circle text-xs"></i>
+            <span class="hidden sm:inline">Sign In / Register</span>
+          </button>
+        `;
+      }
+
+      if (blogActions) {
+        if (isAdmin) {
+          blogActions.innerHTML = `
+            <button onclick="openEditorModal()" class="px-3.5 py-1.5 rounded bg-[var(--accent)] text-black font-bold text-xs font-mono flex items-center gap-1.5 hover:opacity-90 transition">
+              <i class="fa-solid fa-pen-to-square"></i> + Write New Post
+            </button>
+            <span class="text-xs font-mono text-amber-300 flex items-center gap-1">
+              <i class="fa-solid fa-shield-check"></i> Authoring Controls Active
+            </span>
+          `;
+        } else {
+          blogActions.innerHTML = `
+            <button onclick="openAdminKeyModal()" class="px-3 py-1.5 rounded bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-amber-400 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-lock text-xs"></i> Admin Elevation
+            </button>
+          `;
+        }
+      }
+    }
+
+    function openAuthModal(tab = 'signin') {
+      document.getElementById("authAlert").classList.add("hidden");
+      switchAuthTab(tab);
+      document.getElementById("authModal").classList.remove("hidden");
+    }
+
+    function closeAuthModal() {
+      document.getElementById("authModal").classList.add("hidden");
+    }
+
+    function switchAuthTab(tab) {
+      const signInBtn = document.getElementById("tabSignInBtn");
+      const regBtn = document.getElementById("tabRegisterBtn");
+      const signInForm = document.getElementById("signInForm");
+      const regForm = document.getElementById("registerForm");
+
+      if (tab === 'signin') {
+        signInBtn.className = "font-bold text-sky-400 border-b-2 border-sky-400 pb-1";
+        regBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
+        signInForm.classList.remove("hidden");
+        regForm.classList.add("hidden");
+      } else {
+        regBtn.className = "font-bold text-emerald-400 border-b-2 border-emerald-400 pb-1";
+        signInBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
+        regForm.classList.remove("hidden");
+        signInForm.classList.add("hidden");
+      }
+    }
+
+    async function handleRegisterSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("regName").value.trim();
+      const email = document.getElementById("regEmail").value.trim().toLowerCase();
+      const password = document.getElementById("regPassword").value;
+      const alertEl = document.getElementById("authAlert");
+
+      if (password.length < 6) {
+        alertEl.textContent = "Password must be at least 6 characters.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+        return;
+      }
+
+      let users = getUsers();
+      if (users.some(u => u.email === email)) {
+        alertEl.textContent = "An account with this email already exists.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+        return;
+      }
+
+      const passwordHash = await hashString(password);
+      const newUser = { name, email, passwordHash, role: "reader", createdAt: new Date().toISOString() };
+      users.push(newUser);
+      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
+
+      // Auto sign in
+      currentUser = { name: newUser.name, email: newUser.email, role: newUser.role };
+      sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+      closeAuthModal();
+      showToast(`Account registered! Welcome, ${newUser.name}.`);
+      renderHeaderSession();
+    }
+
+    async function handleSignInSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById("signInEmail").value.trim().toLowerCase();
+      const password = document.getElementById("signInPassword").value;
+      const alertEl = document.getElementById("authAlert");
+
+      const users = getUsers();
+      const passwordHash = await hashString(password);
+      const matched = users.find(u => u.email === email && u.passwordHash === passwordHash);
+
+      if (matched) {
+        currentUser = { name: matched.name, email: matched.email, role: matched.role };
+        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+        closeAuthModal();
+        showToast(`Welcome back, ${matched.name}!`);
+        renderHeaderSession();
+      } else {
+        alertEl.textContent = "Invalid email or password combination.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+      }
+    }
+
+    function logoutSession() {
+      currentUser = null;
+      isAdmin = false;
+      sessionStorage.removeItem(CURRENT_USER_KEY);
+      sessionStorage.removeItem(ADMIN_FLAG_KEY);
+      showToast("Signed out successfully.");
+      renderArticles();
+    }
+
+    // ==========================================
+    // HIDDEN ADMIN ELEVATION (HASH VERIFICATION)
+    // ==========================================
+    function openAdminKeyModal() {
+      document.getElementById("adminKeyAlert").classList.add("hidden");
+      document.getElementById("adminSecretKeyInput").value = "";
+      document.getElementById("adminKeyModal").classList.remove("hidden");
+    }
+
+    function closeAdminKeyModal() {
+      document.getElementById("adminKeyModal").classList.add("hidden");
+    }
+
+    async function handleAdminKeySubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById("adminSecretKeyInput").value;
+      const alertEl = document.getElementById("adminKeyAlert");
+      const hash = await hashString(input);
+
+      if (hash === ELEVATION_HASH) {
+        isAdmin = true;
+        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
+        if (!currentUser) {
+          currentUser = { name: "Mallesh", email: "gowribasava98@gmail.com", role: "admin" };
+          sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+        }
+        closeAdminKeyModal();
+        showToast("Admin privileges elevated!");
+        renderArticles();
+      } else {
+        alertEl.textContent = "Security verification failed. Invalid key.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+      }
+    }
+
+    // ==========================================
+    // POST AUTHORING (WRITE / EDIT / DELETE)
+    // ==========================================
     function openEditorModal() {
+      document.getElementById("editorModalTitle").textContent = "Write New Article";
+      document.getElementById("editPostId").value = "";
+      document.getElementById("editorTitle").value = "";
+      document.getElementById("editorTags").value = "";
+      document.getElementById("editorMarkdown").value = "";
+      updateEditorPreview();
       document.getElementById("editorModal").classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-      lucide.createIcons();
+    }
+
+    function openEditModal(postId) {
+      const post = getArticles().find(p => p.id === postId);
+      if (!post) return;
+      document.getElementById("editorModalTitle").textContent = `Edit: ${post.id}.md`;
+      document.getElementById("editPostId").value = post.id;
+      document.getElementById("editorTitle").value = post.title;
+      document.getElementById("editorTags").value = (post.tags || []).join(", ");
+      document.getElementById("editorMarkdown").value = post.rawMarkdown || post.summary || "";
+      updateEditorPreview();
+      document.getElementById("editorModal").classList.remove("hidden");
     }
 
     function closeEditorModal() {
       document.getElementById("editorModal").classList.add("hidden");
-      document.body.style.overflow = "auto";
     }
 
-    // Save and Publish New Post
+    function updateEditorPreview() {
+      const raw = document.getElementById("editorMarkdown").value;
+      const preview = document.getElementById("editorPreview");
+      preview.innerHTML = raw.trim() ? marked.parse(raw) : `<span class="text-slate-500 italic">Live preview will render here...</span>`;
+    }
+
     function saveAndPublishArticle() {
+      const editId = document.getElementById("editPostId").value;
       const title = document.getElementById("editorTitle").value.trim();
-      const rawTags = document.getElementById("editorTags").value;
+      const tags = document.getElementById("editorTags").value.split(",").map(t => t.trim()).filter(Boolean);
       const markdown = document.getElementById("editorMarkdown").value.trim();
 
       if (!title || !markdown) {
-        alert("Please enter both a Title and Markdown content.");
+        showToast("Title and content are required!", true);
         return;
       }
 
-      const tagsArray = rawTags ? rawTags.split(',').map(t => t.trim()).filter(Boolean) : ["SLES", "Linux"];
-      const newPost = {
-        id: `post-${Date.now()}`,
-        title: title,
-        date: new Date().toISOString().split('T')[0],
-        readTime: `${Math.max(1, Math.ceil(markdown.split(/\s+/).length / 200))} min read`,
-        tags: tagsArray,
-        summary: markdown.substring(0, 140) + "...",
-        rawMarkdown: markdown
-      };
+      const words = markdown.split(/\s+/).length;
+      const readTime = `${Math.max(1, Math.ceil(words / 180))} min read`;
+      let articles = getArticles();
 
-      const existing = getArticles();
-      const updated = [newPost, ...existing];
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      if (editId) {
+        articles = articles.map(p => {
+          if (p.id === editId) {
+            return {
+              ...p,
+              title,
+              tags: tags.length ? tags : ["Linux"],
+              readTime,
+              summary: markdown.substring(0, 140) + "...",
+              rawMarkdown: markdown
+            };
+          }
+          return p;
+        });
+        showToast("Article updated successfully!");
+      } else {
+        const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `post-${Date.now()}`;
+        const newPost = {
+          id: slug,
+          title,
+          date: new Date().toISOString().split('T')[0],
+          readTime,
+          tags: tags.length ? tags : ["Linux"],
+          summary: markdown.substring(0, 140) + "...",
+          rawMarkdown: markdown
+        };
+        articles = [newPost, ...articles];
+        showToast("New article published!");
+      }
 
-      // Reset Inputs
-      document.getElementById("editorTitle").value = "";
-      document.getElementById("editorTags").value = "";
-      document.getElementById("editorMarkdown").value = "";
-
+      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
       closeEditorModal();
       renderTagFilters();
       renderArticles();
     }
 
-    // File Downloads & Backups
-    function downloadMarkdownFile(postId) {
-      const post = getArticles().find(p => p.id === postId);
-      if (!post) return;
-      const content = `# ${post.title}\nDate: ${post.date}\nTags: ${(post.tags || []).join(', ')}\n\n${post.rawMarkdown || post.summary}`;
-      triggerFileDownload(`${post.id}.md`, content, 'text/markdown');
+    function deleteArticle(postId) {
+      if (!confirm("Are you sure you want to permanently delete this article?")) return;
+      let articles = getArticles().filter(p => p.id !== postId);
+      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
+      showToast("Article removed from storage.");
+      renderTagFilters();
+      renderArticles();
     }
 
-    function exportAllArticlesJSON() {
-      const data = JSON.stringify(getArticles(), null, 2);
-      triggerFileDownload('gowri-articles-backup.json', data, 'application/json');
+    // ==========================================
+    // FILTERING & THEME
+    // ==========================================
+    function renderTagFilters() {
+      const container = document.getElementById("tagFilterContainer");
+      const tags = new Set(["All"]);
+      getArticles().forEach(post => (post.tags || []).forEach(t => tags.add(t)));
+      container.innerHTML = Array.from(tags).map(tag => `
+        <button onclick="selectTag('${tag}')" class="px-2.5 py-1 rounded border text-[11px] whitespace-nowrap transition ${
+          activeTag === tag ? 'bg-[var(--accent)] text-black font-bold border-[var(--accent)]' : 'bg-[var(--bg-card)] text-[var(--text-muted)] border-[var(--border-color)] hover:text-white'
+        }">#${tag}</button>
+      `).join("");
     }
 
-    // Browser Self HTML Downloader (Downloads the current running page as index.html)
-    function downloadSelfHTML() {
-      const fullHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-      triggerFileDownload('index.html', fullHTML, 'text/html');
+    function selectTag(t) {
+      activeTag = t;
+      renderTagFilters();
+      renderArticles();
     }
 
-    function triggerFileDownload(filename, text, mimeType) {
-      const blob = new Blob([text], { type: mimeType });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
+    function filterArticles() {
+      searchQuery = document.getElementById("searchInput").value.toLowerCase();
+      renderArticles();
+    }
+
+    function changeTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("gowri_blog_theme", theme);
+    }
+
+    // ==========================================
+    // RUNNABLE CODE DOWNLOADER (.html)
+    // ==========================================
+    function downloadSelfCode() {
+      const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "index.html";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      URL.revokeObjectURL(a.href);
+      showToast("Downloaded index.html to your device!");
     }
 
-    // Terminal Theme Switcher
-    function changeTheme(themeName) {
-      document.documentElement.setAttribute("data-theme", themeName);
-      localStorage.setItem("gowri_site_theme", themeName);
-      const sel = document.getElementById("themeSelect");
-      if (sel) sel.value = themeName;
-    }
-
-    // Initialize application on load
+    // Initial Load
     document.addEventListener("DOMContentLoaded", () => {
-      lucide.createIcons();
-      const savedTheme = localStorage.getItem("gowri_site_theme") || "nord";
+      // Restore Theme
+      const savedTheme = localStorage.getItem("gowri_blog_theme") || "nord";
       changeTheme(savedTheme);
+      document.getElementById("themeSelect").value = savedTheme;
+
+      // Restore User Session & Admin Flag
+      const storedUser = sessionStorage.getItem(CURRENT_USER_KEY);
+      if (storedUser) {
+        try { currentUser = JSON.parse(storedUser); } catch (e) {}
+      }
+      isAdmin = sessionStorage.getItem(ADMIN_FLAG_KEY) === "true";
+
       renderTagFilters();
       renderArticles();
+      checkHashRoute();
 
-      // Keyboard Esc handler for modals
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
+        if (e.key === 'Escape') {
           closeModal();
           closeEditorModal();
+          closeAuthModal();
+          closeAdminKeyModal();
         }
       });
     });
