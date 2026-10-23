@@ -16,7 +16,7 @@
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Marked.js for GFM client-side markdown parsing -->
+  <!-- Marked.js for Markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <script>
@@ -119,7 +119,7 @@
       background: var(--accent);
     }
 
-    /* Markdown Table Styling for GFM */
+    /* Markdown Table Styling */
     .prose-content table {
       width: 100%;
       border-collapse: collapse;
@@ -170,7 +170,6 @@
       border-color: var(--accent);
     }
 
-    /* Code blocks inside markdown */
     .prose-content pre {
       background-color: #070b15 !important;
       border: 1px solid var(--border-color);
@@ -268,15 +267,10 @@
         <a href="#skills" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Skills</a>
         <a href="#experience" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Experience</a>
         <a href="#contact" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Contact</a>
-        <button onclick="switchView('admin')" id="navAdminPortalBtn" class="hover:text-amber-400 transition flex items-center gap-1 font-mono text-xs text-slate-400">
-          <i class="fa-solid fa-shield-halved text-amber-400 text-xs"></i> Admin Portal
-        </button>
       </nav>
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-2.5">
-        <div id="authHeaderContainer"></div>
-
         <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="px-3.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
           <i class="fa-solid fa-book-open"></i>
           <span id="quickToggleText">Open Blog</span>
@@ -321,7 +315,7 @@
           </div>
 
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Dedicated professional with 4+ years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments at <strong>Tata Consultancy Services (TCS)</strong>. Hands-on expertise managing daily SAP operations on SUSE Linux Enterprise Server (SLES), Pacemaker High-Availability clusters, LVM disk management, NFS/SAMBA CIFS mounts, OS-level troubleshooting, system monitoring, and multi-cloud solutions across Microsoft Azure and Google Cloud.
+            Dedicated professional with 5+ years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments at <strong>Tata Consultancy Services (TCS)</strong>. Hands-on expertise managing daily SAP operations on SUSE Linux Enterprise Server (SLES), Pacemaker High-Availability clusters, LVM disk management, NFS/SAMBA CIFS mounts, OS-level troubleshooting, system monitoring, and multi-cloud solutions across Microsoft Azure and Google Cloud.
           </p>
 
           <!-- Quick Action Buttons -->
@@ -331,7 +325,6 @@
             </a>
             <button onclick="switchView('blog')" class="border border-sky-500/60 bg-sky-950/40 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
               <i class="fa-solid fa-terminal"></i> Read Tech Blog
-      
             </button>
           </div>
         </div>
@@ -551,7 +544,7 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- 2. TECHNICAL BLOG VIEW CONTAINER                          -->
+  <!-- 2. TECHNICAL BLOG VIEW CONTAINER (OPEN FOR ALL READERS)   -->
   <!-- ========================================================= -->
   <div id="blogView" class="hidden w-full terminal-grid py-6 px-4 md:px-8 space-y-6">
     <div class="max-w-6xl mx-auto space-y-6">
@@ -599,19 +592,17 @@
  (|     | ) Uptime: 5+ Years Enterprise
 /'\_   _/`\ Status: Operational
 \___)=(___/ 
+
               </pre>
             </div>
 
             <div class="md:col-span-8 space-y-2">
               <h2 class="text-2xl font-bold font-mono text-[var(--text-main)]">
-                Enterprise Linux Blog
+                Enterprise Linux & SAP HEC Journal
               </h2>
               <p class="text-sm text-[var(--text-muted)] leading-relaxed font-sans">
-                Technical articles, troubleshooting guides, and production command runbooks for enterprise Linux systems administrators.
+                Technical articles, troubleshooting guides, and production command runbooks for enterprise Linux systems administrators. Click any article below to read the complete breakdown.
               </p>
-              
-              <!-- Authoring area: Authoring buttons visible only to Admin -->
-              <div class="flex items-center gap-2 pt-2" id="adminBlogActions"></div>
             </div>
           </div>
         </div>
@@ -628,111 +619,23 @@
         </div>
 
         <!-- Articles Grid Container -->
-        <div id="articlesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-      </section>
+ [{
+  "id": "automated-failover-for-sap-hana-system-replication-with-pacemaker-on-sles",
+  "title": "Automated Failover for SAP HANA System Replication with Pacemaker on SLES",
+  "date": "2026-10-23",
+  "readTime": "2 min read",
+  "tags": [
+    "SAP HANA",
+    "SLES",
+    "Pacemaker",
+    "High Availability"
+  ],
+  "summary": "Step-by-step setup of two-node Corosync and Pacemaker clustering on SUSE Linux Enterprise Server with SAPHanaSR and STONITH fencing.",
+  "rawMarkdown": "## 1. Pacemaker Cluster Architecture\n\nIn enterprise SAP HANA deployments on SUSE Linux Enterprise Server (SLES), achieving high availability requires automated takeover during host or database failure. Pacemaker works alongside Corosync and the SAPHanaSR resource agent to monitor system replication (HSR) health.\n\n![SAP HANA Pacemaker High Availability Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)\n\n```bash\n# Check cluster topology and resource health\ncrm status\n\n# Query active SAP HANA system replication state\nSAPHanaSR-showAttr\n```\n\n### 2. High-Availability Cluster Parameter Matrix\n\nThe table below outlines production settings for Corosync and Pacemaker timeouts in enterprise environments:\n\n| Parameter | Recommended Value | Purpose & Impact |\n| :--- | :--- | :--- |\n| **totem.token** | `30000` ms | Time to detect token loss before node is considered down |\n| **totem.consensus** | `36000` ms | Minimum duration required before electing a new cluster coordinator |\n| **stonith-enabled** | `true` | Mandatory fencing prevention to isolate failed primary node |\n| **no-quorum-policy** | `ignore` | Prevents cluster split-brain on 2-node SAP deployments |\n| **migration-threshold** | `3` | Resource retry attempts before failing over to secondary |\n\n### 3. STONITH & Split-Brain Prevention\nA reliable fencing mechanism (such as SBD with shared watchdog storage or hyperscaler fencing agents in Azure) is non-negotiable to prevent split-brain conditions where both nodes attempt to write to primary data volumes simultaneously."
+},
 
-    </div>
-  </div>
+]
 
-  <!-- ========================================================= -->
-  <!-- 3. DEDICATED SEPARATE ADMIN PORTAL VIEW                   -->
-  <!-- ========================================================= -->
-  <div id="adminPortalView" class="hidden w-full terminal-grid py-8 px-4 md:px-8 space-y-6">
-    <div class="max-w-6xl mx-auto space-y-6">
-
-      <!-- Admin Top Card -->
-      <section class="rounded-xl border border-amber-500/50 bg-[#11192d] shadow-2xl p-6 font-mono">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#223253] pb-4">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-xl">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div>
-              <span class="text-xs text-amber-400 font-bold uppercase tracking-wider">Administrative Console</span>
-              <h1 class="text-xl font-bold text-white">SysAdmin Content Control & Governance</h1>
-            </div>
-          </div>
-          
-          <div class="flex items-center gap-3">
-            <button onclick="switchView('blog')" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 hover:text-white border border-[#223253] text-xs">
-              <i class="fa-solid fa-arrow-left mr-1"></i> Tech Journal
-            </button>
-            <div id="adminPortalAuthStatus"></div>
-          </div>
-        </div>
-
-        <!-- When Admin is NOT logged in: Separate Clean Portal Login -->
-        <div id="adminPortalLoggedOutView" class="py-8 max-w-md mx-auto space-y-4">
-          <div class="text-center space-y-1">
-            <h2 class="text-base font-bold text-white">Administrator Verification Required</h2>
-            <p class="text-xs text-slate-400 font-sans">
-              Sign in with administrative credentials to access article authoring, editing, deletion, and system telemetry controls.
-            </p>
-          </div>
-
-          <div id="adminPortalAlert" class="hidden p-2.5 rounded text-xs"></div>
-
-          <form onsubmit="handleAdminPortalLogin(event)" class="space-y-3 font-sans">
-            <div>
-              <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Admin Username</label>
-              <input type="text" id="adminPortalUsername" required placeholder="Admin username" class="w-full bg-[#16223b] border border-[#223253] rounded p-2.5 text-white focus:outline-none focus:border-amber-400 text-xs font-mono">
-            </div>
-            <div>
-              <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Admin Security Password</label>
-              <input type="password" id="adminPortalPassword" required placeholder="••••••••" class="w-full bg-[#16223b] border border-[#223253] rounded p-2.5 text-white focus:outline-none focus:border-amber-400 text-xs font-mono">
-            </div>
-            <button type="submit" class="w-full py-2.5 rounded bg-amber-400 text-black font-bold font-mono hover:bg-amber-300 transition text-xs shadow-lg flex items-center justify-center gap-2">
-              <i class="fa-solid fa-key"></i> Authenticate & Enter Portal
-            </button>
-          </form>
-        </div>
-
-        <!-- When Admin IS logged in: Full Dashboard & Content Manager -->
-        <div id="adminPortalLoggedInView" class="hidden pt-6 space-y-6">
-          <!-- Quick Stats Row -->
-          <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-mono text-xs">
-            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl">
-              <span class="text-slate-400 block mb-1">Active Posts</span>
-              <span id="statPostCount" class="text-xl font-bold text-sky-400">0</span>
-            </div>
-            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl">
-              <span class="text-slate-400 block mb-1">Registered Readers</span>
-              <span id="statUserCount" class="text-xl font-bold text-emerald-400">0</span>
-            </div>
-            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl">
-              <span class="text-slate-400 block mb-1">Total Comments</span>
-              <span id="statCommentCount" class="text-xl font-bold text-amber-400">0</span>
-            </div>
-            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl flex items-center justify-center">
-              <button onclick="openEditorModal()" class="w-full h-full py-2.5 px-3 rounded-lg bg-sky-400 hover:bg-sky-300 text-black font-bold text-xs flex items-center justify-center gap-2 transition">
-                <i class="fa-solid fa-plus"></i> + Write New Post
-              </button>
-            </div>
-          </div>
-
-          <!-- Post Management Table -->
-          <div class="bg-[#0a0f1d] border border-[#223253] rounded-xl overflow-hidden font-mono text-xs">
-            <div class="p-3 bg-[#16223b] border-b border-[#223253] flex items-center justify-between">
-              <span class="font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-table-list text-sky-400"></i> Published Articles Repository
-              </span>
-              <span class="text-[11px] text-slate-400">Admin-exclusive modification rights</span>
-            </div>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left border-collapse">
-                <thead class="bg-[#11192d] text-slate-400 border-b border-[#223253] text-[11px]">
-                  <tr>
-                    <th class="p-3">Post Title</th>
-                    <th class="p-3">Date</th>
-                    <th class="p-3">Tags</th>
-                    <th class="p-3 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="adminArticlesTableBody" class="divide-y divide-[#223253]"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </section>
 
     </div>
@@ -752,15 +655,13 @@
           <i class="fa-solid fa-file-pdf text-orange-400"></i> Resume
         </a>
         <button onclick="switchView('blog')" class="hover:text-sky-400 text-sky-400 transition font-mono">Tech Blog</button>
-        <button onclick="switchView('admin')" class="hover:text-amber-400 text-slate-400 transition font-mono flex items-center gap-1">
-          <i class="fa-solid fa-shield-halved text-amber-400 text-xs"></i> Admin Portal
         <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition font-sans">Email</a>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================= -->
-  <!-- 1. ARTICLE READER MODAL (WITH SOCIAL SHARING & COMMENTS)  -->
+  <!-- ARTICLE READER MODAL (WITH SOCIAL SHARING)                -->
   <!-- ========================================================= -->
   <div id="articleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col font-sans">
@@ -810,163 +711,18 @@
     </div>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- 2. USER AUTHENTICATION MODAL (SIGN IN, REGISTER, FORGOT)  -->
-  <!-- ========================================================= -->
-  <div id="authModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="relative w-full max-w-sm bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
-      <div class="flex items-center justify-between border-b border-[#223253] pb-3">
-        <div class="flex gap-4">
-          <button id="tabSignInBtn" onclick="switchAuthTab('signin')" class="font-bold text-sky-400 border-b-2 border-sky-400 pb-1">Sign In</button>
-          <button id="tabRegisterBtn" onclick="switchAuthTab('register')" class="font-bold text-slate-400 hover:text-white pb-1">Create Account</button>
-          <button id="tabForgotBtn" onclick="switchAuthTab('forgot')" class="font-bold text-slate-400 hover:text-white pb-1">Reset</button>
-        </div>
-        <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
-      </div>
-
-      <div id="authAlert" class="hidden p-2.5 rounded text-[11px]"></div>
-
-      <!-- Sign In Form -->
-      <form id="signInForm" onsubmit="handleSignInSubmit(event)" class="space-y-3 font-sans">
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Username or Email</label>
-          <input type="text" id="signInIdentifier" required placeholder="Your username or email" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Password</label>
-          <input type="password" id="signInPassword" required placeholder="••••••••" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div class="flex justify-between items-center pt-1 text-[11px] font-mono">
-          <button type="button" onclick="switchAuthTab('forgot')" class="text-slate-400 hover:text-sky-400 underline">Forgot Password?</button>
-        </div>
-        <div class="pt-2 flex justify-end gap-2 font-mono">
-          <button type="button" onclick="closeAuthModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
-          <button type="submit" class="px-4 py-1.5 rounded bg-sky-400 text-black font-bold hover:bg-sky-300 transition">Sign In</button>
-        </div>
-      </form>
-
-      <!-- Register Form -->
-      <form id="registerForm" onsubmit="handleRegisterSubmit(event)" class="hidden space-y-3 font-sans">
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Username</label>
-          <input type="text" id="regUsername" required placeholder="Choose a username" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Full Name</label>
-          <input type="text" id="regName" required placeholder="Full Name" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Email Address</label>
-          <input type="email" id="regEmail" required placeholder="name@domain.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Create Password</label>
-          <input type="password" id="regPassword" required placeholder="At least 6 characters" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div class="pt-2 flex justify-end gap-2 font-mono">
-          <button type="button" onclick="closeAuthModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
-          <button type="submit" class="px-4 py-1.5 rounded bg-emerald-400 text-black font-bold hover:bg-emerald-300 transition">Register</button>
-        </div>
-      </form>
-
-      <!-- Forgot / Reset Password Form -->
-      <form id="forgotForm" onsubmit="handleForgotSubmit(event)" class="hidden space-y-3 font-sans">
-        <p class="text-[11px] text-slate-400 font-mono leading-relaxed">
-          Verify your registered username or email to set a new password.
-        </p>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Registered Username or Email</label>
-          <input type="text" id="forgotIdentifier" required placeholder="username or email@example.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">New Password</label>
-          <input type="password" id="forgotNewPassword" required placeholder="At least 6 characters" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
-        </div>
-        <div class="pt-2 flex justify-end gap-2 font-mono">
-          <button type="button" onclick="closeAuthModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
-          <button type="submit" class="px-4 py-1.5 rounded bg-amber-400 text-black font-bold hover:bg-amber-300 transition">Update Password</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ========================================================= -->
-  <!-- 3. MARKDOWN POST WRITER & EDITOR (ADMIN AUTHOR ONLY)      -->
-  <!-- ========================================================= -->
-  <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
-    <div class="relative w-full max-w-5xl bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl flex flex-col font-mono text-xs max-h-[92vh] overflow-hidden">
-      <div class="flex items-center justify-between px-4 py-2.5 bg-[#16223b] border-b border-[#223253]">
-        <span id="editorModalTitle" class="font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-code text-sky-400"></i> vim /var/log/articles/post.md
-        </span>
-        <button onclick="closeEditorModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
-      </div>
-      
-      <div class="p-4 space-y-3 bg-[#0a0f1d] border-b border-[#223253]">
-        <input type="hidden" id="editPostId">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
-          <div class="md:col-span-8">
-            <label class="text-slate-400 block mb-1">Title *</label>
-            <input id="editorTitle" type="text" placeholder="Article Title" class="w-full bg-[#11192d] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 font-sans">
-          </div>
-          <div class="md:col-span-4">
-            <label class="text-slate-400 block mb-1">Tags (comma separated)</label>
-            <input id="editorTags" type="text" placeholder="SAP HANA, SLES, Pacemaker" class="w-full bg-[#11192d] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500">
-          </div>
-        </div>
-      </div>
-
-      <!-- Split Editor & Live Render -->
-      <div class="flex-1 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#223253] min-h-[300px] overflow-hidden">
-        <div class="flex flex-col h-full bg-[#11192d]">
-          <div class="px-3 py-1.5 bg-[#16223b] text-slate-300 text-[11px] border-b border-[#223253] flex flex-wrap items-center justify-between gap-1">
-            <span class="text-slate-400 font-bold">MARKDOWN SOURCE</span>
-            <div class="flex items-center gap-1">
-              <button type="button" onclick="insertMarkdownSnippet('table')" title="Insert Markdown Table" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-sky-400 border border-[#223253] flex items-center gap-1 transition">
-                <i class="fa-solid fa-table"></i> +Table
-              </button>
-              <button type="button" onclick="insertMarkdownSnippet('image')" title="Insert Markdown Image" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-emerald-400 border border-[#223253] flex items-center gap-1 transition">
-                <i class="fa-solid fa-image"></i> +Image
-              </button>
-              <button type="button" onclick="insertMarkdownSnippet('code')" title="Insert Code Block" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-amber-300 border border-[#223253] flex items-center gap-1 transition">
-                <i class="fa-solid fa-code"></i> Code
-              </button>
-              <button type="button" onclick="insertMarkdownSnippet('bold')" title="Insert Bold Text" class="px-2 py-0.5 rounded bg-[#11192d] hover:bg-[#223253] text-slate-200 border border-[#223253] transition">
-                <strong>B</strong>
-              </button>
-            </div>
-          </div>
-          <textarea id="editorMarkdown" oninput="updateEditorPreview()" placeholder="# Write article in Markdown...&#10;&#10;| Metric | Target | Status |&#10;|---|---|---|&#10;| Uptime | 99.99% | Operational |&#10;&#10;![Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)" class="flex-1 p-3 bg-transparent text-white resize-none font-mono text-xs focus:outline-none leading-relaxed overflow-y-auto"></textarea>
-        </div>
-        <div class="flex flex-col h-full bg-[#0a0f1d]">
-          <div class="px-3 py-1.5 bg-[#16223b] text-slate-400 text-[11px] border-b border-[#223253] flex items-center justify-between">
-            <span class="font-bold">LIVE PREVIEW</span>
-            <span class="text-[10px] text-slate-500">GFM Tables & Images</span>
-          </div>
-          <div id="editorPreview" class="flex-1 p-4 overflow-y-auto font-sans text-xs text-slate-200 space-y-3 leading-relaxed prose-content"></div>
-        </div>
-      </div>
-
-      <div class="p-3 bg-[#16223b] flex justify-end gap-2 border-t border-[#223253]">
-        <button onclick="closeEditorModal()" class="px-3 py-1.5 rounded bg-[#0a0f1d] text-slate-300 border border-[#223253]">Cancel</button>
-        <button onclick="saveAndPublishArticle()" class="px-4 py-1.5 rounded bg-sky-400 text-black font-bold hover:bg-sky-300 transition">Save & Publish</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Toast Notification Container -->
   <div id="toastNotification" class="fixed bottom-6 right-6 z-50 hidden px-4 py-2.5 rounded-lg border font-mono text-xs shadow-2xl transition transform duration-300 bg-sky-400 text-black font-semibold"></div>
 
   <!-- ========================================================= -->
-  <!-- SCRIPT ENGINE & LOGIC                                     -->
+  <!-- SCRIPT ENGINE & STATIC ARTICLES DATA                      -->
   <!-- ========================================================= -->
   <script>
     let currentView = 'portfolio';
-    let currentUser = null;
-    let isAdmin = false;
-    let activeArticleId = null;
+    let activeTag = "All";
+    let searchQuery = "";
 
-    // GFM Table and Image options
+    // Configure Marked.js for GitHub Flavored Markdown (tables, diagrams, breaks)
     if (typeof marked !== 'undefined') {
       marked.setOptions({
         gfm: true,
@@ -979,186 +735,51 @@
       });
     }
 
-    // Default Enterprise Linux Articles
-    const defaultPosts = [
-      {
-        id: "pacemaker-sles-sap-hana",
-        title: "Automated Failover for SAP HANA System Replication with Pacemaker on SLES",
-        date: "2026-09-15",
-        readTime: "8 min read",
-        tags: ["SAP HANA", "SLES", "Pacemaker", "High Availability"],
-        summary: "Step-by-step setup of two-node Corosync and Pacemaker clustering on SUSE Linux Enterprise Server with SAPHanaSR and STONITH fencing.",
-        rawMarkdown: `## 1. Pacemaker Cluster Architecture
+    // =========================================================
+    // ARTICLES DATA (ADD YOUR ARTICLES HERE MANUALLY)
+    // Structure:
+    // {
+    //   id: "unique-slug",
+    //   title: "Article Title",
+    //   date: "YYYY-MM-DD",
+    //   readTime: "5 min read",
+    //   tags: ["Tag1", "Tag2"],
+    //   summary: "Short summary...",
+    //   rawMarkdown: `## Content in Markdown`
+    // }
+    // =========================================================
+    const articlesData = [];
 
-In enterprise SAP HANA deployments on SUSE Linux Enterprise Server (SLES), achieving high availability requires automated takeover during host or database failure. Pacemaker works alongside Corosync and the SAPHanaSR resource agent to monitor system replication (HSR) health.
-
-![SAP HANA Pacemaker High Availability Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)
-
-\`\`\`bash
-crm status
-# Verify node state and SAPHana topology:
-SAPHanaSR-showAttr
-\`\`\`
-
-### 2. High-Availability Cluster Parameter Matrix
-
-The table below outlines production settings for Corosync and Pacemaker timeouts in enterprise environments:
-
-| Parameter | Recommended Value | Purpose & Impact |
-| :--- | :--- | :--- |
-| **totem.token** | \`30000\` ms | Time to detect token loss before node is considered down |
-| **totem.consensus** | \`36000\` ms | Minimum duration required before electing a new cluster coordinator |
-| **stonith-enabled** | \`true\` | Mandatory fencing prevention to isolate failed primary node |
-| **no-quorum-policy** | \`ignore\` | Prevents cluster split-brain on 2-node SAP deployments |
-| **migration-threshold** | \`3\` | Resource retry attempts before failing over to secondary |
-
-### 3. STONITH & Split-Brain Prevention
-A reliable fencing mechanism (such as SBD with shared watchdog storage or hyperscaler fencing agents in Azure) is non-negotiable to prevent split-brain conditions where both nodes attempt to write to primary data volumes simultaneously.`
-      },
-      {
-        id: "online-lvm-disk-expansion",
-        title: "Zero-Downtime Logical Volume (LVM) Resizing and CIFS/NFS Mount Troubleshooting",
-        date: "2026-08-20",
-        readTime: "7 min read",
-        tags: ["Linux", "LVM", "NFS", "Storage"],
-        summary: "Safely expanding physical volumes, volume groups, and XFS/ext4 filesystems on live production servers without unmounting databases.",
-        rawMarkdown: `## 1. Online Volume Expansion on SLES
-
-When disk space reaches critical thresholds on production SAP systems, LVM allows dynamic storage growth without taking the database offline.
-
-![Linux LVM Storage Architecture](https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=1200&q=80)
-
-\`\`\`bash
-# Rescan SCSI bus and expand LVM:
-echo 1 > /sys/class/block/sdb/device/rescan
-pvresize /dev/sdb
-lvextend -r -l +100%FREE /dev/datavg/datalv
-\`\`\`
-
-### 2. Storage Expansion Comparison Table
-
-| Filesystem Type | Shrink Supported | Online Expansion Command | Maximum Filesystem Size |
-| :--- | :--- | :--- | :--- |
-| **XFS** | No | \`xfs_growfs /hana/data\` | 8 Exabytes |
-| **Ext4** | Yes (offline only) | \`resize2fs /dev/datavg/datalv\` | 16 Terabytes |
-| **Btrfs** | Yes (online) | \`btrfs filesystem resize max /mount\` | 16 Exabytes |
-
-### 3. NFS & SAMBA CIFS Mount Lockups
-Troubleshooting stale file handles, permission locks, and network timeout parameters (\`hard,intr,timeo=600\`) to ensure background backup scripts run without hanging.`
-      },
-      {
-        id: "proactive-monitoring-prometheus-grafana",
-        title: "Building Real-Time Dashboards with Prometheus and Grafana for SLA Adherence",
-        date: "2026-07-10",
-        readTime: "6 min read",
-        tags: ["Monitoring", "Grafana", "Prometheus", "Azure Monitor"],
-        summary: "Configuring metric collection, threshold alerts, and incident prevention dashboards to meet strict 99.99% enterprise SLAs.",
-        rawMarkdown: `## 1. Proactive Monitoring & Incident Prevention
-
-Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes before they escalate to P1/P2 outages. Combining Node Exporter with custom Grafana dashboards gives full system visibility.
-
-![Grafana Prometheus Monitoring Telemetry Dashboard](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80)
-
-### 2. SLA Incident Severity Thresholds
-
-| Severity Tier | Response SLA | Target Resolution | Alert Trigger Criteria |
-| :--- | :--- | :--- | :--- |
-| **P1 - Critical** | < 15 mins | 2 Hours | Node down, SAP HANA primary instance stopped, cluster split |
-| **P2 - High** | < 30 mins | 4 Hours | Filesystem > 90% full, replication delay > 120s |
-| **P3 - Medium** | < 2 Hours | 24 Hours | CPU wait > 25%, non-critical NFS backup mount latency |
-| **P4 - Low** | < 4 Hours | 48 Hours | Informational patch check, standard query report |
-
-\`\`\`bash
-# Sample PromQL memory exhaustion threshold alert:
-(node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
-\`\`\``
-      }
-    ];
-
-    let activeTag = "All";
-    let searchQuery = "";
-    const ARTICLES_STORAGE_KEY = "gowri_single_file_blog";
-    const USERS_STORAGE_KEY = "gowri_registered_users";
-    const COMMENTS_STORAGE_KEY = "gowri_blog_comments";
-    const CURRENT_USER_KEY = "gowri_current_session";
-    const ADMIN_FLAG_KEY = "gowri_admin_session_flag";
-
-    // Cryptographic SHA-256 Hash Helper
-    async function hashString(str) {
-      const buffer = new TextEncoder().encode(str);
-      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
-      return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-    }
-
-    // SHA-256 digest of 'Mallesh@2026'
-    const ELEVATION_HASH = "3194beecbf78e244ad06440dbda8195e5482390f05566cf9b4f74d081b2f9c73";
-    const ELEVATION_HASH_LOWER = "16c805217ba3f868fa30064375b48651817551065c7198bb4fae0a78bbba505d";
-
-    function getArticles() {
-      const stored = localStorage.getItem(ARTICLES_STORAGE_KEY);
-      if (stored) {
-        try { return JSON.parse(stored); } catch (e) {}
-      }
-      return defaultPosts;
-    }
-
-    function getUsers() {
-      const stored = localStorage.getItem(USERS_STORAGE_KEY);
-      if (stored) {
-        try { return JSON.parse(stored); } catch (e) {}
-      }
-      return [];
-    }
-
-    function getComments() {
-      const stored = localStorage.getItem(COMMENTS_STORAGE_KEY);
-      if (stored) {
-        try { return JSON.parse(stored); } catch (e) {}
-      }
-      return [];
-    }
-
-    function saveComments(comments) {
-      localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(comments));
-    }
-
-    // View Switching
+    // =========================================================
+    // VIEW SWITCHING LOGIC
+    // =========================================================
     function switchView(view) {
       currentView = view;
       const portEl = document.getElementById("portfolioView");
       const blogEl = document.getElementById("blogView");
-      const adminEl = document.getElementById("adminPortalView");
       const navPort = document.getElementById("navPortfolioBtn");
       const navBlog = document.getElementById("navBlogBtn");
-      const navAdmin = document.getElementById("navAdminPortalBtn");
       const quickBtn = document.getElementById("quickToggleText");
 
-      portEl.classList.add("hidden");
-      blogEl.classList.add("hidden");
-      adminEl.classList.add("hidden");
-
-      navPort.className = "hover:text-sky-400 text-slate-300 flex items-center gap-1.5";
-      navBlog.className = "hover:text-sky-400 text-slate-300 font-mono flex items-center gap-1.5";
-      navAdmin.className = "hover:text-amber-400 text-slate-400 font-mono flex items-center gap-1 text-xs";
-
       if (view === 'blog') {
+        portEl.classList.add("hidden");
         blogEl.classList.remove("hidden");
         navBlog.className = "text-sky-400 font-semibold font-mono flex items-center gap-1.5";
+        navPort.className = "hover:text-sky-400 text-slate-300 flex items-center gap-1.5";
         quickBtn.textContent = "Switch to Portfolio";
         renderArticles();
-      } else if (view === 'admin') {
-        adminEl.classList.remove("hidden");
-        navAdmin.className = "text-amber-400 font-bold font-mono flex items-center gap-1 text-xs";
-        quickBtn.textContent = "Open Blog";
-        renderAdminPortalView();
       } else {
+        blogEl.classList.add("hidden");
         portEl.classList.remove("hidden");
         navPort.className = "text-sky-400 font-semibold flex items-center gap-1.5";
+        navBlog.className = "hover:text-sky-400 text-slate-300 font-mono flex items-center gap-1.5";
         quickBtn.textContent = "Open Blog";
       }
     }
 
-    // Deep Linking via hash
+    // =========================================================
+    // DEEP LINKING VIA HASH (#post-<id>)
+    // =========================================================
     function checkHashRoute() {
       const hash = window.location.hash;
       if (hash && hash.startsWith("#post-")) {
@@ -1175,16 +796,25 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       return `${baseURL}#post-${postId}`;
     }
 
+    // =========================================================
+    // RENDER ARTICLES GRID
+    // =========================================================
     function renderArticles() {
       const container = document.getElementById("articlesContainer");
-      const list = getArticles().filter(p => {
+      const list = articlesData.filter(p => {
         const matchesTag = activeTag === "All" || (p.tags && p.tags.includes(activeTag));
         const matchesQ = !searchQuery || p.title.toLowerCase().includes(searchQuery) || (p.summary && p.summary.toLowerCase().includes(searchQuery));
         return matchesTag && matchesQ;
       });
 
       if (list.length === 0) {
-        container.innerHTML = `<div class="col-span-3 text-center py-10 font-mono text-xs text-slate-400 border border-[var(--border-color)] rounded-xl bg-[var(--bg-surface)]">No matching enterprise articles found.</div>`;
+        container.innerHTML = `
+          <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12 px-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] font-mono space-y-2">
+            <i class="fa-solid fa-file-code text-2xl text-[var(--accent)] mb-2 block"></i>
+            <p class="text-sm font-semibold text-white">No articles published yet</p>
+            <p class="text-xs text-[var(--text-muted)] font-sans">Articles will appear here once added manually to <code class="text-sky-300 font-mono">articlesData</code>.</p>
+          </div>
+        `;
         return;
       }
 
@@ -1207,35 +837,22 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
               <span class="text-[10px] text-[var(--term-yellow)] font-mono">#${(post.tags && post.tags[0]) || 'Linux'}</span>
             </div>
 
-            <!-- Share & (Admin-Only) Edit/Delete Controls -->
             <div class="flex items-center justify-between pt-1 text-[11px] font-mono">
               <button onclick="copyPostURL('${post.id}')" class="text-[var(--text-muted)] hover:text-white flex items-center gap-1 transition" title="Copy shareable link">
                 <i class="fa-solid fa-link text-xs text-[var(--accent)]"></i> Share link
               </button>
-
-              ${isAdmin ? `
-                <div class="flex items-center gap-2">
-                  <button onclick="openEditModal('${post.id}')" class="text-sky-400 hover:text-sky-300 transition" title="Edit Article (Admin)">
-                    <i class="fa-solid fa-pen text-xs"></i>
-                  </button>
-                  <button onclick="deleteArticle('${post.id}')" class="text-rose-400 hover:text-rose-300 transition" title="Delete Article (Admin)">
-                    <i class="fa-solid fa-trash-can text-xs"></i>
-                  </button>
-                </div>
-              ` : ''}
             </div>
           </div>
         </article>
       `).join("");
-
-      renderHeaderSession();
     }
 
+    // =========================================================
+    // ARTICLE MODAL READER
+    // =========================================================
     function openArticle(postId, updateHash = true) {
-      const post = getArticles().find(p => p.id === postId);
+      const post = articlesData.find(p => p.id === postId);
       if (!post) return;
-
-      activeArticleId = post.id;
 
       if (updateHash) {
         history.pushState(null, null, `#post-${post.id}`);
@@ -1254,32 +871,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
           <span class="text-amber-300">#${(post.tags || []).join(', #')}</span>
         </div>
         <div class="text-sm leading-relaxed text-slate-200 space-y-4 font-sans prose-content">${rendered}</div>
-
-        <!-- Discussion & Comments Section -->
-        <div class="mt-8 pt-6 border-t border-[var(--border-color)] space-y-4">
-          <div class="flex items-center justify-between">
-            <h3 class="text-sm font-bold font-mono text-white flex items-center gap-2">
-              <i class="fa-solid fa-comments text-sky-400"></i> Reader Notes & Discussion
-            </h3>
-            <span class="text-[11px] font-mono text-slate-400" id="commentCountBadge">0 comments</span>
-          </div>
-
-          <!-- Add Comment Form -->
-          <div class="p-3.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] space-y-3">
-            <textarea id="commentInput" rows="2" placeholder="${currentUser ? `Add technical feedback as ${currentUser.name}...` : 'Sign in to participate in the discussion...'}" class="w-full bg-[#11192d] border border-[#223253] rounded p-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] text-slate-400 font-mono">
-                ${currentUser ? `<span class="text-emerald-400"><i class="fa-solid fa-circle-check"></i> ${currentUser.name}</span>` : '<a href="javascript:openAuthModal(\'signin\')" class="text-sky-400 underline">Sign In</a> to participate'}
-              </span>
-              <button onclick="submitComment()" class="px-3 py-1.5 rounded bg-sky-400 text-black font-bold text-xs hover:bg-sky-300 transition flex items-center gap-1.5">
-                <i class="fa-solid fa-paper-plane text-[10px]"></i> Post Comment
-              </button>
-            </div>
-          </div>
-
-          <!-- Comments List -->
-          <div id="commentsList" class="space-y-2.5 pt-2"></div>
-        </div>
       `;
 
       // Set up social share links
@@ -1299,76 +890,7 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
         copyPostURL(post.id);
       };
 
-      renderArticleComments(post.id);
       document.getElementById("articleModal").classList.remove("hidden");
-    }
-
-    function renderArticleComments(postId) {
-      const allComments = getComments().filter(c => c.postId === postId);
-      const container = document.getElementById("commentsList");
-      const badge = document.getElementById("commentCountBadge");
-      if (badge) badge.textContent = `${allComments.length} comment${allComments.length === 1 ? '' : 's'}`;
-
-      if (!container) return;
-      if (allComments.length === 0) {
-        container.innerHTML = `<p class="text-xs text-slate-500 italic">No notes on this article yet. Be the first to start the discussion!</p>`;
-        return;
-      }
-
-      container.innerHTML = allComments.map(c => `
-        <div class="p-3 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] text-xs space-y-1.5">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="font-bold text-slate-200 font-mono">${c.author}</span>
-              ${c.isAdmin ? '<span class="text-[9px] bg-amber-950 text-amber-300 border border-amber-700/60 px-1 py-0.5 rounded font-mono">Admin</span>' : ''}
-              <span class="text-[10px] text-slate-500 font-mono">${c.date}</span>
-            </div>
-            ${(isAdmin || (currentUser && currentUser.username === c.authorUsername)) ? `
-              <button onclick="deleteComment('${c.id}')" class="text-slate-500 hover:text-rose-400 transition" title="Delete comment">
-                <i class="fa-solid fa-trash-can text-[10px]"></i>
-              </button>
-            ` : ''}
-          </div>
-          <p class="text-slate-300 leading-relaxed">${c.text}</p>
-        </div>
-      `).join("");
-    }
-
-    function submitComment() {
-      if (!currentUser) {
-        openAuthModal('signin');
-        return;
-      }
-      const input = document.getElementById("commentInput");
-      const text = input ? input.value.trim() : "";
-      if (!text) {
-        showToast("Please enter a note before posting.", true);
-        return;
-      }
-
-      const newComment = {
-        id: `cmt-${Date.now()}`,
-        postId: activeArticleId,
-        author: currentUser.name,
-        authorUsername: currentUser.username || currentUser.name,
-        isAdmin: isAdmin,
-        text: text,
-        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-      };
-
-      const comments = getComments();
-      comments.unshift(newComment);
-      saveComments(comments);
-      input.value = "";
-      renderArticleComments(activeArticleId);
-      showToast("Comment posted!");
-    }
-
-    function deleteComment(commentId) {
-      let comments = getComments().filter(c => c.id !== commentId);
-      saveComments(comments);
-      renderArticleComments(activeArticleId);
-      showToast("Comment removed.");
     }
 
     function closeModal() { 
@@ -1389,458 +911,21 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       showToast("Direct URL copied to clipboard!");
     }
 
-    function showToast(msg, isError = false) {
+    function showToast(msg) {
       const t = document.getElementById("toastNotification");
       t.textContent = msg;
-      t.className = `fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-lg border font-mono text-xs shadow-2xl transition transform duration-300 ${
-        isError ? 'bg-red-500 text-white border-red-400' : 'bg-sky-400 text-black border-sky-300 font-semibold'
-      }`;
+      t.className = "fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-lg border font-mono text-xs shadow-2xl transition transform duration-300 bg-sky-400 text-black border-sky-300 font-semibold";
       t.classList.remove("hidden");
       setTimeout(() => { t.classList.add("hidden"); }, 3000);
     }
 
-    // ==========================================
-    // SEPARATE ADMIN PORTAL VIEW CONTROLLER
-    // ==========================================
-    function renderAdminPortalView() {
-      const loggedInView = document.getElementById("adminPortalLoggedInView");
-      const loggedOutView = document.getElementById("adminPortalLoggedOutView");
-      const authStatus = document.getElementById("adminPortalAuthStatus");
-      const tableBody = document.getElementById("adminArticlesTableBody");
-
-      if (isAdmin) {
-        loggedInView.classList.remove("hidden");
-        loggedOutView.classList.add("hidden");
-        authStatus.innerHTML = `
-          <div class="flex items-center gap-2 bg-amber-950/70 border border-amber-600/60 px-3 py-1 rounded text-xs">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-            <span class="text-amber-300 font-bold">Admin: Mallesh</span>
-            <button onclick="logoutSession()" class="text-rose-400 hover:underline ml-2">Sign Out</button>
-          </div>
-        `;
-
-        const articles = getArticles();
-        const users = getUsers();
-        const comments = getComments();
-
-        document.getElementById("statPostCount").textContent = articles.length;
-        document.getElementById("statUserCount").textContent = users.length;
-        document.getElementById("statCommentCount").textContent = comments.length;
-
-        tableBody.innerHTML = articles.map(post => `
-          <tr class="hover:bg-[#16223b] transition">
-            <td class="p-3 font-semibold text-white">${post.title}</td>
-            <td class="p-3 text-slate-400 whitespace-nowrap">${post.date}</td>
-            <td class="p-3 text-sky-400 text-[11px]">${(post.tags || []).join(', ')}</td>
-            <td class="p-3 text-right whitespace-nowrap">
-              <button onclick="openEditModal('${post.id}')" class="px-2 py-1 rounded bg-[#16223b] hover:bg-[#223253] text-sky-400 border border-[#223253] mr-1.5 transition">
-                <i class="fa-solid fa-pen text-xs"></i> Edit
-              </button>
-              <button onclick="deleteArticle('${post.id}')" class="px-2 py-1 rounded bg-[#16223b] hover:bg-[#223253] text-rose-400 border border-[#223253] transition">
-                <i class="fa-solid fa-trash-can text-xs"></i> Delete
-              </button>
-            </td>
-          </tr>
-        `).join("");
-      } else {
-        loggedInView.classList.add("hidden");
-        loggedOutView.classList.remove("hidden");
-        authStatus.innerHTML = `<span class="text-xs text-slate-400">Status: Unauthenticated</span>`;
-      }
-    }
-
-    async function handleAdminPortalLogin(e) {
-      e.preventDefault();
-      const u = document.getElementById("adminPortalUsername").value.trim();
-      const p = document.getElementById("adminPortalPassword").value.trim();
-      const alertEl = document.getElementById("adminPortalAlert");
-
-      const passwordHash = await hashString(p);
-
-      if ((u.toLowerCase() === "mallesh") && 
-          (passwordHash === ELEVATION_HASH || passwordHash === ELEVATION_HASH_LOWER || p === "Mallesh@2026")) {
-        isAdmin = true;
-        currentUser = { name: "Mallesh", username: "Mallesh", role: "admin" };
-        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
-        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-        alertEl.classList.add("hidden");
-        showToast("Authenticated as Administrator Mallesh!");
-        renderHeaderSession();
-        renderAdminPortalView();
-        renderArticles();
-      } else {
-        alertEl.textContent = "Authentication failed. Invalid username or security credential.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-xs";
-        alertEl.classList.remove("hidden");
-      }
-    }
-
-    function renderHeaderSession() {
-      const container = document.getElementById("authHeaderContainer");
-      const blogActions = document.getElementById("adminBlogActions");
-
-      if (currentUser) {
-        container.innerHTML = `
-          <div class="flex items-center gap-2 bg-[#16223b] border border-[#223253] px-2.5 py-1 rounded text-xs font-mono">
-            <span class="w-2 h-2 rounded-full ${isAdmin ? 'bg-amber-400' : 'bg-emerald-400'} animate-pulse"></span>
-            <span class="text-white font-semibold truncate max-w-[100px] sm:max-w-none">${currentUser.name}</span>
-            ${isAdmin ? '<span class="text-[10px] text-amber-300 border border-amber-600/70 px-1 rounded">Admin</span>' : ''}
-            <button onclick="logoutSession()" class="text-rose-400 hover:text-rose-300 ml-1 text-[11px]" title="Sign Out">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </button>
-          </div>
-        `;
-      } else {
-        container.innerHTML = `
-          <button onclick="openAuthModal('signin')" class="px-2.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
-            <i class="fa-solid fa-user-circle text-xs"></i>
-            <span class="hidden sm:inline">Sign In / Register</span>
-          </button>
-        `;
-      }
-
-      // Authoring button only rendered for authenticated Admin
-      if (blogActions) {
-        if (isAdmin) {
-          blogActions.innerHTML = `
-            <button onclick="openEditorModal()" class="px-3.5 py-1.5 rounded bg-[var(--accent)] text-black font-bold text-xs font-mono flex items-center gap-1.5 hover:opacity-90 transition">
-              <i class="fa-solid fa-pen-to-square"></i> + Write New Post
-            </button>
-            <button onclick="switchView('admin')" class="px-3 py-1.5 rounded bg-[#16223b] border border-amber-600/60 text-xs font-mono text-amber-300 hover:text-white transition flex items-center gap-1.5">
-              <i class="fa-solid fa-shield-halved"></i> Open Admin Portal
-            </button>
-          `;
-        } else {
-          blogActions.innerHTML = ``;
-        }
-      }
-    }
-
-    function openAuthModal(tab = 'signin') {
-      document.getElementById("authAlert").classList.add("hidden");
-      switchAuthTab(tab);
-      document.getElementById("authModal").classList.remove("hidden");
-    }
-
-    function closeAuthModal() {
-      document.getElementById("authModal").classList.add("hidden");
-    }
-
-    function switchAuthTab(tab) {
-      const signInBtn = document.getElementById("tabSignInBtn");
-      const regBtn = document.getElementById("tabRegisterBtn");
-      const forgotBtn = document.getElementById("tabForgotBtn");
-      const signInForm = document.getElementById("signInForm");
-      const regForm = document.getElementById("registerForm");
-      const forgotForm = document.getElementById("forgotForm");
-
-      signInBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
-      regBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
-      forgotBtn.className = "font-bold text-slate-400 hover:text-white pb-1";
-      signInForm.classList.add("hidden");
-      regForm.classList.add("hidden");
-      forgotForm.classList.add("hidden");
-
-      if (tab === 'signin') {
-        signInBtn.className = "font-bold text-sky-400 border-b-2 border-sky-400 pb-1";
-        signInForm.classList.remove("hidden");
-      } else if (tab === 'register') {
-        regBtn.className = "font-bold text-emerald-400 border-b-2 border-emerald-400 pb-1";
-        regForm.classList.remove("hidden");
-      } else if (tab === 'forgot') {
-        forgotBtn.className = "font-bold text-amber-400 border-b-2 border-amber-400 pb-1";
-        forgotForm.classList.remove("hidden");
-      }
-    }
-
-    async function handleRegisterSubmit(e) {
-      e.preventDefault();
-      const username = document.getElementById("regUsername").value.trim();
-      const name = document.getElementById("regName").value.trim();
-      const email = document.getElementById("regEmail").value.trim().toLowerCase();
-      const password = document.getElementById("regPassword").value;
-      const alertEl = document.getElementById("authAlert");
-
-      if (password.length < 6) {
-        alertEl.textContent = "Password must be at least 6 characters.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-        return;
-      }
-
-      if (username.toLowerCase() === "mallesh") {
-        alertEl.textContent = "The username 'Mallesh' is reserved for administration.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-        return;
-      }
-
-      let users = getUsers();
-      if (users.some(u => u.email === email || u.username.toLowerCase() === username.toLowerCase())) {
-        alertEl.textContent = "An account with this username or email already exists.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-        return;
-      }
-
-      const passwordHash = await hashString(password);
-      const newUser = { username, name, email, passwordHash, role: "reader", createdAt: new Date().toISOString() };
-      users.push(newUser);
-      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
-
-      currentUser = { name: newUser.name, username: newUser.username, role: newUser.role };
-      sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-      closeAuthModal();
-      showToast(`Account registered! Welcome, ${newUser.name}.`);
-      renderHeaderSession();
-    }
-
-    async function handleSignInSubmit(e) {
-      e.preventDefault();
-      const identifier = document.getElementById("signInIdentifier").value.trim();
-      const password = document.getElementById("signInPassword").value.trim();
-      const alertEl = document.getElementById("authAlert");
-
-      const users = getUsers();
-      const passwordHash = await hashString(password);
-
-      // Check if credentials match Admin Mallesh
-      if (identifier.toLowerCase() === "mallesh" && 
-          (passwordHash === ELEVATION_HASH || passwordHash === ELEVATION_HASH_LOWER || password === "Mallesh@2026")) {
-        currentUser = { name: "Mallesh", username: "Mallesh", role: "admin" };
-        isAdmin = true;
-        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
-        closeAuthModal();
-        showToast("Welcome back, Administrator Mallesh!");
-        renderHeaderSession();
-        renderArticles();
-        if (currentView === 'admin') renderAdminPortalView();
-        return;
-      }
-
-      // Check standard reader users
-      const matched = users.find(u => 
-        (u.email === identifier.toLowerCase() || u.username.toLowerCase() === identifier.toLowerCase()) && 
-        u.passwordHash === passwordHash
-      );
-
-      if (matched) {
-        currentUser = { name: matched.name, username: matched.username, role: matched.role };
-        isAdmin = false;
-        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-        sessionStorage.removeItem(ADMIN_FLAG_KEY);
-        closeAuthModal();
-        showToast(`Welcome back, ${matched.name}!`);
-        renderHeaderSession();
-        renderArticles();
-      } else {
-        alertEl.textContent = "Authentication failed. Invalid username or security credential.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-      }
-    }
-
-    async function handleForgotSubmit(e) {
-      e.preventDefault();
-      const identifier = document.getElementById("forgotIdentifier").value.trim().toLowerCase();
-      const newPassword = document.getElementById("forgotNewPassword").value;
-      const alertEl = document.getElementById("authAlert");
-
-      if (newPassword.length < 6) {
-        alertEl.textContent = "Password must be at least 6 characters.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-        return;
-      }
-
-      if (identifier === "mallesh") {
-        alertEl.textContent = "Admin master keys cannot be modified via standard reader recovery.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-        return;
-      }
-
-      let users = getUsers();
-      const userIndex = users.findIndex(u => u.email === identifier || u.username.toLowerCase() === identifier);
-
-      if (userIndex === -1) {
-        alertEl.textContent = "No registered account found with that username or email.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-        return;
-      }
-
-      const newHash = await hashString(newPassword);
-      users[userIndex].passwordHash = newHash;
-      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
-
-      alertEl.textContent = "Password successfully updated! You may now sign in.";
-      alertEl.className = "p-2.5 rounded bg-emerald-950/80 border border-emerald-700 text-emerald-300 text-[11px]";
-      alertEl.classList.remove("hidden");
-      setTimeout(() => switchAuthTab('signin'), 1500);
-    }
-
-    function logoutSession() {
-      currentUser = null;
-      isAdmin = false;
-      sessionStorage.removeItem(CURRENT_USER_KEY);
-      sessionStorage.removeItem(ADMIN_FLAG_KEY);
-      showToast("Signed out successfully.");
-      renderHeaderSession();
-      renderArticles();
-      if (currentView === 'admin') renderAdminPortalView();
-    }
-
-    // Modal Editor (Strictly Admin Access)
-    function openEditorModal() {
-      if (!isAdmin) {
-        switchView('admin');
-        showToast("Administrator elevation required to write articles.", true);
-        return;
-      }
-      document.getElementById("editorModalTitle").textContent = "Write New Article";
-      document.getElementById("editPostId").value = "";
-      document.getElementById("editorTitle").value = "";
-      document.getElementById("editorTags").value = "";
-      document.getElementById("editorMarkdown").value = "";
-      updateEditorPreview();
-      document.getElementById("editorModal").classList.remove("hidden");
-    }
-
-    function openEditModal(postId) {
-      if (!isAdmin) {
-        switchView('admin');
-        showToast("Administrator elevation required to edit articles.", true);
-        return;
-      }
-      const post = getArticles().find(p => p.id === postId);
-      if (!post) return;
-      document.getElementById("editorModalTitle").textContent = `Edit: ${post.id}.md`;
-      document.getElementById("editPostId").value = post.id;
-      document.getElementById("editorTitle").value = post.title;
-      document.getElementById("editorTags").value = (post.tags || []).join(", ");
-      document.getElementById("editorMarkdown").value = post.rawMarkdown || post.summary || "";
-      updateEditorPreview();
-      document.getElementById("editorModal").classList.remove("hidden");
-    }
-
-    function closeEditorModal() {
-      document.getElementById("editorModal").classList.add("hidden");
-    }
-
-    function updateEditorPreview() {
-      const raw = document.getElementById("editorMarkdown").value;
-      const preview = document.getElementById("editorPreview");
-      preview.innerHTML = raw.trim() ? marked.parse(raw) : `<span class="text-slate-500 italic">Live preview will render here...</span>`;
-    }
-
-    function insertMarkdownSnippet(type) {
-      const textarea = document.getElementById("editorMarkdown");
-      if (!textarea) return;
-
-      const start = textarea.selectionStart;
-      const end = textarea.selectionEnd;
-      const selected = textarea.value.substring(start, end);
-      let snippet = "";
-
-      switch (type) {
-        case "table":
-          snippet = `\n| Component | Status | Description |\n| :--- | :--- | :--- |\n| Pacemaker Node 1 | Online | Primary HANA active node |\n| Pacemaker Node 2 | Standby | Secondary HSR sync node |\n| Fencing STONITH | Configured | SBD watchdog fencing active |\n\n`;
-          break;
-        case "image":
-          snippet = selected ? `![${selected}](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)` : `![Architecture Diagram](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)\n`;
-          break;
-        case "code":
-          snippet = `\n\`\`\`bash\n# Production Command\ncrm status\n\`\`\`\n`;
-          break;
-        case "bold":
-          snippet = selected ? `**${selected}**` : `**bold text**`;
-          break;
-        default:
-          break;
-      }
-
-      textarea.value = textarea.value.substring(0, start) + snippet + textarea.value.substring(end);
-      textarea.focus();
-      textarea.setSelectionRange(start + snippet.length, start + snippet.length);
-      updateEditorPreview();
-    }
-
-    function saveAndPublishArticle() {
-      if (!isAdmin) {
-        showToast("Unauthorized. Admin privileges required.", true);
-        return;
-      }
-      const editId = document.getElementById("editPostId").value;
-      const title = document.getElementById("editorTitle").value.trim();
-      const tags = document.getElementById("editorTags").value.split(",").map(t => t.trim()).filter(Boolean);
-      const markdown = document.getElementById("editorMarkdown").value.trim();
-
-      if (!title || !markdown) {
-        showToast("Title and content are required!", true);
-        return;
-      }
-
-      const words = markdown.split(/\s+/).length;
-      const readTime = `${Math.max(1, Math.ceil(words / 180))} min read`;
-      let articles = getArticles();
-
-      if (editId) {
-        articles = articles.map(p => {
-          if (p.id === editId) {
-            return {
-              ...p,
-              title,
-              tags: tags.length ? tags : ["Linux"],
-              readTime,
-              summary: markdown.substring(0, 140) + "...",
-              rawMarkdown: markdown
-            };
-          }
-          return p;
-        });
-        showToast("Article updated successfully!");
-      } else {
-        const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `post-${Date.now()}`;
-        const newPost = {
-          id: slug,
-          title,
-          date: new Date().toISOString().split('T')[0],
-          readTime,
-          tags: tags.length ? tags : ["Linux"],
-          summary: markdown.substring(0, 140) + "...",
-          rawMarkdown: markdown
-        };
-        articles = [newPost, ...articles];
-        showToast("New article published!");
-      }
-
-      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
-      closeEditorModal();
-      renderTagFilters();
-      renderArticles();
-      if (currentView === 'admin') renderAdminPortalView();
-    }
-
-    function deleteArticle(postId) {
-      if (!isAdmin) {
-        showToast("Unauthorized. Admin privileges required.", true);
-        return;
-      }
-      if (!confirm("Are you sure you want to permanently delete this article?")) return;
-      let articles = getArticles().filter(p => p.id !== postId);
-      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
-      showToast("Article removed from storage.");
-      renderTagFilters();
-      renderArticles();
-      if (currentView === 'admin') renderAdminPortalView();
-    }
-
+    // =========================================================
+    // TAG FILTERS & SEARCH
+    // =========================================================
     function renderTagFilters() {
       const container = document.getElementById("tagFilterContainer");
       const tags = new Set(["All"]);
-      getArticles().forEach(post => (post.tags || []).forEach(t => tags.add(t)));
+      articlesData.forEach(post => (post.tags || []).forEach(t => tags.add(t)));
       container.innerHTML = Array.from(tags).map(tag => `
         <button onclick="selectTag('${tag}')" class="px-2.5 py-1 rounded border text-[11px] whitespace-nowrap transition ${
           activeTag === tag ? 'bg-[var(--accent)] text-black font-bold border-[var(--accent)]' : 'bg-[var(--bg-card)] text-[var(--text-muted)] border-[var(--border-color)] hover:text-white'
@@ -1864,20 +949,15 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       localStorage.setItem("gowri_blog_theme", theme);
     }
 
-    // Initial Execution
+    // =========================================================
+    // INITIALIZATION
+    // =========================================================
     document.addEventListener("DOMContentLoaded", () => {
       const savedTheme = localStorage.getItem("gowri_blog_theme") || "nord";
       changeTheme(savedTheme);
       const themeSelect = document.getElementById("themeSelect");
       if (themeSelect) themeSelect.value = savedTheme;
 
-      const storedUser = sessionStorage.getItem(CURRENT_USER_KEY);
-      if (storedUser) {
-        try { currentUser = JSON.parse(storedUser); } catch (e) {}
-      }
-      isAdmin = sessionStorage.getItem(ADMIN_FLAG_KEY) === "true";
-
-      renderHeaderSession();
       renderTagFilters();
       renderArticles();
       checkHashRoute();
@@ -1885,8 +965,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       document.addEventListener("keydown", (e) => {
         if (e.key === 'Escape') {
           closeModal();
-          closeEditorModal();
-          closeAuthModal();
         }
       });
     });
