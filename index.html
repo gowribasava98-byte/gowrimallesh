@@ -733,20 +733,49 @@
     // }
     // =========================================================
     const articlesData = [ 
-      {
-  "id": "automated-failover-for-sap-hana-system-replication-with-pacemaker-on-sles",
-  "title": "Automated Failover for SAP HANA System Replication with Pacemaker on SLES",
-  "date": "2026-10-23",
-  "readTime": "2 min read",
-  "tags": [
-    "SAP HANA",
-    "SLES",
-    "Pacemaker",
-    "High Availability"
-  ],
-  "summary": "Step-by-step setup of two-node Corosync and Pacemaker clustering on SUSE Linux Enterprise Server with SAPHanaSR and STONITH fencing.",
-  "rawMarkdown": "## 1. Pacemaker Cluster Architecture\n\nIn enterprise SAP HANA deployments on SUSE Linux Enterprise Server (SLES), achieving high availability requires automated takeover during host or database failure. Pacemaker works alongside Corosync and the SAPHanaSR resource agent to monitor system replication (HSR) health.\n\n![SAP HANA Pacemaker High Availability Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)\n\n```bash\n# Check cluster topology and resource health\ncrm status\n\n# Query active SAP HANA system replication state\nSAPHanaSR-showAttr\n```\n\n### 2. High-Availability Cluster Parameter Matrix\n\nThe table below outlines production settings for Corosync and Pacemaker timeouts in enterprise environments:\n\n| Parameter | Recommended Value | Purpose & Impact |\n| :--- | :--- | :--- |\n| **totem.token** | `30000` ms | Time to detect token loss before node is considered down |\n| **totem.consensus** | `36000` ms | Minimum duration required before electing a new cluster coordinator |\n| **stonith-enabled** | `true` | Mandatory fencing prevention to isolate failed primary node |\n| **no-quorum-policy** | `ignore` | Prevents cluster split-brain on 2-node SAP deployments |\n| **migration-threshold** | `3` | Resource retry attempts before failing over to secondary |\n\n### 3. STONITH & Split-Brain Prevention\nA reliable fencing mechanism (such as SBD with shared watchdog storage or hyperscaler fencing agents in Azure) is non-negotiable to prevent split-brain conditions where both nodes attempt to write to primary data volumes simultaneously."
-},
+      const articlesData = [
+  {
+    id: "automated-failover-for-sap-hana-system-replication-with-pacemaker-on-sles",
+    title: "Automated Failover for SAP HANA System Replication with Pacemaker on SLES",
+    date: "2026-10-23",
+    readTime: "2 min read",
+    tags: [
+      "SAP HANA",
+      "SLES",
+      "Pacemaker",
+      "High Availability"
+    ],
+    summary: "Step-by-step setup of two-node Corosync and Pacemaker clustering on SUSE Linux Enterprise Server with SAPHanaSR and STONITH fencing.",
+    rawMarkdown: `## 1. Pacemaker Cluster Architecture
+
+In enterprise SAP HANA deployments on SUSE Linux Enterprise Server (SLES), achieving high availability requires automated takeover during host or database failure. Pacemaker works alongside Corosync and the SAPHanaSR resource agent to monitor system replication (HSR) health.
+
+![SAP HANA Pacemaker High Availability Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)
+
+\`\`\`bash
+# Check cluster topology and resource health
+crm status
+
+# Query active SAP HANA system replication state
+SAPHanaSR-showAttr
+\`\`\`
+
+### 2. High-Availability Cluster Parameter Matrix
+
+The table below outlines production settings for Corosync and Pacemaker timeouts in enterprise environments:
+
+| Parameter | Recommended Value | Purpose & Impact |
+| :--- | :--- | :--- |
+| **totem.token** | \`30000\` ms | Time to detect token loss before node is considered down |
+| **totem.consensus** | \`36000\` ms | Minimum duration required before electing a new cluster coordinator |
+| **stonith-enabled** | \`true\` | Mandatory fencing prevention to isolate failed primary node |
+| **no-quorum-policy** | \`ignore\` | Prevents cluster split-brain on 2-node SAP deployments |
+| **migration-threshold** | \`3\` | Resource retry attempts before failing over to secondary |
+
+### 3. STONITH & Split-Brain Prevention
+A reliable fencing mechanism (such as SBD with shared watchdog storage or hyperscaler fencing agents in Azure) is non-negotiable to prevent split-brain conditions where both nodes attempt to write to primary data volumes simultaneously.`
+  }
+];
     ];
 
     // =========================================================
