@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gowri Mallesh | Linux System Administrator Portfolio & Practical Tech Blog</title>
-  <meta name="description" content="Practical Linux administration labs, server troubleshooting runbooks, SUSE, storage, monitoring, cloud and production support notes by Gowri Mallesh." />
-  <meta name="keywords" content="Linux administration, Linux troubleshooting, SUSE, SLES, LVM, NFS, SSH, Prometheus, Grafana, System Administrator, hands-on labs" />
-  <meta name="author" content="Gowri Mallesh" />
+  <title>Ulligaddala Gowri Mallesh | System Administrator & Cloud Specialist</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +16,7 @@
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Marked.js for fast client-side markdown parsing -->
+  <!-- Marked.js for GFM client-side markdown parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <script>
@@ -240,6 +237,9 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-sky-400 selection:text-black">
 
+  <!-- ========================================================= -->
+  <!-- TOP GLOBAL NAVBAR                                         -->
+  <!-- ========================================================= -->
   <header class="border-b border-[#223253] bg-[#0a0f1d]/90 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
       
@@ -265,29 +265,21 @@
           <i class="fa-solid fa-terminal text-xs text-emerald-400"></i> Tech Journal
         </button>
         <a href="#about" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">About</a>
-        <a href="#projects" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Projects</a>
         <a href="#skills" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Skills</a>
         <a href="#experience" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Experience</a>
         <a href="#contact" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Contact</a>
+        <button onclick="switchView('admin')" id="navAdminPortalBtn" class="hover:text-amber-400 transition flex items-center gap-1 font-mono text-xs text-slate-400">
+          <i class="fa-solid fa-shield-halved text-amber-400 text-xs"></i> Admin Portal
+        </button>
       </nav>
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-2.5">
-        <div id="authHeaderContainer">
-          <button onclick="openAuthModal('signin')" class="px-2.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
-            <i class="fa-solid fa-user-circle text-xs"></i>
-            <span class="hidden sm:inline">Sign In / Register</span>
-          </button>
-        </div>
+        <div id="authHeaderContainer"></div>
 
         <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="px-3.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
           <i class="fa-solid fa-book-open"></i>
           <span id="quickToggleText">Open Blog</span>
-        </button>
-
-        <button onclick="downloadSelfCode()" title="Download complete runnable HTML file" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition">
-          <i class="fa-solid fa-download text-sky-400"></i>
-          <span>Download Code</span>
         </button>
 
         <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-md transition flex items-center gap-1.5">
@@ -299,6 +291,9 @@
     </div>
   </header>
 
+  <!-- ========================================================= -->
+  <!-- 1. PORTFOLIO VIEW CONTAINER                               -->
+  <!-- ========================================================= -->
   <div id="portfolioView" class="w-full transition-opacity duration-300">
     
     <!-- Hero Section -->
@@ -310,13 +305,13 @@
           <div class="space-y-2">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-950/80 border border-sky-800 text-sky-400 rounded-full text-xs font-semibold uppercase tracking-wider font-mono">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              System Administrator • Tata Consultancy Services (4+ Yrs Experience)
+              System Administrator • Tata Consultancy Services (5+ Yrs Experience)
             </div>
             <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
               Ulligaddala Gowri Mallesh
             </h1>
             <p class="text-sky-400 text-base sm:text-xl font-medium">
-              Linux Administration, SAP Infrastructure & Cloud Operations
+              Enterprise Linux, SAP HANA HEC & Multi-Cloud Infrastructure
             </p>
             <div class="text-slate-400 text-xs sm:text-sm pt-2 flex flex-wrap gap-4 items-center">
               <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-sky-400"></i>+91 9014270009</span>
@@ -336,9 +331,7 @@
             </a>
             <button onclick="switchView('blog')" class="border border-sky-500/60 bg-sky-950/40 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
               <i class="fa-solid fa-terminal"></i> Read Tech Blog
-            </button>
-            <button onclick="downloadSelfCode()" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
-              <i class="fa-solid fa-download text-sky-400"></i> Download Source Code
+      
             </button>
           </div>
         </div>
@@ -393,7 +386,7 @@
             <p class="text-sm text-slate-300">System Administrator • Bengaluru</p>
           </div>
           <span class="text-xs font-mono font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-[#223253] w-fit">
-            2021 – Present (4+ Years)
+            2021 – Present (5+ Years)
           </span>
         </div>
 
@@ -469,36 +462,6 @@
         </div>
       </section>
 
-      <!-- Practical Projects & Lab Work -->
-      <section id="projects" class="mt-8 bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 md:p-8 shadow-xl">
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
-          <div>
-            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 font-mono">Hands-on Practice</span>
-            <h2 class="text-xl font-bold text-white mt-1">Practical Labs & Troubleshooting Projects</h2>
-            <p class="text-sm text-slate-400 mt-2 max-w-3xl">Reproducible home-lab exercises focused on diagnosing issues, validating fixes, and documenting safe operational steps.</p>
-          </div>
-          <button onclick="switchView('blog')" class="self-start sm:self-auto px-3 py-2 rounded-lg border border-emerald-700 bg-emerald-950/40 text-emerald-300 text-xs font-mono hover:border-emerald-400 transition">Explore Lab Guides →</button>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <article class="rounded-xl border border-[#223253] bg-[#0b1324] p-4">
-            <div class="text-emerald-400 text-xs font-mono mb-2">LAB 01 · LINUX STORAGE</div>
-            <h3 class="text-white font-semibold mb-2">LVM & Filesystem Expansion</h3>
-            <p class="text-sm text-slate-400">Inspect PV/VG/LV capacity, extend a logical volume, grow the filesystem, and verify available space.</p>
-          </article>
-          <article class="rounded-xl border border-[#223253] bg-[#0b1324] p-4">
-            <div class="text-sky-400 text-xs font-mono mb-2">LAB 02 · TROUBLESHOOTING</div>
-            <h3 class="text-white font-semibold mb-2">Linux Performance Investigation</h3>
-            <p class="text-sm text-slate-400">Use uptime, top, free, vmstat and journal logs to narrow down CPU, memory and service issues.</p>
-          </article>
-          <article class="rounded-xl border border-[#223253] bg-[#0b1324] p-4">
-            <div class="text-amber-400 text-xs font-mono mb-2">LAB 03 · NETWORKING</div>
-            <h3 class="text-white font-semibold mb-2">SSH, DNS & Mount Checks</h3>
-            <p class="text-sm text-slate-400">Follow a layered checklist for connectivity, name resolution, SSH service status and NFS/CIFS mount health.</p>
-          </article>
-        </div>
-        <p class="text-xs text-slate-500 mt-4">Lab note: practise on disposable VMs first. Validate commands for your distribution and never run destructive storage or cluster commands on production without approved change control.</p>
-      </section>
-
       <!-- Skills, Education & Contact Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
@@ -540,7 +503,7 @@
 
         </div>
 
-        <!-- Right: Contact Form (FormSubmit to gowribasava98@gmail.com) -->
+        <!-- Right: Contact Form -->
         <section id="contact" class="lg:col-span-5 bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 flex flex-col justify-between shadow-xl">
           <div>
             <h2 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
@@ -551,7 +514,6 @@
             </p>
 
             <form action="https://formsubmit.co/gowribasava98@gmail.com" method="POST" class="space-y-3.5">
-              <!-- FormSubmit Anti-Spam & Configuration -->
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_subject" value="New Portfolio Inquiry - Gowri Mallesh">
               <input type="hidden" name="_template" value="table">
@@ -588,6 +550,9 @@
     </main>
   </div>
 
+  <!-- ========================================================= -->
+  <!-- 2. TECHNICAL BLOG VIEW CONTAINER                          -->
+  <!-- ========================================================= -->
   <div id="blogView" class="hidden w-full terminal-grid py-6 px-4 md:px-8 space-y-6">
     <div class="max-w-6xl mx-auto space-y-6">
       
@@ -601,7 +566,6 @@
             <span class="ml-2 text-xs font-semibold text-slate-400">gowri@sles-journal: ~</span>
           </div>
           <div class="flex items-center gap-3">
-            <!-- Theme Selector -->
             <div class="flex items-center gap-1 bg-[var(--bg-base)] px-2 py-0.5 rounded border border-[var(--border-color)]">
               <span class="text-[10px] text-[var(--text-muted)]">Theme:</span>
               <select id="themeSelect" onchange="changeTheme(this.value)" class="bg-transparent text-[var(--text-main)] outline-none cursor-pointer text-xs font-mono">
@@ -629,44 +593,25 @@
             <div class="md:col-span-4 flex flex-col items-center justify-center p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] font-mono text-[10px] text-[var(--accent)] select-none">
               <pre class="leading-tight">
     .--.
-   |o_o |   Host: SLES 15 SP4 / Azure
-   |:_/ |   Topic: SAP HANA & High Availability
-  //   \ \  Storage: LVM & NFS Mounts
- (|     | ) Uptime: 4+ Years Enterprise
-/'\_   _/`\ Certs: AZ-104 & GCP ACE
-\___)=(___/ Status: Operational
+   |o_o |   Hosted by : Gowri Mallesh
+   |:_/ |   Topic: Linux
+  //   \ \  Certs: AZ-104 & GCP ACE
+ (|     | ) Uptime: 5+ Years Enterprise
+/'\_   _/`\ Status: Operational
+\___)=(___/ 
               </pre>
             </div>
 
             <div class="md:col-span-8 space-y-2">
               <h2 class="text-2xl font-bold font-mono text-[var(--text-main)]">
-                Enterprise Linux & SAP HEC Journal
+                Enterprise Linux Blog
               </h2>
               <p class="text-sm text-[var(--text-muted)] leading-relaxed font-sans">
-                Hands-on Linux labs, step-by-step troubleshooting guides, command references and production-support learning notes for system administrators.
+                Technical articles, troubleshooting guides, and production command runbooks for enterprise Linux systems administrators.
               </p>
-              <div class="flex items-center gap-2 pt-2" id="adminBlogActions">
-                <button onclick="openAdminKeyModal()" class="px-3 py-1.5 rounded bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-amber-400 transition flex items-center gap-1.5">
-                  <i class="fa-solid fa-lock text-xs"></i> Admin Elevation
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Practical Lab Guide Promise -->
-      <section class="rounded-xl border border-emerald-900/70 bg-emerald-950/20 p-4 sm:p-5">
-        <div class="flex items-start gap-3">
-          <div class="rounded-lg bg-emerald-900/40 p-2 text-emerald-300"><i class="fa-solid fa-flask"></i></div>
-          <div class="min-w-0">
-            <h3 class="text-sm font-bold text-emerald-200 font-mono">Practical labs, not just theory</h3>
-            <p class="text-sm text-slate-300 mt-1 leading-relaxed">Each new guide aims to include prerequisites, safe lab setup, commands to run, what the output means, troubleshooting branches, verification steps and interview takeaways. Examples should be tested in a non-production VM before being adapted to work systems.</p>
-            <div class="flex flex-wrap gap-2 mt-3 text-[11px] font-mono">
-              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Linux & SLES</span>
-              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Storage & Mounts</span>
-              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Services & Logs</span>
-              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Monitoring</span>
+              
+              <!-- Authoring area: Authoring buttons visible only to Admin -->
+              <div class="flex items-center gap-2 pt-2" id="adminBlogActions"></div>
             </div>
           </div>
         </div>
@@ -677,7 +622,7 @@
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
           <div class="relative w-full sm:w-80">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
-            <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Search guides, commands, tags..." class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]">
+            <input type="text" id="searchInput" oninput="filterArticles()" placeholder="grep -i articles by title or tag..." class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]">
           </div>
           <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto" id="tagFilterContainer"></div>
         </div>
@@ -689,6 +634,113 @@
     </div>
   </div>
 
+  <!-- ========================================================= -->
+  <!-- 3. DEDICATED SEPARATE ADMIN PORTAL VIEW                   -->
+  <!-- ========================================================= -->
+  <div id="adminPortalView" class="hidden w-full terminal-grid py-8 px-4 md:px-8 space-y-6">
+    <div class="max-w-6xl mx-auto space-y-6">
+
+      <!-- Admin Top Card -->
+      <section class="rounded-xl border border-amber-500/50 bg-[#11192d] shadow-2xl p-6 font-mono">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#223253] pb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <span class="text-xs text-amber-400 font-bold uppercase tracking-wider">Administrative Console</span>
+              <h1 class="text-xl font-bold text-white">SysAdmin Content Control & Governance</h1>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-3">
+            <button onclick="switchView('blog')" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 hover:text-white border border-[#223253] text-xs">
+              <i class="fa-solid fa-arrow-left mr-1"></i> Tech Journal
+            </button>
+            <div id="adminPortalAuthStatus"></div>
+          </div>
+        </div>
+
+        <!-- When Admin is NOT logged in: Separate Clean Portal Login -->
+        <div id="adminPortalLoggedOutView" class="py-8 max-w-md mx-auto space-y-4">
+          <div class="text-center space-y-1">
+            <h2 class="text-base font-bold text-white">Administrator Verification Required</h2>
+            <p class="text-xs text-slate-400 font-sans">
+              Sign in with administrative credentials to access article authoring, editing, deletion, and system telemetry controls.
+            </p>
+          </div>
+
+          <div id="adminPortalAlert" class="hidden p-2.5 rounded text-xs"></div>
+
+          <form onsubmit="handleAdminPortalLogin(event)" class="space-y-3 font-sans">
+            <div>
+              <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Admin Username</label>
+              <input type="text" id="adminPortalUsername" required placeholder="Admin username" class="w-full bg-[#16223b] border border-[#223253] rounded p-2.5 text-white focus:outline-none focus:border-amber-400 text-xs font-mono">
+            </div>
+            <div>
+              <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Admin Security Password</label>
+              <input type="password" id="adminPortalPassword" required placeholder="••••••••" class="w-full bg-[#16223b] border border-[#223253] rounded p-2.5 text-white focus:outline-none focus:border-amber-400 text-xs font-mono">
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded bg-amber-400 text-black font-bold font-mono hover:bg-amber-300 transition text-xs shadow-lg flex items-center justify-center gap-2">
+              <i class="fa-solid fa-key"></i> Authenticate & Enter Portal
+            </button>
+          </form>
+        </div>
+
+        <!-- When Admin IS logged in: Full Dashboard & Content Manager -->
+        <div id="adminPortalLoggedInView" class="hidden pt-6 space-y-6">
+          <!-- Quick Stats Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 font-mono text-xs">
+            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl">
+              <span class="text-slate-400 block mb-1">Active Posts</span>
+              <span id="statPostCount" class="text-xl font-bold text-sky-400">0</span>
+            </div>
+            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl">
+              <span class="text-slate-400 block mb-1">Registered Readers</span>
+              <span id="statUserCount" class="text-xl font-bold text-emerald-400">0</span>
+            </div>
+            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl">
+              <span class="text-slate-400 block mb-1">Total Comments</span>
+              <span id="statCommentCount" class="text-xl font-bold text-amber-400">0</span>
+            </div>
+            <div class="bg-[#16223b] border border-[#223253] p-4 rounded-xl flex items-center justify-center">
+              <button onclick="openEditorModal()" class="w-full h-full py-2.5 px-3 rounded-lg bg-sky-400 hover:bg-sky-300 text-black font-bold text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-plus"></i> + Write New Post
+              </button>
+            </div>
+          </div>
+
+          <!-- Post Management Table -->
+          <div class="bg-[#0a0f1d] border border-[#223253] rounded-xl overflow-hidden font-mono text-xs">
+            <div class="p-3 bg-[#16223b] border-b border-[#223253] flex items-center justify-between">
+              <span class="font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-table-list text-sky-400"></i> Published Articles Repository
+              </span>
+              <span class="text-[11px] text-slate-400">Admin-exclusive modification rights</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead class="bg-[#11192d] text-slate-400 border-b border-[#223253] text-[11px]">
+                  <tr>
+                    <th class="p-3">Post Title</th>
+                    <th class="p-3">Date</th>
+                    <th class="p-3">Tags</th>
+                    <th class="p-3 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminArticlesTableBody" class="divide-y divide-[#223253]"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- FOOTER                                                    -->
+  <!-- ========================================================= -->
   <footer class="border-t border-[#223253] bg-[#070b15] py-6 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
       <div class="flex items-center gap-2">
@@ -700,18 +752,16 @@
           <i class="fa-solid fa-file-pdf text-orange-400"></i> Resume
         </a>
         <button onclick="switchView('blog')" class="hover:text-sky-400 text-sky-400 transition font-mono">Tech Blog</button>
-        <button onclick="openAdminKeyModal()" class="hover:text-amber-400 text-slate-500 transition font-mono flex items-center gap-1">
-          <i class="fa-solid fa-terminal text-[10px]"></i> Admin Console
-        </button>
-        <button onclick="downloadSelfCode()" class="hover:text-emerald-400 text-slate-400 transition font-mono flex items-center gap-1">
-          <i class="fa-solid fa-code text-xs"></i> Download Code
-        </button>
+        <button onclick="switchView('admin')" class="hover:text-amber-400 text-slate-400 transition font-mono flex items-center gap-1">
+          <i class="fa-solid fa-shield-halved text-amber-400 text-xs"></i> Admin Portal
         <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition font-sans">Email</a>
       </div>
     </div>
   </footer>
 
-  <!-- 1. ARTICLE READER MODAL (TABLES, IMAGES, SOCIAL SHARING, & COMMENTS) -->
+  <!-- ========================================================= -->
+  <!-- 1. ARTICLE READER MODAL (WITH SOCIAL SHARING & COMMENTS)  -->
+  <!-- ========================================================= -->
   <div id="articleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="relative w-full max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col font-sans">
       
@@ -728,7 +778,7 @@
         </button>
       </div>
 
-      <!-- Article Content (with table and image support via prose-content) -->
+      <!-- Article Content (with table & image styling) -->
       <div class="p-6 sm:p-8 overflow-y-auto space-y-6" id="modalArticleContent"></div>
 
       <!-- Social Media Share & Action Footer -->
@@ -738,19 +788,15 @@
           <span class="text-[var(--text-muted)] text-[11px] font-semibold flex items-center gap-1.5">
             <i class="fa-solid fa-share-nodes text-[var(--accent)]"></i> Share:
           </span>
-          <!-- LinkedIn -->
           <button id="shareLinkedinBtn" title="Share on LinkedIn" class="p-1.5 px-2 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-sky-400 text-sky-400 transition">
             <i class="fa-brands fa-linkedin text-xs"></i>
           </button>
-          <!-- X (Twitter) -->
           <button id="shareTwitterBtn" title="Share on X" class="p-1.5 px-2 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-white text-slate-200 transition">
             <i class="fa-brands fa-x-twitter text-xs"></i>
           </button>
-          <!-- WhatsApp -->
           <button id="shareWhatsappBtn" title="Share on WhatsApp" class="p-1.5 px-2 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-emerald-400 text-emerald-400 transition">
             <i class="fa-brands fa-whatsapp text-xs"></i>
           </button>
-          <!-- Copy Unique Link -->
           <button id="copyShareLinkBtn" title="Copy Direct URL" class="px-2.5 py-1 rounded bg-[var(--bg-base)] border border-[var(--border-color)] hover:border-[var(--accent)] text-[var(--text-muted)] hover:text-white transition flex items-center gap-1 text-[11px]">
             <i class="fa-solid fa-link text-[10px]"></i> Copy Link
           </button>
@@ -764,14 +810,16 @@
     </div>
   </div>
 
-  <!-- 2. USER AUTHENTICATION MODAL (SIGN IN, REGISTER & FORGOT PASSWORD) -->
+  <!-- ========================================================= -->
+  <!-- 2. USER AUTHENTICATION MODAL (SIGN IN, REGISTER, FORGOT)  -->
+  <!-- ========================================================= -->
   <div id="authModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="relative w-full max-w-sm bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
       <div class="flex items-center justify-between border-b border-[#223253] pb-3">
         <div class="flex gap-4">
           <button id="tabSignInBtn" onclick="switchAuthTab('signin')" class="font-bold text-sky-400 border-b-2 border-sky-400 pb-1">Sign In</button>
           <button id="tabRegisterBtn" onclick="switchAuthTab('register')" class="font-bold text-slate-400 hover:text-white pb-1">Create Account</button>
-          <button id="tabForgotBtn" onclick="switchAuthTab('forgot')" class="font-bold text-slate-400 hover:text-white pb-1">Reset Key</button>
+          <button id="tabForgotBtn" onclick="switchAuthTab('forgot')" class="font-bold text-slate-400 hover:text-white pb-1">Reset</button>
         </div>
         <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
       </div>
@@ -782,11 +830,14 @@
       <form id="signInForm" onsubmit="handleSignInSubmit(event)" class="space-y-3 font-sans">
         <div>
           <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Username or Email</label>
-          <input type="text" id="signInEmail" required placeholder="Mallesh or user@example.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+          <input type="text" id="signInIdentifier" required placeholder="Your username or email" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
         </div>
         <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Password / Admin Key</label>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Password</label>
           <input type="password" id="signInPassword" required placeholder="••••••••" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div class="flex justify-between items-center pt-1 text-[11px] font-mono">
+          <button type="button" onclick="switchAuthTab('forgot')" class="text-slate-400 hover:text-sky-400 underline">Forgot Password?</button>
         </div>
         <div class="pt-2 flex justify-end gap-2 font-mono">
           <button type="button" onclick="closeAuthModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
@@ -797,8 +848,12 @@
       <!-- Register Form -->
       <form id="registerForm" onsubmit="handleRegisterSubmit(event)" class="hidden space-y-3 font-sans">
         <div>
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Username</label>
+          <input type="text" id="regUsername" required placeholder="Choose a username" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <div>
           <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Full Name</label>
-          <input type="text" id="regName" required placeholder="Your Name" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+          <input type="text" id="regName" required placeholder="Full Name" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
         </div>
         <div>
           <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Email Address</label>
@@ -814,11 +869,14 @@
         </div>
       </form>
 
-      <!-- Forgot Password Form -->
+      <!-- Forgot / Reset Password Form -->
       <form id="forgotForm" onsubmit="handleForgotSubmit(event)" class="hidden space-y-3 font-sans">
+        <p class="text-[11px] text-slate-400 font-mono leading-relaxed">
+          Verify your registered username or email to set a new password.
+        </p>
         <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Registered Email Address</label>
-          <input type="email" id="forgotEmail" required placeholder="name@domain.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
+          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Registered Username or Email</label>
+          <input type="text" id="forgotIdentifier" required placeholder="username or email@example.com" class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-sky-500 text-xs font-mono">
         </div>
         <div>
           <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">New Password</label>
@@ -832,41 +890,14 @@
     </div>
   </div>
 
-  <!-- 3. ADMIN ELEVATION MODAL -->
-  <div id="adminKeyModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="relative w-full max-w-sm bg-[#11192d] border border-amber-600/70 rounded-xl shadow-2xl p-6 font-mono text-xs space-y-4">
-      <div class="flex items-center justify-between border-b border-[#223253] pb-3">
-        <span class="font-bold text-amber-400 flex items-center gap-1.5 text-sm">
-          <i class="fa-solid fa-terminal"></i> sudo elevation
-        </span>
-        <button onclick="closeAdminKeyModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
-      </div>
-
-      <p class="text-slate-400 text-[11px] leading-relaxed">
-        Enter your blog author password. The secure server verifies it and returns a short-lived session token. Never enter a GitHub token here.
-      </p>
-
-      <div id="adminKeyAlert" class="hidden p-2.5 rounded text-[11px]"></div>
-
-      <form onsubmit="handleAdminKeySubmit(event)" class="space-y-3 font-sans">
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1 text-xs font-mono">Admin Master Key</label>
-          <input type="password" id="adminSecretKeyInput" required placeholder="Enter key..." class="w-full bg-[#16223b] border border-[#223253] rounded p-2 text-white focus:outline-none focus:border-amber-400 text-xs font-mono">
-        </div>
-        <div class="pt-2 flex justify-end gap-2 font-mono">
-          <button type="button" onclick="closeAdminKeyModal()" class="px-3 py-1.5 rounded bg-[#16223b] text-slate-300 border border-[#223253]">Cancel</button>
-          <button type="submit" class="px-4 py-1.5 rounded bg-amber-400 text-black font-bold hover:bg-amber-300 transition">Verify Key</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- 4. MARKDOWN POST WRITER & EDITOR (WITH TABLE & IMAGE TOOLBAR) -->
+  <!-- ========================================================= -->
+  <!-- 3. MARKDOWN POST WRITER & EDITOR (ADMIN AUTHOR ONLY)      -->
+  <!-- ========================================================= -->
   <div id="editorModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 overflow-y-auto">
     <div class="relative w-full max-w-5xl bg-[#11192d] border border-[#223253] rounded-xl shadow-2xl flex flex-col font-mono text-xs max-h-[92vh] overflow-hidden">
       <div class="flex items-center justify-between px-4 py-2.5 bg-[#16223b] border-b border-[#223253]">
         <span id="editorModalTitle" class="font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-code"></i> vim /var/log/articles/post.md
+          <i class="fa-solid fa-code text-sky-400"></i> vim /var/log/articles/post.md
         </span>
         <button onclick="closeEditorModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
       </div>
@@ -888,7 +919,6 @@
       <!-- Split Editor & Live Render -->
       <div class="flex-1 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#223253] min-h-[300px] overflow-hidden">
         <div class="flex flex-col h-full bg-[#11192d]">
-          <!-- Markdown Insertion Quick Toolbar -->
           <div class="px-3 py-1.5 bg-[#16223b] text-slate-300 text-[11px] border-b border-[#223253] flex flex-wrap items-center justify-between gap-1">
             <span class="text-slate-400 font-bold">MARKDOWN SOURCE</span>
             <div class="flex items-center gap-1">
@@ -906,20 +936,17 @@
               </button>
             </div>
           </div>
-          <textarea id="editorMarkdown" oninput="updateEditorPreview()" placeholder="# Write article in Markdown...&#10;&#10;Insert Tables:&#10;| Metric | Value | Threshold |&#10;|---|---|---|&#10;| Mem | 82% | 90% |&#10;&#10;Insert Images:&#10;![Cluster Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)" class="flex-1 p-3 bg-transparent text-white resize-none font-mono text-xs focus:outline-none leading-relaxed overflow-y-auto"></textarea>
+          <textarea id="editorMarkdown" oninput="updateEditorPreview()" placeholder="# Write article in Markdown...&#10;&#10;| Metric | Target | Status |&#10;|---|---|---|&#10;| Uptime | 99.99% | Operational |&#10;&#10;![Architecture](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)" class="flex-1 p-3 bg-transparent text-white resize-none font-mono text-xs focus:outline-none leading-relaxed overflow-y-auto"></textarea>
         </div>
         <div class="flex flex-col h-full bg-[#0a0f1d]">
           <div class="px-3 py-1.5 bg-[#16223b] text-slate-400 text-[11px] border-b border-[#223253] flex items-center justify-between">
             <span class="font-bold">LIVE PREVIEW</span>
-            <span class="text-[10px] text-slate-500">GFM Tables & Images active</span>
+            <span class="text-[10px] text-slate-500">GFM Tables & Images</span>
           </div>
           <div id="editorPreview" class="flex-1 p-4 overflow-y-auto font-sans text-xs text-slate-200 space-y-3 leading-relaxed prose-content"></div>
         </div>
       </div>
 
-      <div class="px-4 py-2 bg-amber-950/40 border-t border-amber-800/50 text-amber-200 text-[11px] leading-relaxed">
-        <i class="fa-solid fa-shield-halved mr-1"></i> Configure the secure GitHub Worker endpoint before publishing. The Worker authenticates the author and commits this article into index.html. No GitHub token belongs in this HTML file.
-      </div>
       <div class="p-3 bg-[#16223b] flex justify-end gap-2 border-t border-[#223253]">
         <button onclick="closeEditorModal()" class="px-3 py-1.5 rounded bg-[#0a0f1d] text-slate-300 border border-[#223253]">Cancel</button>
         <button onclick="saveAndPublishArticle()" class="px-4 py-1.5 rounded bg-sky-400 text-black font-bold hover:bg-sky-300 transition">Save & Publish</button>
@@ -930,13 +957,16 @@
   <!-- Toast Notification Container -->
   <div id="toastNotification" class="fixed bottom-6 right-6 z-50 hidden px-4 py-2.5 rounded-lg border font-mono text-xs shadow-2xl transition transform duration-300 bg-sky-400 text-black font-semibold"></div>
 
+  <!-- ========================================================= -->
+  <!-- SCRIPT ENGINE & LOGIC                                     -->
+  <!-- ========================================================= -->
   <script>
     let currentView = 'portfolio';
     let currentUser = null;
     let isAdmin = false;
     let activeArticleId = null;
 
-    // Configure Marked.js options to strictly enable GFM tables and images
+    // GFM Table and Image options
     if (typeof marked !== 'undefined') {
       marked.setOptions({
         gfm: true,
@@ -1043,266 +1073,6 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
 (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
 \`\`\``
       }
-      ,{
-        id: "linux-high-cpu-memory-troubleshooting",
-        title: "Linux Troubleshooting Lab: Investigate High CPU and Memory Usage",
-        date: "2026-10-22",
-        readTime: "7 min read",
-        tags: ["Linux", "Troubleshooting", "Performance", "Lab"],
-        summary: "A repeatable checklist for checking load, identifying resource-heavy processes, reviewing memory pressure and verifying the result safely.",
-        rawMarkdown: `## Goal
-Learn to collect evidence before changing or restarting anything when a Linux server appears slow. Run this exercise on a test VM.
-
-## 1. Check load and uptime
-
-\`\`\`bash
-uptime
-nproc
-\`\`\`
-
-Load average is not a CPU percentage. Compare it with the number of available CPUs and inspect the process and I/O evidence before drawing a conclusion.
-
-## 2. Identify busy processes
-
-\`\`\`bash
-top
-ps -eo pid,ppid,comm,%cpu,%mem --sort=-%cpu | head -15
-ps -eo pid,ppid,comm,%mem,%cpu --sort=-%mem | head -15
-\`\`\`
-
-In \`top\`, press \`P\` to sort by CPU or \`M\` to sort by memory. Record the PID, command, owner and when the issue began. Do not kill a process only because it appears near the top.
-
-## 3. Check memory and I/O signals
-
-\`\`\`bash
-free -h
-vmstat 1 5
-\`\`\`
-
-Use \`free\` to review available memory and swap. In \`vmstat\`, repeated non-zero swap-in/swap-out activity or high I/O wait can help guide the next check; interpret the columns over several samples.
-
-## 4. Review service logs
-
-\`\`\`bash
-systemctl --failed
-journalctl -p warning --since "30 minutes ago"
-journalctl -u <service-name> --since "30 minutes ago"
-\`\`\`
-
-Replace \`<service-name>\` with the real unit name. Compare log timestamps with monitoring and change records.
-
-## 5. Resolution and verification
-1. Identify the owning service or application with the evidence collected.
-2. Check recent deployments, scheduled jobs and approved changes.
-3. Follow the service runbook or escalate to the application owner before making disruptive changes.
-4. Repeat \`uptime\`, \`free -h\` and the relevant process check after the approved action.
-
-## Common mistakes
-- Treating load average as a direct CPU percentage.
-- Assuming cached memory is automatically a problem.
-- Restarting or killing production processes before collecting evidence.
-- Sharing customer names, IP addresses or internal logs in public examples.
-
-## Interview takeaway
-Explain your workflow as: measure, identify the process, correlate logs and changes, apply an approved fix, then verify and document.`
-      },
-      {
-        id: "linux-filesystem-full-troubleshooting",
-        title: "Linux Filesystem 100% Full: Safe Investigation and Recovery Checklist",
-        date: "2026-10-22",
-        readTime: "8 min read",
-        tags: ["Linux", "Filesystem", "Troubleshooting", "Production Support"],
-        summary: "Compare df and du, find large files and deleted-open files, and plan a safe cleanup without deleting data blindly.",
-        rawMarkdown: `## Goal
-Find why a filesystem is full and recover space without removing files blindly. Practise on a VM or a dedicated test filesystem.
-
-## 1. Confirm which mount is affected
-
-\`\`\`bash
-df -hT
-df -ih
-lsblk -f
-findmnt
-\`\`\`
-
-\`df -hT\` shows space by filesystem; \`df -ih\` checks inode consumption. A filesystem can run out of inodes even when byte capacity remains.
-
-## 2. Find large directories
-
-\`\`\`bash
-sudo du -xhd1 /var 2>/dev/null | sort -h
-sudo du -xhd1 /var/log 2>/dev/null | sort -h
-\`\`\`
-
-Adjust the path to the affected mount. The \`-x\` option keeps the scan on one filesystem on GNU du. Large directory totals need investigation; they are not automatic permission to delete files.
-
-## 3. Check for deleted files still held open
-
-\`\`\`bash
-sudo lsof +L1
-\`\`\`
-
-A process can keep disk blocks allocated after a file has been deleted. Identify the process and follow its service procedure; do not terminate it without understanding the impact.
-
-## 4. Safe recovery workflow
-1. Confirm the mount, severity, business impact and current alerts.
-2. Identify log rotation, backup, temporary-file or application growth patterns.
-3. Use the application's approved cleanup or log-rotation process; preserve files needed for audit or investigation.
-4. If expansion is required, validate the storage layout and change plan before modifying partitions, LVM or filesystems.
-5. Recheck \`df -hT\`, monitoring and the application after the change.
-
-## Important cautions
-- Never run broad destructive commands such as recursive deletion against an unknown path.
-- Do not truncate active application logs without an approved procedure.
-- Filesystem expansion commands depend on filesystem type and storage layout. Verify XFS versus ext4 and the correct logical volume first.
-
-## What to document
-Record the mount point, before/after utilization, root cause, approved action, validation results and follow-up prevention item. Remove sensitive identifiers before publishing a case study.`
-      },
-      {
-        id: "ssh-connection-refused-troubleshooting",
-        title: "SSH Connection Refused on Linux: A Step-by-Step Troubleshooting Lab",
-        date: "2026-10-22",
-        readTime: "6 min read",
-        tags: ["Linux", "SSH", "Networking", "Troubleshooting", "Lab"],
-        summary: "Separate network reachability, sshd status, listening sockets, firewall rules and authentication problems with a clear diagnostic sequence.",
-        rawMarkdown: `## Understand the error
-\`Connection refused\` usually means the destination responded but nothing accepted the connection on that address and port, or a firewall actively rejected it. It is different from a timeout and from an authentication failure.
-
-## 1. On the client
-
-\`\`\`bash
-ip route
-getent hosts <server-name>
-ssh -vvv <user>@<server-name>
-\`\`\`
-
-Replace placeholders with your test VM details. Confirm the resolved IP and destination port. Do not post real public IPs or verbose logs containing sensitive paths online.
-
-## 2. Through the VM console or another authorized session
-
-\`\`\`bash
-sudo systemctl status sshd
-sudo ss -lntp | grep ':22'
-sudo journalctl -u sshd --since "15 minutes ago"
-\`\`\`
-
-On some distributions the unit may be named \`ssh\` instead of \`sshd\`. Check the installed service name. Confirm that the daemon is listening on the expected address and port.
-
-## 3. Check firewall and routing
-- Confirm the VM's network interface, IP address and route.
-- Inspect the host firewall using the tool configured on that distribution, such as \`firewall-cmd --list-all\` or \`ufw status\`.
-- Check any cloud security group, network security group, NAT or port-forwarding rule.
-- Allow SSH only from trusted source networks; do not open port 22 to the whole internet as a troubleshooting shortcut.
-
-## 4. Distinguish common errors
-| Symptom | Likely area to investigate |
-| --- | --- |
-| Connection refused | Listener, wrong port/address, or active reject rule |
-| Connection timed out | Routing, dropped traffic, security rule or unreachable host |
-| Permission denied (publickey) | User, key, permissions or SSH authentication policy |
-| Name or service not known | DNS or hostname configuration |
-
-## 5. Verify
-After an approved correction, retry SSH and confirm the server logs show a successful session. Keep an authorized console path available before changing SSH configuration or firewall rules.`
-      },
-      {
-        id: "linux-lvm-xfs-extension-lab",
-        title: "Hands-On Linux Lab: Extend an LVM Logical Volume and Grow XFS",
-        date: "2026-10-22",
-        readTime: "9 min read",
-        tags: ["Linux", "LVM", "Storage", "XFS", "Lab"],
-        summary: "Understand the PV-to-VG-to-LV layers and practise a filesystem expansion workflow with verification and safety checks.",
-        rawMarkdown: `## Lab objective
-Understand the relationship between a physical volume (PV), volume group (VG), logical volume (LV) and mounted filesystem. Use a disposable VM with a separate test disk or pre-created free space. Never copy commands blindly to production.
-
-## 1. Inspect the existing layout
-
-\`\`\`bash
-lsblk -f
-sudo pvs
-sudo vgs
-sudo lvs -a -o +devices
-df -hT
-findmnt
-\`\`\`
-
-Identify the exact device, VG, LV, filesystem type and mount point. Back up important data and confirm the change window before altering storage.
-
-## 2. Confirm available capacity
-If the VG already has free extents, you may be able to extend the LV directly. If a new disk has been attached, confirm the device identity with \`lsblk\` and your VM or cloud console before initializing it. Initializing the wrong disk can destroy existing data.
-
-## 3. Extend the logical volume
-The following is a pattern, not a ready-to-run command. Replace placeholders only after confirming the target and capacity:
-
-\`\`\`bash
-sudo lvextend -L +2G /dev/<vg_name>/<lv_name>
-\`\`\`
-
-Use a size appropriate for the lab and available extents. Do not assume the example path or size matches your system.
-
-## 4. Grow the filesystem
-For XFS, use the mounted filesystem path:
-
-\`\`\`bash
-sudo xfs_growfs <mount_point>
-\`\`\`
-
-For ext4, the appropriate resize procedure differs. Confirm the filesystem with \`df -T\` or \`lsblk -f\` and consult the distribution documentation before running a filesystem-specific command.
-
-## 5. Verify and document
-
-\`\`\`bash
-sudo lvs
-sudo vgs
-df -hT <mount_point>
-\`\`\`
-
-Confirm the LV and filesystem size, check system logs, and record before/after capacity. Remember that XFS cannot be shrunk in place using the standard XFS tools; plan capacity carefully.`
-      },
-      {
-        id: "linux-service-failed-journalctl-lab",
-        title: "Linux Service Failed: Troubleshoot systemd with systemctl and journalctl",
-        date: "2026-10-22",
-        readTime: "6 min read",
-        tags: ["Linux", "systemd", "Logs", "Troubleshooting", "Lab"],
-        summary: "A repeatable method for checking failed units, service status, recent logs, dependencies and configuration validation.",
-        rawMarkdown: `## 1. Find failed units
-
-\`\`\`bash
-systemctl --failed
-systemctl status <service-name> --no-pager -l
-\`\`\`
-
-Use the actual unit name. Read the full status output, including the exit code and the most recent log lines.
-
-## 2. Read the journal
-
-\`\`\`bash
-sudo journalctl -u <service-name> -b --no-pager
-sudo journalctl -u <service-name> --since "30 minutes ago" --no-pager
-sudo journalctl -p err -b --no-pager
-\`\`\`
-
-Look for the first meaningful error, not only the final failure message. Correlate timestamps with configuration changes, package updates and dependencies.
-
-## 3. Validate before restarting
-- Check configuration syntax using the service's documented validation command, where available.
-- Confirm required files, permissions, ports, mounts and dependent services.
-- Check disk and inode capacity with \`df -hT\` and \`df -ih\`.
-- Review recent changes and the approved recovery procedure.
-
-## 4. Restart only when appropriate
-A restart can interrupt users or hide useful evidence. After approval, use the documented service recovery action, then check \`systemctl is-active <service-name>\`, the journal and the application's actual health.
-
-## 5. Capture a useful incident note
-Document the symptom, scope, evidence, likely cause, action taken, validation and prevention. Redact credentials, customer identifiers and internal host details before using the example in a public article.`
-      }
-    ];
-
-    // BEGIN_GITHUB_PUBLISHED_ARTICLES
-    // END_GITHUB_PUBLISHED_ARTICLES
-    const githubPublishedPosts = [
     ];
 
     let activeTag = "All";
@@ -1313,47 +1083,23 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
     const CURRENT_USER_KEY = "gowri_current_session";
     const ADMIN_FLAG_KEY = "gowri_admin_session_flag";
 
-    // Secure GitHub publishing integration:
-    // Set this to your HTTPS server-side endpoint (for example, a Cloudflare Worker).
-    // The endpoint must authenticate/authorize the author and update index.html through
-    // GitHub's API using a secret stored ONLY on the server. Never place a GitHub token here.
-    // Expected POST JSON: { action: "upsert", article: { id, title, date, readTime, tags, summary, rawMarkdown } }
-    // Optional delete JSON: { action: "delete", articleId: "..." }
-    const GITHUB_PUBLISH_ENDPOINT = "https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev"; // Replace with your deployed Worker URL.
-
-    // SHA-256 helper used only by the local editor gate; it is NOT production authentication.
+    // Cryptographic SHA-256 Hash Helper
     async function hashString(str) {
       const buffer = new TextEncoder().encode(str);
       const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
       return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    const GITHUB_AUTHOR_TOKEN_KEY = "gowri_github_author_token";
-    let githubAuthorSessionToken = sessionStorage.getItem(GITHUB_AUTHOR_TOKEN_KEY) || "";
+    // SHA-256 digest of 'Mallesh@2026'
+    const ELEVATION_HASH = "3194beecbf78e244ad06440dbda8195e5482390f05566cf9b4f74d081b2f9c73";
+    const ELEVATION_HASH_LOWER = "16c805217ba3f868fa30064375b48651817551065c7198bb4fae0a78bbba505d";
 
     function getArticles() {
       const stored = localStorage.getItem(ARTICLES_STORAGE_KEY);
       if (stored) {
-        try {
-          const savedArticles = JSON.parse(stored);
-          if (Array.isArray(savedArticles)) {
-            // Add newly shipped built-in guides to existing browser storage without
-            // overwriting saved edits or user-created posts with matching IDs.
-            const publishedIds = new Set(githubPublishedPosts.map(post => post.id));
-            const allBuiltInPosts = [...defaultPosts.filter(post => !publishedIds.has(post.id)), ...githubPublishedPosts];
-            const savedById = new Map(savedArticles.map(post => [post.id, post]));
-            const mergedDefaults = allBuiltInPosts.map(post => savedById.get(post.id) || post);
-            const customPosts = savedArticles.filter(post => !allBuiltInPosts.some(base => base.id === post.id));
-            const merged = [...mergedDefaults, ...customPosts];
-            if (merged.length !== savedArticles.length || merged.some((post, i) => post !== savedArticles[i])) {
-              localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(merged));
-            }
-            return merged;
-          }
-        } catch (e) {}
+        try { return JSON.parse(stored); } catch (e) {}
       }
-      const publishedIds = new Set(githubPublishedPosts.map(post => post.id));
-      return [...defaultPosts.filter(post => !publishedIds.has(post.id)), ...githubPublishedPosts];
+      return defaultPosts;
     }
 
     function getUsers() {
@@ -1381,27 +1127,38 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       currentView = view;
       const portEl = document.getElementById("portfolioView");
       const blogEl = document.getElementById("blogView");
+      const adminEl = document.getElementById("adminPortalView");
       const navPort = document.getElementById("navPortfolioBtn");
       const navBlog = document.getElementById("navBlogBtn");
+      const navAdmin = document.getElementById("navAdminPortalBtn");
       const quickBtn = document.getElementById("quickToggleText");
 
+      portEl.classList.add("hidden");
+      blogEl.classList.add("hidden");
+      adminEl.classList.add("hidden");
+
+      navPort.className = "hover:text-sky-400 text-slate-300 flex items-center gap-1.5";
+      navBlog.className = "hover:text-sky-400 text-slate-300 font-mono flex items-center gap-1.5";
+      navAdmin.className = "hover:text-amber-400 text-slate-400 font-mono flex items-center gap-1 text-xs";
+
       if (view === 'blog') {
-        portEl.classList.add("hidden");
         blogEl.classList.remove("hidden");
         navBlog.className = "text-sky-400 font-semibold font-mono flex items-center gap-1.5";
-        navPort.className = "hover:text-sky-400 text-slate-300 flex items-center gap-1.5";
         quickBtn.textContent = "Switch to Portfolio";
         renderArticles();
+      } else if (view === 'admin') {
+        adminEl.classList.remove("hidden");
+        navAdmin.className = "text-amber-400 font-bold font-mono flex items-center gap-1 text-xs";
+        quickBtn.textContent = "Open Blog";
+        renderAdminPortalView();
       } else {
-        blogEl.classList.add("hidden");
         portEl.classList.remove("hidden");
         navPort.className = "text-sky-400 font-semibold flex items-center gap-1.5";
-        navBlog.className = "hover:text-sky-400 text-slate-300 font-mono flex items-center gap-1.5";
         quickBtn.textContent = "Open Blog";
       }
     }
 
-    // Deep Linking via hash (#post-<id>)
+    // Deep Linking via hash
     function checkHashRoute() {
       const hash = window.location.hash;
       if (hash && hash.startsWith("#post-")) {
@@ -1422,8 +1179,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       const container = document.getElementById("articlesContainer");
       const list = getArticles().filter(p => {
         const matchesTag = activeTag === "All" || (p.tags && p.tags.includes(activeTag));
-        const searchableText = [p.title, p.summary, ...(p.tags || []), p.rawMarkdown || ""].join(" ").toLowerCase();
-        const matchesQ = !searchQuery || searchableText.includes(searchQuery);
+        const matchesQ = !searchQuery || p.title.toLowerCase().includes(searchQuery) || (p.summary && p.summary.toLowerCase().includes(searchQuery));
         return matchesTag && matchesQ;
       });
 
@@ -1451,7 +1207,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
               <span class="text-[10px] text-[var(--term-yellow)] font-mono">#${(post.tags && post.tags[0]) || 'Linux'}</span>
             </div>
 
-            <!-- Quick Share & Admin Buttons -->
+            <!-- Share & (Admin-Only) Edit/Delete Controls -->
             <div class="flex items-center justify-between pt-1 text-[11px] font-mono">
               <button onclick="copyPostURL('${post.id}')" class="text-[var(--text-muted)] hover:text-white flex items-center gap-1 transition" title="Copy shareable link">
                 <i class="fa-solid fa-link text-xs text-[var(--accent)]"></i> Share link
@@ -1459,10 +1215,10 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
 
               ${isAdmin ? `
                 <div class="flex items-center gap-2">
-                  <button onclick="openEditModal('${post.id}')" class="text-sky-400 hover:text-sky-300 transition" title="Edit Article">
+                  <button onclick="openEditModal('${post.id}')" class="text-sky-400 hover:text-sky-300 transition" title="Edit Article (Admin)">
                     <i class="fa-solid fa-pen text-xs"></i>
                   </button>
-                  <button onclick="deleteArticle('${post.id}')" class="text-rose-400 hover:text-rose-300 transition" title="Delete Article">
+                  <button onclick="deleteArticle('${post.id}')" class="text-rose-400 hover:text-rose-300 transition" title="Delete Article (Admin)">
                     <i class="fa-solid fa-trash-can text-xs"></i>
                   </button>
                 </div>
@@ -1503,14 +1259,14 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
         <div class="mt-8 pt-6 border-t border-[var(--border-color)] space-y-4">
           <div class="flex items-center justify-between">
             <h3 class="text-sm font-bold font-mono text-white flex items-center gap-2">
-              <i class="fa-solid fa-comments text-sky-400"></i> Discussion & Notes
+              <i class="fa-solid fa-comments text-sky-400"></i> Reader Notes & Discussion
             </h3>
             <span class="text-[11px] font-mono text-slate-400" id="commentCountBadge">0 comments</span>
           </div>
 
           <!-- Add Comment Form -->
           <div class="p-3.5 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] space-y-3">
-            <textarea id="commentInput" rows="2" placeholder="${currentUser ? `Leave a technical note or feedback as ${currentUser.name}...` : 'Sign in to leave a technical note or question...'}" class="w-full bg-[#11192d] border border-[#223253] rounded p-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
+            <textarea id="commentInput" rows="2" placeholder="${currentUser ? `Add technical feedback as ${currentUser.name}...` : 'Sign in to participate in the discussion...'}" class="w-full bg-[#11192d] border border-[#223253] rounded p-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"></textarea>
             <div class="flex items-center justify-between">
               <span class="text-[10px] text-slate-400 font-mono">
                 ${currentUser ? `<span class="text-emerald-400"><i class="fa-solid fa-circle-check"></i> ${currentUser.name}</span>` : '<a href="javascript:openAuthModal(\'signin\')" class="text-sky-400 underline">Sign In</a> to participate'}
@@ -1521,7 +1277,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
             </div>
           </div>
 
-          <!-- Render Comments List -->
+          <!-- Comments List -->
           <div id="commentsList" class="space-y-2.5 pt-2"></div>
         </div>
       `;
@@ -1555,7 +1311,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
 
       if (!container) return;
       if (allComments.length === 0) {
-        container.innerHTML = `<p class="text-xs text-slate-500 italic">No notes or comments on this article yet. Be the first to start the discussion!</p>`;
+        container.innerHTML = `<p class="text-xs text-slate-500 italic">No notes on this article yet. Be the first to start the discussion!</p>`;
         return;
       }
 
@@ -1567,7 +1323,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
               ${c.isAdmin ? '<span class="text-[9px] bg-amber-950 text-amber-300 border border-amber-700/60 px-1 py-0.5 rounded font-mono">Admin</span>' : ''}
               <span class="text-[10px] text-slate-500 font-mono">${c.date}</span>
             </div>
-            ${(isAdmin || (currentUser && currentUser.email === c.authorEmail)) ? `
+            ${(isAdmin || (currentUser && currentUser.username === c.authorUsername)) ? `
               <button onclick="deleteComment('${c.id}')" class="text-slate-500 hover:text-rose-400 transition" title="Delete comment">
                 <i class="fa-solid fa-trash-can text-[10px]"></i>
               </button>
@@ -1586,7 +1342,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       const input = document.getElementById("commentInput");
       const text = input ? input.value.trim() : "";
       if (!text) {
-        showToast("Please enter a comment before posting.", true);
+        showToast("Please enter a note before posting.", true);
         return;
       }
 
@@ -1594,7 +1350,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
         id: `cmt-${Date.now()}`,
         postId: activeArticleId,
         author: currentUser.name,
-        authorEmail: currentUser.email,
+        authorUsername: currentUser.username || currentUser.name,
         isAdmin: isAdmin,
         text: text,
         date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -1643,6 +1399,82 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       setTimeout(() => { t.classList.add("hidden"); }, 3000);
     }
 
+    // ==========================================
+    // SEPARATE ADMIN PORTAL VIEW CONTROLLER
+    // ==========================================
+    function renderAdminPortalView() {
+      const loggedInView = document.getElementById("adminPortalLoggedInView");
+      const loggedOutView = document.getElementById("adminPortalLoggedOutView");
+      const authStatus = document.getElementById("adminPortalAuthStatus");
+      const tableBody = document.getElementById("adminArticlesTableBody");
+
+      if (isAdmin) {
+        loggedInView.classList.remove("hidden");
+        loggedOutView.classList.add("hidden");
+        authStatus.innerHTML = `
+          <div class="flex items-center gap-2 bg-amber-950/70 border border-amber-600/60 px-3 py-1 rounded text-xs">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span class="text-amber-300 font-bold">Admin: Mallesh</span>
+            <button onclick="logoutSession()" class="text-rose-400 hover:underline ml-2">Sign Out</button>
+          </div>
+        `;
+
+        const articles = getArticles();
+        const users = getUsers();
+        const comments = getComments();
+
+        document.getElementById("statPostCount").textContent = articles.length;
+        document.getElementById("statUserCount").textContent = users.length;
+        document.getElementById("statCommentCount").textContent = comments.length;
+
+        tableBody.innerHTML = articles.map(post => `
+          <tr class="hover:bg-[#16223b] transition">
+            <td class="p-3 font-semibold text-white">${post.title}</td>
+            <td class="p-3 text-slate-400 whitespace-nowrap">${post.date}</td>
+            <td class="p-3 text-sky-400 text-[11px]">${(post.tags || []).join(', ')}</td>
+            <td class="p-3 text-right whitespace-nowrap">
+              <button onclick="openEditModal('${post.id}')" class="px-2 py-1 rounded bg-[#16223b] hover:bg-[#223253] text-sky-400 border border-[#223253] mr-1.5 transition">
+                <i class="fa-solid fa-pen text-xs"></i> Edit
+              </button>
+              <button onclick="deleteArticle('${post.id}')" class="px-2 py-1 rounded bg-[#16223b] hover:bg-[#223253] text-rose-400 border border-[#223253] transition">
+                <i class="fa-solid fa-trash-can text-xs"></i> Delete
+              </button>
+            </td>
+          </tr>
+        `).join("");
+      } else {
+        loggedInView.classList.add("hidden");
+        loggedOutView.classList.remove("hidden");
+        authStatus.innerHTML = `<span class="text-xs text-slate-400">Status: Unauthenticated</span>`;
+      }
+    }
+
+    async function handleAdminPortalLogin(e) {
+      e.preventDefault();
+      const u = document.getElementById("adminPortalUsername").value.trim();
+      const p = document.getElementById("adminPortalPassword").value.trim();
+      const alertEl = document.getElementById("adminPortalAlert");
+
+      const passwordHash = await hashString(p);
+
+      if ((u.toLowerCase() === "mallesh") && 
+          (passwordHash === ELEVATION_HASH || passwordHash === ELEVATION_HASH_LOWER || p === "Mallesh@2026")) {
+        isAdmin = true;
+        currentUser = { name: "Mallesh", username: "Mallesh", role: "admin" };
+        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
+        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+        alertEl.classList.add("hidden");
+        showToast("Authenticated as Administrator Mallesh!");
+        renderHeaderSession();
+        renderAdminPortalView();
+        renderArticles();
+      } else {
+        alertEl.textContent = "Authentication failed. Invalid username or security credential.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-xs";
+        alertEl.classList.remove("hidden");
+      }
+    }
+
     function renderHeaderSession() {
       const container = document.getElementById("authHeaderContainer");
       const blogActions = document.getElementById("adminBlogActions");
@@ -1667,22 +1499,19 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
         `;
       }
 
+      // Authoring button only rendered for authenticated Admin
       if (blogActions) {
         if (isAdmin) {
           blogActions.innerHTML = `
             <button onclick="openEditorModal()" class="px-3.5 py-1.5 rounded bg-[var(--accent)] text-black font-bold text-xs font-mono flex items-center gap-1.5 hover:opacity-90 transition">
               <i class="fa-solid fa-pen-to-square"></i> + Write New Post
             </button>
-            <span class="text-xs font-mono text-amber-300 flex items-center gap-1">
-              <i class="fa-solid fa-shield-check"></i> Authoring Controls Active
-            </span>
-          `;
-        } else {
-          blogActions.innerHTML = `
-            <button onclick="openAdminKeyModal()" class="px-3 py-1.5 rounded bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-amber-400 transition flex items-center gap-1.5">
-              <i class="fa-solid fa-lock text-xs"></i> Admin Elevation
+            <button onclick="switchView('admin')" class="px-3 py-1.5 rounded bg-[#16223b] border border-amber-600/60 text-xs font-mono text-amber-300 hover:text-white transition flex items-center gap-1.5">
+              <i class="fa-solid fa-shield-halved"></i> Open Admin Portal
             </button>
           `;
+        } else {
+          blogActions.innerHTML = ``;
         }
       }
     }
@@ -1726,6 +1555,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
 
     async function handleRegisterSubmit(e) {
       e.preventDefault();
+      const username = document.getElementById("regUsername").value.trim();
       const name = document.getElementById("regName").value.trim();
       const email = document.getElementById("regEmail").value.trim().toLowerCase();
       const password = document.getElementById("regPassword").value;
@@ -1738,20 +1568,27 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
         return;
       }
 
+      if (username.toLowerCase() === "mallesh") {
+        alertEl.textContent = "The username 'Mallesh' is reserved for administration.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+        return;
+      }
+
       let users = getUsers();
-      if (users.some(u => u.email === email)) {
-        alertEl.textContent = "An account with this email already exists.";
+      if (users.some(u => u.email === email || u.username.toLowerCase() === username.toLowerCase())) {
+        alertEl.textContent = "An account with this username or email already exists.";
         alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
         alertEl.classList.remove("hidden");
         return;
       }
 
       const passwordHash = await hashString(password);
-      const newUser = { name, email, passwordHash, role: "reader", createdAt: new Date().toISOString() };
+      const newUser = { username, name, email, passwordHash, role: "reader", createdAt: new Date().toISOString() };
       users.push(newUser);
       localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
 
-      currentUser = { name: newUser.name, email: newUser.email, role: newUser.role };
+      currentUser = { name: newUser.name, username: newUser.username, role: newUser.role };
       sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
       closeAuthModal();
       showToast(`Account registered! Welcome, ${newUser.name}.`);
@@ -1760,47 +1597,45 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
 
     async function handleSignInSubmit(e) {
       e.preventDefault();
-      const identifier = document.getElementById("signInEmail").value.trim().toLowerCase();
+      const identifier = document.getElementById("signInIdentifier").value.trim();
       const password = document.getElementById("signInPassword").value.trim();
       const alertEl = document.getElementById("authAlert");
 
       const users = getUsers();
+      const passwordHash = await hashString(password);
 
-      // Admin access is verified by the secure server-side Worker, never by a password/hash in this HTML.
-      if (["mallesh", "gowrimallesh77@gmail.com", "gowribasava98@gmail.com"].includes(identifier)) {
-        try {
-          await authenticateGitHubAuthor(password);
-          currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
-          isAdmin = true;
-          sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-          sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
-          closeAuthModal();
-          showToast("Author authenticated securely.");
-          renderHeaderSession();
-          renderArticles();
-          return;
-        } catch (error) {
-          alertEl.textContent = error.message || "Author authentication failed.";
-          alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-          alertEl.classList.remove("hidden");
-          return;
-        }
+      // Check if credentials match Admin Mallesh
+      if (identifier.toLowerCase() === "mallesh" && 
+          (passwordHash === ELEVATION_HASH || passwordHash === ELEVATION_HASH_LOWER || password === "Mallesh@2026")) {
+        currentUser = { name: "Mallesh", username: "Mallesh", role: "admin" };
+        isAdmin = true;
+        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
+        closeAuthModal();
+        showToast("Welcome back, Administrator Mallesh!");
+        renderHeaderSession();
+        renderArticles();
+        if (currentView === 'admin') renderAdminPortalView();
+        return;
       }
 
-      const passwordHash = await hashString(password);
-      const matched = users.find(u => (u.email === identifier || u.name?.toLowerCase() === identifier) && u.passwordHash === passwordHash);
+      // Check standard reader users
+      const matched = users.find(u => 
+        (u.email === identifier.toLowerCase() || u.username.toLowerCase() === identifier.toLowerCase()) && 
+        u.passwordHash === passwordHash
+      );
 
       if (matched) {
-        currentUser = { name: matched.name, email: matched.email, role: matched.role };
-        isAdmin = matched.role === "admin";
+        currentUser = { name: matched.name, username: matched.username, role: matched.role };
+        isAdmin = false;
         sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-        if (isAdmin) sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
+        sessionStorage.removeItem(ADMIN_FLAG_KEY);
         closeAuthModal();
         showToast(`Welcome back, ${matched.name}!`);
         renderHeaderSession();
         renderArticles();
       } else {
-        alertEl.textContent = "Invalid credentials combination.";
+        alertEl.textContent = "Authentication failed. Invalid username or security credential.";
         alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
         alertEl.classList.remove("hidden");
       }
@@ -1808,7 +1643,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
 
     async function handleForgotSubmit(e) {
       e.preventDefault();
-      const email = document.getElementById("forgotEmail").value.trim().toLowerCase();
+      const identifier = document.getElementById("forgotIdentifier").value.trim().toLowerCase();
       const newPassword = document.getElementById("forgotNewPassword").value;
       const alertEl = document.getElementById("authAlert");
 
@@ -1819,10 +1654,18 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
         return;
       }
 
+      if (identifier === "mallesh") {
+        alertEl.textContent = "Admin master keys cannot be modified via standard reader recovery.";
+        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+        alertEl.classList.remove("hidden");
+        return;
+      }
+
       let users = getUsers();
-      const userIndex = users.findIndex(u => u.email === email);
+      const userIndex = users.findIndex(u => u.email === identifier || u.username.toLowerCase() === identifier);
+
       if (userIndex === -1) {
-        alertEl.textContent = "No registered user found with this email address.";
+        alertEl.textContent = "No registered account found with that username or email.";
         alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
         alertEl.classList.remove("hidden");
         return;
@@ -1843,57 +1686,19 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       isAdmin = false;
       sessionStorage.removeItem(CURRENT_USER_KEY);
       sessionStorage.removeItem(ADMIN_FLAG_KEY);
-      sessionStorage.removeItem(GITHUB_AUTHOR_TOKEN_KEY);
-      githubAuthorSessionToken = "";
       showToast("Signed out successfully.");
+      renderHeaderSession();
       renderArticles();
+      if (currentView === 'admin') renderAdminPortalView();
     }
 
-    function openAdminKeyModal() {
-      document.getElementById("adminKeyAlert").classList.add("hidden");
-      document.getElementById("adminSecretKeyInput").value = "";
-      document.getElementById("adminKeyModal").classList.remove("hidden");
-      setTimeout(() => {
-        const inp = document.getElementById("adminSecretKeyInput");
-        if (inp) inp.focus();
-      }, 100);
-    }
-
-    function closeAdminKeyModal() {
-      document.getElementById("adminKeyModal").classList.add("hidden");
-    }
-
-    async function handleAdminKeySubmit(e) {
-      e.preventDefault();
-      const rawInput = document.getElementById("adminSecretKeyInput").value;
-      const input = rawInput.trim();
-      const alertEl = document.getElementById("adminKeyAlert");
-
-      if (!input) {
-        alertEl.textContent = "Please enter the admin master key.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
+    // Modal Editor (Strictly Admin Access)
+    function openEditorModal() {
+      if (!isAdmin) {
+        switchView('admin');
+        showToast("Administrator elevation required to write articles.", true);
         return;
       }
-
-      try {
-        await authenticateGitHubAuthor(input);
-        isAdmin = true;
-        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
-        currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
-        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-        closeAdminKeyModal();
-        showToast("Author authenticated securely.");
-        renderHeaderSession();
-        renderArticles();
-      } catch (error) {
-        alertEl.textContent = error.message || "Author authentication failed.";
-        alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
-        alertEl.classList.remove("hidden");
-      }
-    }
-
-    function openEditorModal() {
       document.getElementById("editorModalTitle").textContent = "Write New Article";
       document.getElementById("editPostId").value = "";
       document.getElementById("editorTitle").value = "";
@@ -1904,6 +1709,11 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
     }
 
     function openEditModal(postId) {
+      if (!isAdmin) {
+        switchView('admin');
+        showToast("Administrator elevation required to edit articles.", true);
+        return;
+      }
       const post = getArticles().find(p => p.id === postId);
       if (!post) return;
       document.getElementById("editorModalTitle").textContent = `Edit: ${post.id}.md`;
@@ -1925,7 +1735,6 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       preview.innerHTML = raw.trim() ? marked.parse(raw) : `<span class="text-slate-500 italic">Live preview will render here...</span>`;
     }
 
-    // Helper to insert markdown snippets for tables, images, code, etc.
     function insertMarkdownSnippet(type) {
       const textarea = document.getElementById("editorMarkdown");
       if (!textarea) return;
@@ -1943,7 +1752,7 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
           snippet = selected ? `![${selected}](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)` : `![Architecture Diagram](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)\n`;
           break;
         case "code":
-          snippet = `\n\`\`\`bash\n# Run command\ncrm status\n\`\`\`\n`;
+          snippet = `\n\`\`\`bash\n# Production Command\ncrm status\n\`\`\`\n`;
           break;
         case "bold":
           snippet = selected ? `**${selected}**` : `**bold text**`;
@@ -1958,59 +1767,11 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       updateEditorPreview();
     }
 
-    async function authenticateGitHubAuthor(password) {
-      if (!GITHUB_PUBLISH_ENDPOINT || GITHUB_PUBLISH_ENDPOINT.includes("YOUR-WORKER-NAME")) {
-        throw new Error("GitHub publishing is not configured yet. Deploy the Worker and set GITHUB_PUBLISH_ENDPOINT first.");
+    function saveAndPublishArticle() {
+      if (!isAdmin) {
+        showToast("Unauthorized. Admin privileges required.", true);
+        return;
       }
-      let response;
-      try {
-        response = await fetch(GITHUB_PUBLISH_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "omit",
-          body: JSON.stringify({ action: "auth", password })
-        });
-      } catch (error) {
-        throw new Error("Could not reach the secure author authentication service.");
-      }
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok || result.ok !== true || !result.token) {
-        throw new Error(result.message || "Author authentication failed.");
-      }
-      githubAuthorSessionToken = result.token;
-      sessionStorage.setItem(GITHUB_AUTHOR_TOKEN_KEY, githubAuthorSessionToken);
-      return true;
-    }
-
-    async function publishToGitHub(action, articleOrId) {
-      if (!GITHUB_PUBLISH_ENDPOINT) {
-        return { published: false, reason: "not-configured" };
-      }
-      let response;
-      try {
-        response = await fetch(GITHUB_PUBLISH_ENDPOINT, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            ...(githubAuthorSessionToken ? { "Authorization": `Bearer ${githubAuthorSessionToken}` } : {})
-          },
-          credentials: "omit",
-          body: JSON.stringify(action === "delete"
-            ? { action: "delete", articleId: articleOrId }
-            : { action: "upsert", article: articleOrId })
-        });
-      } catch (error) {
-        throw new Error("Could not reach the secure publishing service. Your article was not published to GitHub.");
-      }
-      let result = {};
-      try { result = await response.json(); } catch (error) {}
-      if (!response.ok || result.ok !== true) {
-        throw new Error(result.message || `GitHub publishing failed (HTTP ${response.status}).`);
-      }
-      return { published: true, result };
-    }
-
-    async function saveAndPublishArticle() {
       const editId = document.getElementById("editPostId").value;
       const title = document.getElementById("editorTitle").value.trim();
       const tags = document.getElementById("editorTags").value.split(",").map(t => t.trim()).filter(Boolean);
@@ -2020,84 +1781,60 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
         showToast("Title and content are required!", true);
         return;
       }
-      if (!isAdmin) {
-        showToast("Please sign in with author privileges first.", true);
-        return;
-      }
 
       const words = markdown.split(/\s+/).length;
       const readTime = `${Math.max(1, Math.ceil(words / 180))} min read`;
-      const previousArticles = getArticles();
-      let articles = previousArticles;
-      let article;
+      let articles = getArticles();
 
       if (editId) {
-        const existing = articles.find(p => p.id === editId);
-        if (!existing) {
-          showToast("Article to edit was not found.", true);
-          return;
-        }
-        article = {
-          ...existing,
-          title,
-          tags: tags.length ? tags : ["Linux"],
-          readTime,
-          summary: markdown.substring(0, 140) + (markdown.length > 140 ? "..." : ""),
-          rawMarkdown: markdown
-        };
-        articles = articles.map(p => p.id === editId ? article : p);
+        articles = articles.map(p => {
+          if (p.id === editId) {
+            return {
+              ...p,
+              title,
+              tags: tags.length ? tags : ["Linux"],
+              readTime,
+              summary: markdown.substring(0, 140) + "...",
+              rawMarkdown: markdown
+            };
+          }
+          return p;
+        });
+        showToast("Article updated successfully!");
       } else {
-        const baseSlug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `post-${Date.now()}`;
-        const slug = previousArticles.some(p => p.id === baseSlug) ? `${baseSlug}-${Date.now()}` : baseSlug;
-        article = {
+        const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `post-${Date.now()}`;
+        const newPost = {
           id: slug,
           title,
           date: new Date().toISOString().split('T')[0],
           readTime,
           tags: tags.length ? tags : ["Linux"],
-          summary: markdown.substring(0, 140) + (markdown.length > 140 ? "..." : ""),
+          summary: markdown.substring(0, 140) + "...",
           rawMarkdown: markdown
         };
-        articles = [article, ...articles];
+        articles = [newPost, ...articles];
+        showToast("New article published!");
       }
 
-      const saveButton = document.querySelector('#editorModal button[onclick="saveAndPublishArticle()"]');
-      if (saveButton) { saveButton.disabled = true; saveButton.textContent = "Publishing..."; }
-      try {
-        const publishResult = await publishToGitHub("upsert", article);
-        // Save local copy only after remote publishing succeeds, or if no endpoint is configured.
-        localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
-        closeEditorModal();
-        renderTagFilters();
-        renderArticles();
-        if (publishResult.published) {
-          showToast("Article committed to GitHub and saved locally!");
-        } else {
-          showToast("Saved in this browser only. Configure the secure GitHub endpoint to publish online.", true);
-        }
-      } catch (error) {
-        showToast(error.message || "Publishing failed. Please try again.", true);
-      } finally {
-        if (saveButton) { saveButton.disabled = false; saveButton.textContent = "Save & Publish"; }
-      }
+      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
+      closeEditorModal();
+      renderTagFilters();
+      renderArticles();
+      if (currentView === 'admin') renderAdminPortalView();
     }
 
-    async function deleteArticle(postId) {
-      if (!confirm("Are you sure you want to permanently delete this article?")) return;
-      try {
-        if (githubPublishedPosts.some(post => post.id === postId)) {
-          const result = await publishToGitHub("delete", postId);
-          if (!result.published) throw new Error("Configure the secure GitHub publishing endpoint before deleting a published article.");
-        }
-        const articles = getArticles().filter(p => p.id !== postId);
-        localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
-        showToast("Article deleted from GitHub and this browser where applicable.");
-        renderTagFilters();
-        renderArticles();
-        if (githubPublishedPosts.some(post => post.id === postId)) location.reload();
-      } catch (error) {
-        showToast(error.message || "Could not delete the article.", true);
+    function deleteArticle(postId) {
+      if (!isAdmin) {
+        showToast("Unauthorized. Admin privileges required.", true);
+        return;
       }
+      if (!confirm("Are you sure you want to permanently delete this article?")) return;
+      let articles = getArticles().filter(p => p.id !== postId);
+      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
+      showToast("Article removed from storage.");
+      renderTagFilters();
+      renderArticles();
+      if (currentView === 'admin') renderAdminPortalView();
     }
 
     function renderTagFilters() {
@@ -2127,34 +1864,20 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
       localStorage.setItem("gowri_blog_theme", theme);
     }
 
-    function downloadSelfCode() {
-      const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = "portfolio_blog.html";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(a.href);
-      showToast("Downloaded portfolio_blog.html!");
-    }
-
     // Initial Execution
     document.addEventListener("DOMContentLoaded", () => {
-      // Restore Theme
       const savedTheme = localStorage.getItem("gowri_blog_theme") || "nord";
       changeTheme(savedTheme);
       const themeSelect = document.getElementById("themeSelect");
       if (themeSelect) themeSelect.value = savedTheme;
 
-      // Restore User Session & Admin Flag
       const storedUser = sessionStorage.getItem(CURRENT_USER_KEY);
       if (storedUser) {
         try { currentUser = JSON.parse(storedUser); } catch (e) {}
       }
       isAdmin = sessionStorage.getItem(ADMIN_FLAG_KEY) === "true";
 
+      renderHeaderSession();
       renderTagFilters();
       renderArticles();
       checkHashRoute();
@@ -2164,7 +1887,6 @@ Document the symptom, scope, evidence, likely cause, action taken, validation an
           closeModal();
           closeEditorModal();
           closeAuthModal();
-          closeAdminKeyModal();
         }
       });
     });
