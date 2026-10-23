@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ulligaddala Gowri Mallesh | System Administrator & Cloud Specialist</title>
+  <title>Gowri Mallesh | Linux System Administrator Portfolio & Practical Tech Blog</title>
+  <meta name="description" content="Practical Linux administration labs, server troubleshooting runbooks, SUSE, storage, monitoring, cloud and production support notes by Gowri Mallesh." />
+  <meta name="keywords" content="Linux administration, Linux troubleshooting, SUSE, SLES, LVM, NFS, SSH, Prometheus, Grafana, System Administrator, hands-on labs" />
+  <meta name="author" content="Gowri Mallesh" />
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -262,6 +265,7 @@
           <i class="fa-solid fa-terminal text-xs text-emerald-400"></i> Tech Journal
         </button>
         <a href="#about" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">About</a>
+        <a href="#projects" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Projects</a>
         <a href="#skills" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Skills</a>
         <a href="#experience" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Experience</a>
         <a href="#contact" onclick="switchView('portfolio')" class="hover:text-sky-400 transition">Contact</a>
@@ -279,7 +283,11 @@
         <button onclick="switchView(currentView === 'portfolio' ? 'blog' : 'portfolio')" class="px-3.5 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-sky-400 hover:border-sky-500 transition flex items-center gap-1.5">
           <i class="fa-solid fa-book-open"></i>
           <span id="quickToggleText">Open Blog</span>
+        </button>
 
+        <button onclick="downloadSelfCode()" title="Download complete runnable HTML file" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-sky-400 hover:border-sky-500 transition">
+          <i class="fa-solid fa-download text-sky-400"></i>
+          <span>Download Code</span>
         </button>
 
         <a href="#contact" onclick="switchView('portfolio')" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-md transition flex items-center gap-1.5">
@@ -302,13 +310,13 @@
           <div class="space-y-2">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-950/80 border border-sky-800 text-sky-400 rounded-full text-xs font-semibold uppercase tracking-wider font-mono">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              System Administrator • Tata Consultancy Services (5+ Yrs Experience)
+              System Administrator • Tata Consultancy Services (4+ Yrs Experience)
             </div>
             <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
               Ulligaddala Gowri Mallesh
             </h1>
             <p class="text-sky-400 text-base sm:text-xl font-medium">
-              Enterprise Linux, SAP HANA HEC & Multi-Cloud Infrastructure
+              Linux Administration, SAP Infrastructure & Cloud Operations
             </p>
             <div class="text-slate-400 text-xs sm:text-sm pt-2 flex flex-wrap gap-4 items-center">
               <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-sky-400"></i>+91 9014270009</span>
@@ -318,7 +326,7 @@
           </div>
 
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Dedicated professional with 5+ years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments at <strong>Tata Consultancy Services (TCS)</strong>. Hands-on expertise managing daily SAP operations on SUSE Linux Enterprise Server (SLES), Pacemaker High-Availability clusters, LVM disk management, NFS/SAMBA CIFS mounts, OS-level troubleshooting, system monitoring, and multi-cloud solutions across Microsoft Azure and Google Cloud.
+            Dedicated professional with 4+ years of experience in SAP Server Management within HANA Enterprise Cloud (HEC) environments at <strong>Tata Consultancy Services (TCS)</strong>. Hands-on expertise managing daily SAP operations on SUSE Linux Enterprise Server (SLES), Pacemaker High-Availability clusters, LVM disk management, NFS/SAMBA CIFS mounts, OS-level troubleshooting, system monitoring, and multi-cloud solutions across Microsoft Azure and Google Cloud.
           </p>
 
           <!-- Quick Action Buttons -->
@@ -328,6 +336,10 @@
             </a>
             <button onclick="switchView('blog')" class="border border-sky-500/60 bg-sky-950/40 hover:bg-sky-900/60 text-sky-300 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
               <i class="fa-solid fa-terminal"></i> Read Tech Blog
+            </button>
+            <button onclick="downloadSelfCode()" class="border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
+              <i class="fa-solid fa-download text-sky-400"></i> Download Source Code
+            </button>
           </div>
         </div>
 
@@ -381,7 +393,7 @@
             <p class="text-sm text-slate-300">System Administrator • Bengaluru</p>
           </div>
           <span class="text-xs font-mono font-medium text-slate-300 mt-2 md:mt-0 px-3 py-1 bg-slate-800 rounded-md border border-[#223253] w-fit">
-            2021 – Present (5+ Years)
+            2021 – Present (4+ Years)
           </span>
         </div>
 
@@ -455,6 +467,36 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- Practical Projects & Lab Work -->
+      <section id="projects" class="mt-8 bg-[#11192d]/90 border border-[#223253] rounded-2xl p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5">
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 font-mono">Hands-on Practice</span>
+            <h2 class="text-xl font-bold text-white mt-1">Practical Labs & Troubleshooting Projects</h2>
+            <p class="text-sm text-slate-400 mt-2 max-w-3xl">Reproducible home-lab exercises focused on diagnosing issues, validating fixes, and documenting safe operational steps.</p>
+          </div>
+          <button onclick="switchView('blog')" class="self-start sm:self-auto px-3 py-2 rounded-lg border border-emerald-700 bg-emerald-950/40 text-emerald-300 text-xs font-mono hover:border-emerald-400 transition">Explore Lab Guides →</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <article class="rounded-xl border border-[#223253] bg-[#0b1324] p-4">
+            <div class="text-emerald-400 text-xs font-mono mb-2">LAB 01 · LINUX STORAGE</div>
+            <h3 class="text-white font-semibold mb-2">LVM & Filesystem Expansion</h3>
+            <p class="text-sm text-slate-400">Inspect PV/VG/LV capacity, extend a logical volume, grow the filesystem, and verify available space.</p>
+          </article>
+          <article class="rounded-xl border border-[#223253] bg-[#0b1324] p-4">
+            <div class="text-sky-400 text-xs font-mono mb-2">LAB 02 · TROUBLESHOOTING</div>
+            <h3 class="text-white font-semibold mb-2">Linux Performance Investigation</h3>
+            <p class="text-sm text-slate-400">Use uptime, top, free, vmstat and journal logs to narrow down CPU, memory and service issues.</p>
+          </article>
+          <article class="rounded-xl border border-[#223253] bg-[#0b1324] p-4">
+            <div class="text-amber-400 text-xs font-mono mb-2">LAB 03 · NETWORKING</div>
+            <h3 class="text-white font-semibold mb-2">SSH, DNS & Mount Checks</h3>
+            <p class="text-sm text-slate-400">Follow a layered checklist for connectivity, name resolution, SSH service status and NFS/CIFS mount health.</p>
+          </article>
+        </div>
+        <p class="text-xs text-slate-500 mt-4">Lab note: practise on disposable VMs first. Validate commands for your distribution and never run destructive storage or cluster commands on production without approved change control.</p>
       </section>
 
       <!-- Skills, Education & Contact Grid -->
@@ -556,7 +598,7 @@
             <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
             <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
             <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
-            <span class="ml-2 text-xs font-semibold text-slate-400">gowrimallesh@sles-blog: ~</span>
+            <span class="ml-2 text-xs font-semibold text-slate-400">gowri@sles-journal: ~</span>
           </div>
           <div class="flex items-center gap-3">
             <!-- Theme Selector -->
@@ -576,31 +618,32 @@
 
         <div class="p-6 space-y-4">
           <div class="flex flex-wrap items-center gap-2 text-sm font-mono">
-            <span class="text-[var(--term-green)] font-bold">gowriMallesh@Linux</span>
+            <span class="text-[var(--term-green)] font-bold">gowri@sles</span>
             <span class="text-slate-500">:</span>
-            <span class="text-[var(--term-yellow)]">#</span>
-            <span class="text-slate-100 font-semibold">Welcome to the blog </span>
+            <span class="text-[var(--term-purple)] font-semibold">~/articles</span>
+            <span class="text-[var(--term-yellow)]">$</span>
+            <span class="text-slate-100 font-semibold">sysadmin-notes --list</span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-2 items-center">
             <div class="md:col-span-4 flex flex-col items-center justify-center p-3 rounded-lg bg-[var(--bg-base)] border border-[var(--border-color)] font-mono text-[10px] text-[var(--accent)] select-none">
               <pre class="leading-tight">
     .--.
-   |o_o |   Hosting by :Ulligaddala Gowri Mallesh
-   |:_/ |   Certs: AZ-104 & GCP ACE
-  //   \ \  Experience: 5+ Years 
- (|     | ) Status: Operational 
-/'\_   _/`\ 
-\___)=(___/ 
+   |o_o |   Host: SLES 15 SP4 / Azure
+   |:_/ |   Topic: SAP HANA & High Availability
+  //   \ \  Storage: LVM & NFS Mounts
+ (|     | ) Uptime: 4+ Years Enterprise
+/'\_   _/`\ Certs: AZ-104 & GCP ACE
+\___)=(___/ Status: Operational
               </pre>
             </div>
 
             <div class="md:col-span-8 space-y-2">
               <h2 class="text-2xl font-bold font-mono text-[var(--text-main)]">
-                Enterprise Linux & SAP Blog
+                Enterprise Linux & SAP HEC Journal
               </h2>
               <p class="text-sm text-[var(--text-muted)] leading-relaxed font-sans">
-                Technical articles, troubleshooting guides, and production command runbooks for enterprise Linux systems administrators.
+                Hands-on Linux labs, step-by-step troubleshooting guides, command references and production-support learning notes for system administrators.
               </p>
               <div class="flex items-center gap-2 pt-2" id="adminBlogActions">
                 <button onclick="openAdminKeyModal()" class="px-3 py-1.5 rounded bg-[#16223b] border border-[#223253] text-xs font-mono text-slate-300 hover:text-amber-400 transition flex items-center gap-1.5">
@@ -612,12 +655,29 @@
         </div>
       </section>
 
+      <!-- Practical Lab Guide Promise -->
+      <section class="rounded-xl border border-emerald-900/70 bg-emerald-950/20 p-4 sm:p-5">
+        <div class="flex items-start gap-3">
+          <div class="rounded-lg bg-emerald-900/40 p-2 text-emerald-300"><i class="fa-solid fa-flask"></i></div>
+          <div class="min-w-0">
+            <h3 class="text-sm font-bold text-emerald-200 font-mono">Practical labs, not just theory</h3>
+            <p class="text-sm text-slate-300 mt-1 leading-relaxed">Each new guide aims to include prerequisites, safe lab setup, commands to run, what the output means, troubleshooting branches, verification steps and interview takeaways. Examples should be tested in a non-production VM before being adapted to work systems.</p>
+            <div class="flex flex-wrap gap-2 mt-3 text-[11px] font-mono">
+              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Linux & SLES</span>
+              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Storage & Mounts</span>
+              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Services & Logs</span>
+              <span class="rounded border border-emerald-900 px-2 py-1 text-emerald-200">Monitoring</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Search, Tag Filter and Articles Grid -->
       <section class="space-y-4">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs">
           <div class="relative w-full sm:w-80">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
-            <input type="text" id="searchInput" oninput="filterArticles()" placeholder="grep -i articles by title or tag..." class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]">
+            <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Search guides, commands, tags..." class="w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-lg pl-9 pr-3 py-2 text-[var(--text-main)] focus:outline-none focus:border-[var(--accent)]">
           </div>
           <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto" id="tagFilterContainer"></div>
         </div>
@@ -642,7 +702,9 @@
         <button onclick="switchView('blog')" class="hover:text-sky-400 text-sky-400 transition font-mono">Tech Blog</button>
         <button onclick="openAdminKeyModal()" class="hover:text-amber-400 text-slate-500 transition font-mono flex items-center gap-1">
           <i class="fa-solid fa-terminal text-[10px]"></i> Admin Console
-
+        </button>
+        <button onclick="downloadSelfCode()" class="hover:text-emerald-400 text-slate-400 transition font-mono flex items-center gap-1">
+          <i class="fa-solid fa-code text-xs"></i> Download Code
         </button>
         <a href="mailto:gowrimallesh77@gmail.com" class="hover:text-white transition font-sans">Email</a>
       </div>
@@ -781,7 +843,7 @@
       </div>
 
       <p class="text-slate-400 text-[11px] leading-relaxed">
-        Input the security authorization key to elevate authoring privileges (verified via SHA-256 cryptographic digest; no plaintext credentials stored).
+        Enter your blog author password. The secure server verifies it and returns a short-lived session token. Never enter a GitHub token here.
       </p>
 
       <div id="adminKeyAlert" class="hidden p-2.5 rounded text-[11px]"></div>
@@ -855,6 +917,9 @@
         </div>
       </div>
 
+      <div class="px-4 py-2 bg-amber-950/40 border-t border-amber-800/50 text-amber-200 text-[11px] leading-relaxed">
+        <i class="fa-solid fa-shield-halved mr-1"></i> Configure the secure GitHub Worker endpoint before publishing. The Worker authenticates the author and commits this article into index.html. No GitHub token belongs in this HTML file.
+      </div>
       <div class="p-3 bg-[#16223b] flex justify-end gap-2 border-t border-[#223253]">
         <button onclick="closeEditorModal()" class="px-3 py-1.5 rounded bg-[#0a0f1d] text-slate-300 border border-[#223253]">Cancel</button>
         <button onclick="saveAndPublishArticle()" class="px-4 py-1.5 rounded bg-sky-400 text-black font-bold hover:bg-sky-300 transition">Save & Publish</button>
@@ -978,6 +1043,266 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
 (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
 \`\`\``
       }
+      ,{
+        id: "linux-high-cpu-memory-troubleshooting",
+        title: "Linux Troubleshooting Lab: Investigate High CPU and Memory Usage",
+        date: "2026-10-22",
+        readTime: "7 min read",
+        tags: ["Linux", "Troubleshooting", "Performance", "Lab"],
+        summary: "A repeatable checklist for checking load, identifying resource-heavy processes, reviewing memory pressure and verifying the result safely.",
+        rawMarkdown: `## Goal
+Learn to collect evidence before changing or restarting anything when a Linux server appears slow. Run this exercise on a test VM.
+
+## 1. Check load and uptime
+
+\`\`\`bash
+uptime
+nproc
+\`\`\`
+
+Load average is not a CPU percentage. Compare it with the number of available CPUs and inspect the process and I/O evidence before drawing a conclusion.
+
+## 2. Identify busy processes
+
+\`\`\`bash
+top
+ps -eo pid,ppid,comm,%cpu,%mem --sort=-%cpu | head -15
+ps -eo pid,ppid,comm,%mem,%cpu --sort=-%mem | head -15
+\`\`\`
+
+In \`top\`, press \`P\` to sort by CPU or \`M\` to sort by memory. Record the PID, command, owner and when the issue began. Do not kill a process only because it appears near the top.
+
+## 3. Check memory and I/O signals
+
+\`\`\`bash
+free -h
+vmstat 1 5
+\`\`\`
+
+Use \`free\` to review available memory and swap. In \`vmstat\`, repeated non-zero swap-in/swap-out activity or high I/O wait can help guide the next check; interpret the columns over several samples.
+
+## 4. Review service logs
+
+\`\`\`bash
+systemctl --failed
+journalctl -p warning --since "30 minutes ago"
+journalctl -u <service-name> --since "30 minutes ago"
+\`\`\`
+
+Replace \`<service-name>\` with the real unit name. Compare log timestamps with monitoring and change records.
+
+## 5. Resolution and verification
+1. Identify the owning service or application with the evidence collected.
+2. Check recent deployments, scheduled jobs and approved changes.
+3. Follow the service runbook or escalate to the application owner before making disruptive changes.
+4. Repeat \`uptime\`, \`free -h\` and the relevant process check after the approved action.
+
+## Common mistakes
+- Treating load average as a direct CPU percentage.
+- Assuming cached memory is automatically a problem.
+- Restarting or killing production processes before collecting evidence.
+- Sharing customer names, IP addresses or internal logs in public examples.
+
+## Interview takeaway
+Explain your workflow as: measure, identify the process, correlate logs and changes, apply an approved fix, then verify and document.`
+      },
+      {
+        id: "linux-filesystem-full-troubleshooting",
+        title: "Linux Filesystem 100% Full: Safe Investigation and Recovery Checklist",
+        date: "2026-10-22",
+        readTime: "8 min read",
+        tags: ["Linux", "Filesystem", "Troubleshooting", "Production Support"],
+        summary: "Compare df and du, find large files and deleted-open files, and plan a safe cleanup without deleting data blindly.",
+        rawMarkdown: `## Goal
+Find why a filesystem is full and recover space without removing files blindly. Practise on a VM or a dedicated test filesystem.
+
+## 1. Confirm which mount is affected
+
+\`\`\`bash
+df -hT
+df -ih
+lsblk -f
+findmnt
+\`\`\`
+
+\`df -hT\` shows space by filesystem; \`df -ih\` checks inode consumption. A filesystem can run out of inodes even when byte capacity remains.
+
+## 2. Find large directories
+
+\`\`\`bash
+sudo du -xhd1 /var 2>/dev/null | sort -h
+sudo du -xhd1 /var/log 2>/dev/null | sort -h
+\`\`\`
+
+Adjust the path to the affected mount. The \`-x\` option keeps the scan on one filesystem on GNU du. Large directory totals need investigation; they are not automatic permission to delete files.
+
+## 3. Check for deleted files still held open
+
+\`\`\`bash
+sudo lsof +L1
+\`\`\`
+
+A process can keep disk blocks allocated after a file has been deleted. Identify the process and follow its service procedure; do not terminate it without understanding the impact.
+
+## 4. Safe recovery workflow
+1. Confirm the mount, severity, business impact and current alerts.
+2. Identify log rotation, backup, temporary-file or application growth patterns.
+3. Use the application's approved cleanup or log-rotation process; preserve files needed for audit or investigation.
+4. If expansion is required, validate the storage layout and change plan before modifying partitions, LVM or filesystems.
+5. Recheck \`df -hT\`, monitoring and the application after the change.
+
+## Important cautions
+- Never run broad destructive commands such as recursive deletion against an unknown path.
+- Do not truncate active application logs without an approved procedure.
+- Filesystem expansion commands depend on filesystem type and storage layout. Verify XFS versus ext4 and the correct logical volume first.
+
+## What to document
+Record the mount point, before/after utilization, root cause, approved action, validation results and follow-up prevention item. Remove sensitive identifiers before publishing a case study.`
+      },
+      {
+        id: "ssh-connection-refused-troubleshooting",
+        title: "SSH Connection Refused on Linux: A Step-by-Step Troubleshooting Lab",
+        date: "2026-10-22",
+        readTime: "6 min read",
+        tags: ["Linux", "SSH", "Networking", "Troubleshooting", "Lab"],
+        summary: "Separate network reachability, sshd status, listening sockets, firewall rules and authentication problems with a clear diagnostic sequence.",
+        rawMarkdown: `## Understand the error
+\`Connection refused\` usually means the destination responded but nothing accepted the connection on that address and port, or a firewall actively rejected it. It is different from a timeout and from an authentication failure.
+
+## 1. On the client
+
+\`\`\`bash
+ip route
+getent hosts <server-name>
+ssh -vvv <user>@<server-name>
+\`\`\`
+
+Replace placeholders with your test VM details. Confirm the resolved IP and destination port. Do not post real public IPs or verbose logs containing sensitive paths online.
+
+## 2. Through the VM console or another authorized session
+
+\`\`\`bash
+sudo systemctl status sshd
+sudo ss -lntp | grep ':22'
+sudo journalctl -u sshd --since "15 minutes ago"
+\`\`\`
+
+On some distributions the unit may be named \`ssh\` instead of \`sshd\`. Check the installed service name. Confirm that the daemon is listening on the expected address and port.
+
+## 3. Check firewall and routing
+- Confirm the VM's network interface, IP address and route.
+- Inspect the host firewall using the tool configured on that distribution, such as \`firewall-cmd --list-all\` or \`ufw status\`.
+- Check any cloud security group, network security group, NAT or port-forwarding rule.
+- Allow SSH only from trusted source networks; do not open port 22 to the whole internet as a troubleshooting shortcut.
+
+## 4. Distinguish common errors
+| Symptom | Likely area to investigate |
+| --- | --- |
+| Connection refused | Listener, wrong port/address, or active reject rule |
+| Connection timed out | Routing, dropped traffic, security rule or unreachable host |
+| Permission denied (publickey) | User, key, permissions or SSH authentication policy |
+| Name or service not known | DNS or hostname configuration |
+
+## 5. Verify
+After an approved correction, retry SSH and confirm the server logs show a successful session. Keep an authorized console path available before changing SSH configuration or firewall rules.`
+      },
+      {
+        id: "linux-lvm-xfs-extension-lab",
+        title: "Hands-On Linux Lab: Extend an LVM Logical Volume and Grow XFS",
+        date: "2026-10-22",
+        readTime: "9 min read",
+        tags: ["Linux", "LVM", "Storage", "XFS", "Lab"],
+        summary: "Understand the PV-to-VG-to-LV layers and practise a filesystem expansion workflow with verification and safety checks.",
+        rawMarkdown: `## Lab objective
+Understand the relationship between a physical volume (PV), volume group (VG), logical volume (LV) and mounted filesystem. Use a disposable VM with a separate test disk or pre-created free space. Never copy commands blindly to production.
+
+## 1. Inspect the existing layout
+
+\`\`\`bash
+lsblk -f
+sudo pvs
+sudo vgs
+sudo lvs -a -o +devices
+df -hT
+findmnt
+\`\`\`
+
+Identify the exact device, VG, LV, filesystem type and mount point. Back up important data and confirm the change window before altering storage.
+
+## 2. Confirm available capacity
+If the VG already has free extents, you may be able to extend the LV directly. If a new disk has been attached, confirm the device identity with \`lsblk\` and your VM or cloud console before initializing it. Initializing the wrong disk can destroy existing data.
+
+## 3. Extend the logical volume
+The following is a pattern, not a ready-to-run command. Replace placeholders only after confirming the target and capacity:
+
+\`\`\`bash
+sudo lvextend -L +2G /dev/<vg_name>/<lv_name>
+\`\`\`
+
+Use a size appropriate for the lab and available extents. Do not assume the example path or size matches your system.
+
+## 4. Grow the filesystem
+For XFS, use the mounted filesystem path:
+
+\`\`\`bash
+sudo xfs_growfs <mount_point>
+\`\`\`
+
+For ext4, the appropriate resize procedure differs. Confirm the filesystem with \`df -T\` or \`lsblk -f\` and consult the distribution documentation before running a filesystem-specific command.
+
+## 5. Verify and document
+
+\`\`\`bash
+sudo lvs
+sudo vgs
+df -hT <mount_point>
+\`\`\`
+
+Confirm the LV and filesystem size, check system logs, and record before/after capacity. Remember that XFS cannot be shrunk in place using the standard XFS tools; plan capacity carefully.`
+      },
+      {
+        id: "linux-service-failed-journalctl-lab",
+        title: "Linux Service Failed: Troubleshoot systemd with systemctl and journalctl",
+        date: "2026-10-22",
+        readTime: "6 min read",
+        tags: ["Linux", "systemd", "Logs", "Troubleshooting", "Lab"],
+        summary: "A repeatable method for checking failed units, service status, recent logs, dependencies and configuration validation.",
+        rawMarkdown: `## 1. Find failed units
+
+\`\`\`bash
+systemctl --failed
+systemctl status <service-name> --no-pager -l
+\`\`\`
+
+Use the actual unit name. Read the full status output, including the exit code and the most recent log lines.
+
+## 2. Read the journal
+
+\`\`\`bash
+sudo journalctl -u <service-name> -b --no-pager
+sudo journalctl -u <service-name> --since "30 minutes ago" --no-pager
+sudo journalctl -p err -b --no-pager
+\`\`\`
+
+Look for the first meaningful error, not only the final failure message. Correlate timestamps with configuration changes, package updates and dependencies.
+
+## 3. Validate before restarting
+- Check configuration syntax using the service's documented validation command, where available.
+- Confirm required files, permissions, ports, mounts and dependent services.
+- Check disk and inode capacity with \`df -hT\` and \`df -ih\`.
+- Review recent changes and the approved recovery procedure.
+
+## 4. Restart only when appropriate
+A restart can interrupt users or hide useful evidence. After approval, use the documented service recovery action, then check \`systemctl is-active <service-name>\`, the journal and the application's actual health.
+
+## 5. Capture a useful incident note
+Document the symptom, scope, evidence, likely cause, action taken, validation and prevention. Redact credentials, customer identifiers and internal host details before using the example in a public article.`
+      }
+    ];
+
+    // BEGIN_GITHUB_PUBLISHED_ARTICLES
+    // END_GITHUB_PUBLISHED_ARTICLES
+    const githubPublishedPosts = [
     ];
 
     let activeTag = "All";
@@ -988,23 +1313,47 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
     const CURRENT_USER_KEY = "gowri_current_session";
     const ADMIN_FLAG_KEY = "gowri_admin_session_flag";
 
-    // Cryptographic SHA-256 Hash Helper for secure verification
+    // Secure GitHub publishing integration:
+    // Set this to your HTTPS server-side endpoint (for example, a Cloudflare Worker).
+    // The endpoint must authenticate/authorize the author and update index.html through
+    // GitHub's API using a secret stored ONLY on the server. Never place a GitHub token here.
+    // Expected POST JSON: { action: "upsert", article: { id, title, date, readTime, tags, summary, rawMarkdown } }
+    // Optional delete JSON: { action: "delete", articleId: "..." }
+    const GITHUB_PUBLISH_ENDPOINT = "https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev"; // Replace with your deployed Worker URL.
+
+    // SHA-256 helper used only by the local editor gate; it is NOT production authentication.
     async function hashString(str) {
       const buffer = new TextEncoder().encode(str);
       const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
       return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    // Target hash for authorized elevation (SHA-256 digest of 'Mallesh@2026')
-    const ELEVATION_HASH = "3194beecbf78e244ad06440dbda8195e5482390f05566cf9b4f74d081b2f9c73";
-    const ELEVATION_HASH_LOWER = "16c805217ba3f868fa30064375b48651817551065c7198bb4fae0a78bbba505d";
+    const GITHUB_AUTHOR_TOKEN_KEY = "gowri_github_author_token";
+    let githubAuthorSessionToken = sessionStorage.getItem(GITHUB_AUTHOR_TOKEN_KEY) || "";
 
     function getArticles() {
       const stored = localStorage.getItem(ARTICLES_STORAGE_KEY);
       if (stored) {
-        try { return JSON.parse(stored); } catch (e) {}
+        try {
+          const savedArticles = JSON.parse(stored);
+          if (Array.isArray(savedArticles)) {
+            // Add newly shipped built-in guides to existing browser storage without
+            // overwriting saved edits or user-created posts with matching IDs.
+            const publishedIds = new Set(githubPublishedPosts.map(post => post.id));
+            const allBuiltInPosts = [...defaultPosts.filter(post => !publishedIds.has(post.id)), ...githubPublishedPosts];
+            const savedById = new Map(savedArticles.map(post => [post.id, post]));
+            const mergedDefaults = allBuiltInPosts.map(post => savedById.get(post.id) || post);
+            const customPosts = savedArticles.filter(post => !allBuiltInPosts.some(base => base.id === post.id));
+            const merged = [...mergedDefaults, ...customPosts];
+            if (merged.length !== savedArticles.length || merged.some((post, i) => post !== savedArticles[i])) {
+              localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(merged));
+            }
+            return merged;
+          }
+        } catch (e) {}
       }
-      return defaultPosts;
+      const publishedIds = new Set(githubPublishedPosts.map(post => post.id));
+      return [...defaultPosts.filter(post => !publishedIds.has(post.id)), ...githubPublishedPosts];
     }
 
     function getUsers() {
@@ -1073,7 +1422,8 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       const container = document.getElementById("articlesContainer");
       const list = getArticles().filter(p => {
         const matchesTag = activeTag === "All" || (p.tags && p.tags.includes(activeTag));
-        const matchesQ = !searchQuery || p.title.toLowerCase().includes(searchQuery) || (p.summary && p.summary.toLowerCase().includes(searchQuery));
+        const searchableText = [p.title, p.summary, ...(p.tags || []), p.rawMarkdown || ""].join(" ").toLowerCase();
+        const matchesQ = !searchQuery || searchableText.includes(searchQuery);
         return matchesTag && matchesQ;
       });
 
@@ -1415,22 +1765,29 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       const alertEl = document.getElementById("authAlert");
 
       const users = getUsers();
-      const passwordHash = await hashString(password);
 
-      // Check if credentials match the admin master key
-      if ((identifier === "mallesh" || identifier === "gowrimallesh77@gmail.com" || identifier === "gowribasava98@gmail.com") && 
-          (passwordHash === ELEVATION_HASH || passwordHash === ELEVATION_HASH_LOWER || password === "Mallesh@2026")) {
-        currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
-        isAdmin = true;
-        sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
-        sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
-        closeAuthModal();
-        showToast("Welcome back, Admin Mallesh!");
-        renderHeaderSession();
-        renderArticles();
-        return;
+      // Admin access is verified by the secure server-side Worker, never by a password/hash in this HTML.
+      if (["mallesh", "gowrimallesh77@gmail.com", "gowribasava98@gmail.com"].includes(identifier)) {
+        try {
+          await authenticateGitHubAuthor(password);
+          currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
+          isAdmin = true;
+          sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+          sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
+          closeAuthModal();
+          showToast("Author authenticated securely.");
+          renderHeaderSession();
+          renderArticles();
+          return;
+        } catch (error) {
+          alertEl.textContent = error.message || "Author authentication failed.";
+          alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
+          alertEl.classList.remove("hidden");
+          return;
+        }
       }
 
+      const passwordHash = await hashString(password);
       const matched = users.find(u => (u.email === identifier || u.name?.toLowerCase() === identifier) && u.passwordHash === passwordHash);
 
       if (matched) {
@@ -1486,6 +1843,8 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       isAdmin = false;
       sessionStorage.removeItem(CURRENT_USER_KEY);
       sessionStorage.removeItem(ADMIN_FLAG_KEY);
+      sessionStorage.removeItem(GITHUB_AUTHOR_TOKEN_KEY);
+      githubAuthorSessionToken = "";
       showToast("Signed out successfully.");
       renderArticles();
     }
@@ -1517,20 +1876,18 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
         return;
       }
 
-      const hash = await hashString(input);
-
-      // Verify against primary SHA-256 hash or case-insensitive fallback
-      if (hash === ELEVATION_HASH || hash === ELEVATION_HASH_LOWER || input === "Mallesh@2026" || input === "mallesh@2026") {
+      try {
+        await authenticateGitHubAuthor(input);
         isAdmin = true;
         sessionStorage.setItem(ADMIN_FLAG_KEY, "true");
         currentUser = { name: "Mallesh", email: "gowrimallesh77@gmail.com", role: "admin" };
         sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
         closeAdminKeyModal();
-        showToast("Admin privileges elevated! Welcome, Mallesh.");
+        showToast("Author authenticated securely.");
         renderHeaderSession();
         renderArticles();
-      } else {
-        alertEl.textContent = "Security verification failed. Invalid key. Hint: Make sure to type Mallesh@2026 (exact case).";
+      } catch (error) {
+        alertEl.textContent = error.message || "Author authentication failed.";
         alertEl.className = "p-2.5 rounded bg-rose-950/80 border border-rose-700 text-rose-300 text-[11px]";
         alertEl.classList.remove("hidden");
       }
@@ -1601,7 +1958,59 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
       updateEditorPreview();
     }
 
-    function saveAndPublishArticle() {
+    async function authenticateGitHubAuthor(password) {
+      if (!GITHUB_PUBLISH_ENDPOINT || GITHUB_PUBLISH_ENDPOINT.includes("YOUR-WORKER-NAME")) {
+        throw new Error("GitHub publishing is not configured yet. Deploy the Worker and set GITHUB_PUBLISH_ENDPOINT first.");
+      }
+      let response;
+      try {
+        response = await fetch(GITHUB_PUBLISH_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "omit",
+          body: JSON.stringify({ action: "auth", password })
+        });
+      } catch (error) {
+        throw new Error("Could not reach the secure author authentication service.");
+      }
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.ok !== true || !result.token) {
+        throw new Error(result.message || "Author authentication failed.");
+      }
+      githubAuthorSessionToken = result.token;
+      sessionStorage.setItem(GITHUB_AUTHOR_TOKEN_KEY, githubAuthorSessionToken);
+      return true;
+    }
+
+    async function publishToGitHub(action, articleOrId) {
+      if (!GITHUB_PUBLISH_ENDPOINT) {
+        return { published: false, reason: "not-configured" };
+      }
+      let response;
+      try {
+        response = await fetch(GITHUB_PUBLISH_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(githubAuthorSessionToken ? { "Authorization": `Bearer ${githubAuthorSessionToken}` } : {})
+          },
+          credentials: "omit",
+          body: JSON.stringify(action === "delete"
+            ? { action: "delete", articleId: articleOrId }
+            : { action: "upsert", article: articleOrId })
+        });
+      } catch (error) {
+        throw new Error("Could not reach the secure publishing service. Your article was not published to GitHub.");
+      }
+      let result = {};
+      try { result = await response.json(); } catch (error) {}
+      if (!response.ok || result.ok !== true) {
+        throw new Error(result.message || `GitHub publishing failed (HTTP ${response.status}).`);
+      }
+      return { published: true, result };
+    }
+
+    async function saveAndPublishArticle() {
       const editId = document.getElementById("editPostId").value;
       const title = document.getElementById("editorTitle").value.trim();
       const tags = document.getElementById("editorTags").value.split(",").map(t => t.trim()).filter(Boolean);
@@ -1611,54 +2020,84 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
         showToast("Title and content are required!", true);
         return;
       }
+      if (!isAdmin) {
+        showToast("Please sign in with author privileges first.", true);
+        return;
+      }
 
       const words = markdown.split(/\s+/).length;
       const readTime = `${Math.max(1, Math.ceil(words / 180))} min read`;
-      let articles = getArticles();
+      const previousArticles = getArticles();
+      let articles = previousArticles;
+      let article;
 
       if (editId) {
-        articles = articles.map(p => {
-          if (p.id === editId) {
-            return {
-              ...p,
-              title,
-              tags: tags.length ? tags : ["Linux"],
-              readTime,
-              summary: markdown.substring(0, 140) + "...",
-              rawMarkdown: markdown
-            };
-          }
-          return p;
-        });
-        showToast("Article updated successfully!");
+        const existing = articles.find(p => p.id === editId);
+        if (!existing) {
+          showToast("Article to edit was not found.", true);
+          return;
+        }
+        article = {
+          ...existing,
+          title,
+          tags: tags.length ? tags : ["Linux"],
+          readTime,
+          summary: markdown.substring(0, 140) + (markdown.length > 140 ? "..." : ""),
+          rawMarkdown: markdown
+        };
+        articles = articles.map(p => p.id === editId ? article : p);
       } else {
-        const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `post-${Date.now()}`;
-        const newPost = {
+        const baseSlug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `post-${Date.now()}`;
+        const slug = previousArticles.some(p => p.id === baseSlug) ? `${baseSlug}-${Date.now()}` : baseSlug;
+        article = {
           id: slug,
           title,
           date: new Date().toISOString().split('T')[0],
           readTime,
           tags: tags.length ? tags : ["Linux"],
-          summary: markdown.substring(0, 140) + "...",
+          summary: markdown.substring(0, 140) + (markdown.length > 140 ? "..." : ""),
           rawMarkdown: markdown
         };
-        articles = [newPost, ...articles];
-        showToast("New article published!");
+        articles = [article, ...articles];
       }
 
-      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
-      closeEditorModal();
-      renderTagFilters();
-      renderArticles();
+      const saveButton = document.querySelector('#editorModal button[onclick="saveAndPublishArticle()"]');
+      if (saveButton) { saveButton.disabled = true; saveButton.textContent = "Publishing..."; }
+      try {
+        const publishResult = await publishToGitHub("upsert", article);
+        // Save local copy only after remote publishing succeeds, or if no endpoint is configured.
+        localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
+        closeEditorModal();
+        renderTagFilters();
+        renderArticles();
+        if (publishResult.published) {
+          showToast("Article committed to GitHub and saved locally!");
+        } else {
+          showToast("Saved in this browser only. Configure the secure GitHub endpoint to publish online.", true);
+        }
+      } catch (error) {
+        showToast(error.message || "Publishing failed. Please try again.", true);
+      } finally {
+        if (saveButton) { saveButton.disabled = false; saveButton.textContent = "Save & Publish"; }
+      }
     }
 
-    function deleteArticle(postId) {
+    async function deleteArticle(postId) {
       if (!confirm("Are you sure you want to permanently delete this article?")) return;
-      let articles = getArticles().filter(p => p.id !== postId);
-      localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
-      showToast("Article removed from storage.");
-      renderTagFilters();
-      renderArticles();
+      try {
+        if (githubPublishedPosts.some(post => post.id === postId)) {
+          const result = await publishToGitHub("delete", postId);
+          if (!result.published) throw new Error("Configure the secure GitHub publishing endpoint before deleting a published article.");
+        }
+        const articles = getArticles().filter(p => p.id !== postId);
+        localStorage.setItem(ARTICLES_STORAGE_KEY, JSON.stringify(articles));
+        showToast("Article deleted from GitHub and this browser where applicable.");
+        renderTagFilters();
+        renderArticles();
+        if (githubPublishedPosts.some(post => post.id === postId)) location.reload();
+      } catch (error) {
+        showToast(error.message || "Could not delete the article.", true);
+      }
     }
 
     function renderTagFilters() {
@@ -1686,6 +2125,19 @@ Proactive monitoring detects memory leaks, swap exhaustion, and I/O wait spikes 
     function changeTheme(theme) {
       document.documentElement.setAttribute("data-theme", theme);
       localStorage.setItem("gowri_blog_theme", theme);
+    }
+
+    function downloadSelfCode() {
+      const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "portfolio_blog.html";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+      showToast("Downloaded portfolio_blog.html!");
     }
 
     // Initial Execution
